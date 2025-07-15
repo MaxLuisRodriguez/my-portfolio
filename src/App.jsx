@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-do
 function Home() {
   return (
     <div style={{ textAlign: 'center', marginTop: 40 }}>
-      <h1>Welcome to WAW Energy!</h1>
+      <h1>Welcome to Energy!</h1>
       <p>Get your energy boost now.</p>
     </div>
   );
@@ -13,8 +13,8 @@ function Home() {
 function About() {
   return (
     <div style={{ textAlign: 'center', marginTop: 40 }}>
-      <h1>About WAW Energy</h1>
-      <p>WAW Energy is the coolest energy drink to keep you going strong!</p>
+      <h1>About Energy</h1>
+      <p>Energy is the coolest energy drink to keep you going strong!</p>
     </div>
   );
 }
@@ -35,7 +35,7 @@ function Buy() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: 40 }}>
-      <h1>Buy WAW Energy</h1>
+      <h1>Buy Energy</h1>
       <form onSubmit={handleBuy} style={{ marginBottom: 20 }}>
         <label>
           Number of cans:
@@ -50,7 +50,7 @@ function Buy() {
         </label>
         <button type="submit" style={{ marginLeft: 12 }}>Buy</button>
       </form>
-      {bought && <p style={{ color: 'green' }}>You bought {cans} can(s) of WAW Energy! Redirecting to home...</p>}
+      {bought && <p style={{ color: 'green' }}>You bought {cans} can(s) of Energy! Redirecting to home...</p>}
     </div>
   );
 }
