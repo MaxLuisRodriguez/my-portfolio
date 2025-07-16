@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 
-function Home() {
+function Home(): React.JSX.Element {
   return (
     <div style={{ textAlign: 'center', marginTop: 40 }}>
       <h1>Welcome to Energy!</h1>
@@ -10,7 +10,7 @@ function Home() {
   );
 }
 
-function About() {
+function About(): React.JSX.Element {
   return (
     <div style={{ textAlign: 'center', marginTop: 40 }}>
       <h1>About Energy</h1>
@@ -19,12 +19,12 @@ function About() {
   );
 }
 
-function Buy() {
-  const [cans, setCans] = useState(1);
-  const [bought, setBought] = useState(false);
+function Buy(): React.JSX.Element {
+  const [cans, setCans] = useState<number>(1);
+  const [bought, setBought] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const handleBuy = (e) => {
+  const handleBuy = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setBought(true);
     setTimeout(() => {
@@ -44,7 +44,7 @@ function Buy() {
             min="1"
             max="24"
             value={cans}
-            onChange={e => setCans(Number(e.target.value))}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCans(Number(e.target.value))}
             style={{ marginLeft: 8, width: 60 }}
           />
         </label>
@@ -55,7 +55,7 @@ function Buy() {
   );
 }
 
-function App() {
+function App(): React.JSX.Element {
   return (
     <BrowserRouter>
       <div style={{ padding: 20 }}>
@@ -74,4 +74,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
