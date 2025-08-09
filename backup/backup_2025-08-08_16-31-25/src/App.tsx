@@ -6,7 +6,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import StatBars from './components/StatBars';
 import HeroShader from './components/HeroShader';
-import SpinningImage from './components/SpinningImage';
 import { motion } from 'framer-motion';
 
 function Home(): React.JSX.Element {
@@ -82,35 +81,6 @@ function Home(): React.JSX.Element {
               <StatBars />
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* Spinning Energy Icon */}
-      <section className="bg-gradient-to-b from-secondary-950 to-surface-900 py-16">
-        <div className="container mx-auto max-w-7xl px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <SpinningImage 
-              src="/src/assets/images/logos/placeholder-logo.svg"
-              alt="Energy Symbol" 
-              size="h-32 w-32"
-              speed="15s"
-              className="mb-6"
-            />
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-xl text-primary-400 font-bold uppercase tracking-wider"
-            >
-              Endless Energy, Endless Possibilities
-            </motion.p>
-          </motion.div>
         </div>
       </section>
 
