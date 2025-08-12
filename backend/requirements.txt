@@ -1,0 +1,41 @@
+# Django Backend Requirements for WAW Energy App
+# Production-ready dependencies
+
+# Core Django
+Django==5.0.1
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+django-environ==0.11.2
+
+# Database
+mysqlclient==2.2.4
+
+# Shopify Integration
+ShopifyAPI==12.4.0
+requests==2.31.0
+
+# Authentication & Security
+djangorestframework-simplejwt==5.3.0
+django-ratelimit==4.1.0
+cryptography==41.0.8
+
+# Background Tasks & Caching
+celery==5.3.4
+redis==5.0.1
+django-redis==5.4.0
+
+# Production & Monitoring
+gunicorn==21.2.0
+whitenoise==6.6.0
+django-extensions==3.2.3
+python-decouple==3.8
+
+# Development & Testing
+pytest==7.4.3
+pytest-django==4.7.0
+factory-boy==3.3.0
+black==23.11.0
+flake8==6.1.0
+
+# API Documentation
+drf-spectacular==0.27.0

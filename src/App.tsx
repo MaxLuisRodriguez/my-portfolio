@@ -319,15 +319,55 @@ function About(): React.JSX.Element {
 function Buy(): React.JSX.Element {
   const [cans, setCans] = useState<number>(1);
   const [bought, setBought] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const handleBuy = (e: React.FormEvent<HTMLFormElement>): void => {
+  // Check authentication status on component mount
+  React.useEffect(() => {
+    const token = localStorage.getItem('auth_token');
+    setIsAuthenticated(!!token);
+  }, []);
+
+  const handleBuy = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    setBought(true);
-    setTimeout(() => {
-      setBought(false);
-      navigate('/');
-    }, 2000);
+    setLoading(true);
+    setError('');
+
+    try {
+      if (!isAuthenticated) {
+        // Redirect to login with return URL
+        navigate('/login?returnTo=/buy');
+        return;
+      }
+
+      // For now, we'll create a simple checkout flow
+      // In a real implementation, this would:
+      // 1. Add items to cart via API
+      // 2. Create order via API  
+      // 3. Redirect to Shopify checkout
+
+      // Mock API call delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // Simulate successful order creation
+      setBought(true);
+      
+      // In real implementation, redirect to Shopify checkout URL
+      // window.location.href = checkoutUrl;
+      
+      setTimeout(() => {
+        setBought(false);
+        navigate('/orders'); // Navigate to orders page instead of home
+      }, 3000);
+
+    } catch (err) {
+      setError('Failed to create order. Please try again.');
+      console.error('Order creation error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -345,6 +385,19 @@ function Buy(): React.JSX.Element {
           
           <div className="mx-auto mt-12 max-w-md">
             <div className="rounded-2xl border border-secondary-700 bg-gradient-to-b from-surface-800 to-surface-900 p-8 shadow-card">
+              
+              {/* Authentication Notice */}
+              {!isAuthenticated && (
+                <div className="mb-6 rounded-lg bg-accent-400/20 border border-accent-400/30 p-4 text-center">
+                  <p className="font-bold text-accent-400">
+                    🔐 Account Required
+                  </p>
+                  <p className="mt-1 text-sm text-accent-300">
+                    Create an account or sign in to complete your purchase
+                  </p>
+                </div>
+              )}
+
               <form onSubmit={handleBuy} className="space-y-6">
                 <div>
                   <label className="block text-lg font-bold text-white">Number of Cans</label>
@@ -359,25 +412,52 @@ function Buy(): React.JSX.Element {
                     value={cans}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCans(Number(e.target.value))}
                     className="w-20 rounded-lg border border-secondary-600 bg-surface-800 px-4 py-3 text-center text-xl font-bold text-white focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500/20"
+                    disabled={loading}
                   />
                   <span className="text-secondary-400">×</span>
                   <span className="text-2xl font-bold text-white">${(cans * 3.99).toFixed(2)}</span>
                 </div>
+
+                {/* Error Message */}
+                {error && (
+                  <div className="rounded-lg bg-error/20 border border-error/30 p-4 text-center">
+                    <p className="font-bold text-error">
+                      ⚠️ {error}
+                    </p>
+                  </div>
+                )}
                 
                 <button
                   type="submit"
-                  className="w-full rounded-xl bg-gradient-to-r from-primary-500 to-primary-400 px-8 py-4 text-lg font-black uppercase tracking-wider text-white shadow-glow transition-all hover:scale-105 hover:shadow-glow-lg hover:from-primary-400 hover:to-primary-300"
+                  disabled={loading}
+                  className="w-full rounded-xl bg-gradient-to-r from-primary-500 to-primary-400 px-8 py-4 text-lg font-black uppercase tracking-wider text-white shadow-glow transition-all hover:scale-105 hover:shadow-glow-lg hover:from-primary-400 hover:to-primary-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  Buy Now - ${(cans * 3.99).toFixed(2)}
+                  {loading ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      {isAuthenticated ? 'Creating Order...' : 'Redirecting...'}
+                    </span>
+                  ) : isAuthenticated ? (
+                    `Buy Now - $${(cans * 3.99).toFixed(2)}`
+                  ) : (
+                    'Sign In to Purchase'
+                  )}
                 </button>
+
+                {/* Purchase Info */}
+                <div className="text-center text-sm text-secondary-400">
+                  <p>✓ Secure checkout powered by Shopify</p>
+                  <p>✓ Free shipping on orders over $50</p>
+                  <p>✓ 30-day money-back guarantee</p>
+                </div>
               </form>
               
               {bought && (
-                <div className="mt-6 rounded-lg bg-primary-500/20 border border-primary-500/30 p-4 text-center">
+                <div className="mt-6 rounded-lg bg-primary-500/20 border border-primary-500/30 p-4 text-center animate-pulse">
                   <p className="font-bold text-primary-400">
-                    Order confirmed! {cans} can{cans > 1 ? 's' : ''} of pure energy coming your way!
+                    ✅ Order confirmed! {cans} can{cans > 1 ? 's' : ''} of pure energy coming your way!
                   </p>
-                  <p className="mt-1 text-sm text-primary-300">Redirecting to home...</p>
+                  <p className="mt-1 text-sm text-primary-300">Redirecting to your orders...</p>
                 </div>
               )}
             </div>

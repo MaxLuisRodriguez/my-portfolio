@@ -1,0 +1,91 @@
+# Development environment for WAW Energy Backend
+version: '3.8'
+
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: waw_energy_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: waw_energy_db
+      MYSQL_USER: waw_energy_user
+      MYSQL_PASSWORD: waw_energy_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - waw_energy_network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: waw_energy_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - waw_energy_network
+
+  # Django Backend (Development)
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: waw_energy_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - /app/venv
+    environment:
+      - DEBUG=True
+      - DB_HOST=mysql
+      - DB_USER=waw_energy_user
+      - DB_PASSWORD=waw_energy_password
+      - DB_NAME=waw_energy_db
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - waw_energy_network
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+
+  # Celery Worker
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: waw_energy_celery
+    volumes:
+      - .:/app
+      - /app/venv
+    environment:
+      - DEBUG=True
+      - DB_HOST=mysql
+      - DB_USER=waw_energy_user
+      - DB_PASSWORD=waw_energy_password
+      - DB_NAME=waw_energy_db
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - waw_energy_network
+    command: celery -A waw_energy_api worker -l info
+
+volumes:
+  mysql_data:
+  redis_data:
+
+networks:
+  waw_energy_network:
+    driver: bridge
