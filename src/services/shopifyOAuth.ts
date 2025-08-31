@@ -128,11 +128,11 @@ export class ShopifyOAuthService {
     const timestamp = Date.now();
     const nonce = CryptoJS.lib.WordArray.random(16).toString();
     
-    const state: OAuthState = {
-      shop: this.config.shop,
-      timestamp,
-      nonce
-    };
+          const _state: OAuthState = {
+        shop: this.config.shop,
+        timestamp,
+        nonce
+      };
     
     return CryptoJS.lib.WordArray.random(32).toString();
   }

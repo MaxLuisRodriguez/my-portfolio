@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+// import { motion, AnimatePresence } from 'framer-motion';
 import SearchBar from './SearchBar';
 import Hamburger from './Hamburger';
 import ThemeToggle from './ThemeToggle';
-import Logo from './Logo';
+// import Logo from './Logo';
 import { useCart } from '../contexts/CartContext';
 import { useTheme } from '../contexts/ThemeContext';
 import CartDropdown from './CartDropdown';

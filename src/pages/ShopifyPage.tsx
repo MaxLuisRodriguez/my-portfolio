@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import ShopifyConfig from '../components/ShopifyConfig';
 import ShopifyDashboard from '../components/ShopifyDashboard';
 import Button from '../components/ui/Button';
-import Card from '../components/ui/Card';
+// import Card from '../components/ui/Card';
 
 const ShopifyPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'config' | 'dashboard'>('config');

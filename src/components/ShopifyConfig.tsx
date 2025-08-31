@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { ShopifyOAuthService } from '../services/shopifyOAuth';
 import Button from './ui/Button';
 import Card from './ui/Card';

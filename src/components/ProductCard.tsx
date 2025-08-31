@@ -15,10 +15,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image, descr
   const handleAddToCart = () => {
     addItem({
       id,
-      name,
+      title: name,
       price,
-      image,
-      quantity: 1
+      quantity: 1,
+      variantId: id, // Using id as variantId for now
+      image
     });
   };
 
