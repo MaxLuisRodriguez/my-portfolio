@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Card from './ui/Card';
-import Button from './ui/Button';
+// import Button from './ui/Button';
 
 const ShopifyDashboard: React.FC = () => {
   const [activeSection, setActiveSection] = useState<'overview' | 'resources' | 'testing'>('overview');

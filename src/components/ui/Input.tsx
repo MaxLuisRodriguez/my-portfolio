@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   variant?: 'default' | 'outlined' | 'filled' | 'glass';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   state?: 'default' | 'success' | 'error' | 'warning';

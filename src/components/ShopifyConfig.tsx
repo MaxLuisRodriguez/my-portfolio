@@ -98,7 +98,7 @@ const ShopifyConfig: React.FC<ShopifyConfigProps> = ({ className = '' }) => {
       }
       
       // Exchange the code for an access token
-      const accessToken = await oauthService.exchangeCodeForToken(
+      await oauthService.exchangeCodeForToken(
         callbackData.code,
         callbackData.shop
       );
@@ -124,7 +124,7 @@ const ShopifyConfig: React.FC<ShopifyConfigProps> = ({ className = '' }) => {
   /**
    * Initiate OAuth flow
    */
-  const handleConnect = async () => {
+  const _handleConnect = async () => {
     try {
       setIsLoading(true);
       setError('');
@@ -228,7 +228,7 @@ const ShopifyConfig: React.FC<ShopifyConfigProps> = ({ className = '' }) => {
         alert(`✅ Successfully connected to ${shopData.shop.name}!`);
         updateConnectionDetails(currentShop);
       } else {
-        const errorData = await response.text();
+        await response.text();
         setError(`Failed to connect to Shopify API: ${response.status} ${response.statusText}`);
       }
       
