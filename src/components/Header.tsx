@@ -93,6 +93,53 @@ const Header: React.FC = () => {
             <ThemeToggle />
           </div>
         </div>
+        
+        {/* Mobile Dropdown Menu */}
+        {open && (
+          <div className="lg:hidden border-t border-gray-200 dark:border-slate-700">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {/* Mobile Navigation Links */}
+              <Link 
+                to="/" 
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  isDark 
+                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
+                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                HOME
+              </Link>
+              <Link 
+                to="/about" 
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  isDark 
+                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
+                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                ABOUT
+              </Link>
+              <Link 
+                to="/buy" 
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  isDark 
+                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
+                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                BUY
+              </Link>
+              
+              {/* Mobile Search Bar */}
+              <div className="px-3 py-2">
+                <SearchBar placeholder="Search products..." />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
