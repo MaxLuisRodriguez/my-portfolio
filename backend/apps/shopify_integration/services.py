@@ -46,6 +46,47 @@ class ShopifyBaseService:
             logger.error(f"Response status: {error.response.status}")
             logger.error(f"Response body: {error.response.body}")
         raise
+    
+    def _get_shop_info(self):
+        """Get basic shop information"""
+        try:
+            shop = shopify.Shop.current()
+            return {
+                'id': shop.id,
+                'name': shop.name,
+                'domain': shop.domain,
+                'email': shop.email,
+                'currency': shop.currency,
+                'country': shop.country_name,
+                'timezone': shop.iana_timezone
+            }
+        except Exception as e:
+            logger.error(f"Error getting shop info: {e}")
+            raise
+    
+    def _get_products_count(self):
+        """Get total products count"""
+        try:
+            return shopify.Product.count()
+        except Exception as e:
+            logger.error(f"Error getting products count: {e}")
+            return 0
+    
+    def _get_orders_count(self):
+        """Get total orders count"""
+        try:
+            return shopify.Order.count()
+        except Exception as e:
+            logger.error(f"Error getting orders count: {e}")
+            return 0
+    
+    def _get_customers_count(self):
+        """Get total customers count"""
+        try:
+            return shopify.Customer.count()
+        except Exception as e:
+            logger.error(f"Error getting customers count: {e}")
+            return 0
 
 
 class ShopifyProductService(ShopifyBaseService):

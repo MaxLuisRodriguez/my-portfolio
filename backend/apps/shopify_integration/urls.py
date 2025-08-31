@@ -1,5 +1,5 @@
 """
-Shopify webhook URLs
+Shopify webhook URLs and API endpoints
 """
 
 from django.urls import path
@@ -17,4 +17,12 @@ urlpatterns = [
     path('orders/paid/', views.order_paid_webhook, name='order_paid'),
     path('orders/cancelled/', views.order_cancelled_webhook, name='order_cancelled'),
     path('orders/fulfilled/', views.order_fulfilled_webhook, name='order_fulfilled'),
+    
+    # API endpoints for the Shopify integration page
+    path('status/', views.shopify_status, name='shopify_status'),
+    path('connect/', views.shopify_connect, name='shopify_connect'),
+    path('disconnect/', views.shopify_disconnect, name='shopify_disconnect'),
+    path('stats/', views.shopify_stats, name='shopify_stats'),
+    path('activity/', views.shopify_activity, name='shopify_activity'),
+    path('sync/', views.shopify_sync, name='shopify_sync'),
 ]

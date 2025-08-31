@@ -1,9 +1,9 @@
-import logoPlaceholder from '../assets/images/logos/placeholder-logo.svg';
+import logoImage from '../assets/images/logos/the_epic_waw_design_1.png';
 
 export const brand = {
   name: 'WAW Energy',
   tagline: 'Power your day',
-  logoSrc: logoPlaceholder,
+  logoSrc: logoImage,
 };
 
 export default brand;

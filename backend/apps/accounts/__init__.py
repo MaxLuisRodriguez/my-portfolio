@@ -1,1 +1,0 @@
-# Customer accounts and authentication

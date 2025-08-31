@@ -26,6 +26,9 @@ urlpatterns = [
     
     # Shopify webhooks (no versioning needed)
     path('webhooks/shopify/', include('apps.shopify_integration.urls')),
+    
+    # Shopify API endpoints
+    path('api/v1/shopify/', include('apps.shopify_integration.urls')),
 ]
 
 # Serve media files in development

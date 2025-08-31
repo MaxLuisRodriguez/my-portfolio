@@ -1,9 +1,7 @@
 import React from 'react';
-import placeholderLogo from '../assets/images/logos/placeholder-logo.svg';
 
 // get logo to spin
 import '../App.css';
-
 
 interface LogoProps {
   className?: string;
@@ -11,7 +9,7 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className = '', src }) => {
-  const logoSrc = src ?? placeholderLogo;
+  const logoSrc = src || '/logo.png';
 
   return (
     <div className={`flex items-center gap-2 ${className}`}>
@@ -19,7 +17,18 @@ const Logo: React.FC<LogoProps> = ({ className = '', src }) => {
         
         {/* added logo for spin effect */}
         <div className="logo-spin absolute inset-0">
-          <img src={logoSrc} alt="Company logo" className="logo h-full w-full object-contain p-1.5" />
+          <img 
+            src={logoSrc} 
+            alt="Company logo" 
+            className="logo h-full w-full object-cover" 
+            style={{
+              objectPosition: 'center',
+              width: '100%',
+              height: '100%',
+              minWidth: '100%',
+              minHeight: '100%'
+            }}
+          />
         </div>
         
       </div>

@@ -9,57 +9,27 @@ import 'swiper/css/pagination';
 interface SwiperCubeProps {
   images: string[];
   delay?: number;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   loop?: boolean;
 }
 
 const SwiperCube: React.FC<SwiperCubeProps> = ({
   images,
   delay = 2000,
-  size = 'sm',
+  size = 'xl',
   loop = true,
 }) => {
-  const sizeMap = {
-    sm: { width: '80px', height: '80px' },
-    md: { width: '120px', height: '120px' },
-    lg: { width: '160px', height: '160px' },
+  const sizeClasses: Record<NonNullable<SwiperCubeProps['size']>, string> = {
+    sm: 'w-40 h-40',
+    md: 'w-64 h-64', 
+    lg: 'w-96 h-96',
+    xl: 'w-[448px] h-[448px]',
   };
 
-  const currentSize = sizeMap[size];
-
-  // Debug logging
-  console.log('SwiperCube - images:', images);
-  console.log('SwiperCube - size:', size, 'currentSize:', currentSize);
-
-  // If no images, return placeholder
-  if (!images || images.length === 0) {
-    return (
-      <div 
-        className="flex-none rounded-lg overflow-hidden bg-red-500 shadow-lg flex items-center justify-center" 
-        style={{ 
-          width: currentSize.width, 
-          height: currentSize.height, 
-          maxWidth: currentSize.width, 
-          maxHeight: currentSize.height, 
-          display: 'inline-block' 
-        }}
-      >
-        <span className="text-white text-xs">No Images</span>
-      </div>
-    );
-  }
+  const currentSize = sizeClasses[size];
 
   return (
-    <div 
-      className="flex-none rounded-lg overflow-hidden bg-black shadow-lg" 
-      style={{ 
-        width: currentSize.width, 
-        height: currentSize.height, 
-        maxWidth: currentSize.width, 
-        maxHeight: currentSize.height, 
-        display: 'inline-block' 
-      }}
-    >
+    <div className={`${currentSize} flex-none rounded-lg overflow-hidden bg-black shadow-lg`}>
       <Swiper
         direction="horizontal"
         className="h-full w-full"
@@ -69,11 +39,11 @@ const SwiperCube: React.FC<SwiperCubeProps> = ({
         autoplay={{ delay, disableOnInteraction: false }}
         loop={loop}
         pagination={{ clickable: true }}
-        cubeEffect={{
-          shadow: true,
-          slideShadows: true,
-          shadowOffset: 20,
-          shadowScale: 0.94
+        cubeEffect={{ 
+          shadow: true, 
+          slideShadows: true, 
+          shadowOffset: 20, 
+          shadowScale: 0.94 
         }}
       >
         {images.map((src, idx) => (
@@ -81,10 +51,9 @@ const SwiperCube: React.FC<SwiperCubeProps> = ({
             <img
               src={src}
               alt={`Slide ${idx + 1}`}
-              className="absolute inset-0 w-full h-full min-w-full min-h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover"
               style={{
-                objectFit: 'cover',
-                objectPosition: '50% 50%',
+                objectFit: 'contain',
                 width: '100%',
                 height: '100%'
               }}
