@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image, descr
   };
 
   return (
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-600/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+    <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-600/30 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
       <div className="mb-4">
         <img 
           src={image} 
@@ -41,16 +41,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, image, descr
         
         <button
           onClick={handleAddToCart}
-          className="group relative w-full bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:from-blue-700 hover:via-blue-600 hover:to-cyan-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50 transform active:scale-95 overflow-hidden border border-blue-400/30 hover:border-blue-300/50"
+          className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
         >
-          {/* Shimmer effect overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-          
-          {/* Button content */}
-          <div className="relative flex items-center justify-center space-x-2">
-            <span className="text-xl">🛒</span>
-            <span className="text-lg font-semibold">Add to Cart</span>
-          </div>
+          🛒 Add to Cart
         </button>
       </div>
     </div>

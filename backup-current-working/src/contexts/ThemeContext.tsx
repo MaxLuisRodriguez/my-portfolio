@@ -5,16 +5,14 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | {
-  isDark: true;
-  toggleTheme: () => {};
-}>({
-  isDark: true,
-  toggleTheme: () => {}
-});
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const useTheme = () => {
-  return useContext(ThemeContext);
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context;
 };
 
 interface ThemeProviderProps {
@@ -24,12 +22,18 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [isDark, setIsDark] = useState<boolean>(true);
 
-  const toggleTheme = () => {
-    console.log('ThemeContext: Toggling theme from', isDark ? 'dark' : 'light');
-    setIsDark(prev => !prev);
-  };
+  useEffect(() => {
+    const stored = localStorage.getItem('theme-preference');
+    if (stored) {
+      setIsDark(stored === 'dark');
+    }
+  }, []);
 
-  console.log('ThemeProvider rendering with isDark:', isDark);
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    localStorage.setItem('theme-preference', newTheme ? 'dark' : 'light');
+  };
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>

@@ -26,25 +26,46 @@ const Header: React.FC = () => {
     }`}>
       <div className="container mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <Logo />
-          </Link>
+          {/* Logo - Left Side */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-6 h-6 overflow-hidden rounded-md bg-gray-200">
+                <img 
+                  src="/logo.png" 
+                  alt="WAW Energy Logo" 
+                  className="w-6 h-6 object-cover"
+                  style={{
+                    width: '240px',
+                    height: '240px',
+                    objectFit: 'cover',
+                    objectPosition: 'center'
+                  }}
+                />
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span className={`text-lg font-extrabold tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>WAW Energy</span>
+                <span className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${isDark ? 'text-white opacity-70' : 'text-gray-600'}`}>POWER YOUR DAY</span>
+              </div>
+            </Link>
+          </div>
 
-          {/* Navigation */}
-          <nav className="flex items-center">
-            <NavLink to="/" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-white' : 'text-gray-900'}`} style={{ marginRight: '50px' }}>
-              HOME
-            </NavLink>
-            <NavLink to="/about" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-white' : 'text-gray-900'}`} style={{ marginRight: '50px' }}>
-              ABOUT
-            </NavLink>
-            <NavLink to="/buy" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-gray-900' : 'text-white'}`}>
-              BUY
-            </NavLink>
+          {/* Navigation - Center */}
+          <nav className="flex items-center justify-center flex-1">
+            <div className="flex items-center space-x-12">
+              <NavLink to="/" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-white' : 'text-gray-900'}`} style={{ marginRight: '50px' }}>
+                HOME
+              </NavLink>
+              <NavLink to="/about" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-white' : 'text-gray-900'}`} style={{ marginRight: '50px' }}>
+                ABOUT
+              </NavLink>
+              <NavLink to="/buy" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-gray-900' : 'text-white'}`}>
+                BUY
+              </NavLink>
+            </div>
           </nav>
 
-          <div className="flex items-center gap-4">
+          {/* Right Side - Search, Cart, Theme Toggle */}
+          <div className="flex items-center gap-4 flex-shrink-0">
             <div className="hidden lg:block w-48">
               <SearchBar placeholder="Search products..." />
             </div>

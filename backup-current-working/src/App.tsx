@@ -9,27 +9,16 @@ import ShopifyCallback from './pages/ShopifyCallback';
 import { CartProvider } from './contexts/CartContext';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 
-// Component that uses theme - must be inside ThemeProvider
-const ThemedApp: React.FC = () => {
+// Simple component that uses theme
+const AppWithTheme: React.FC = () => {
   const { isDark } = useTheme();
   
-  console.log('ThemedApp rendering with theme:', isDark ? 'dark' : 'light');
-  
   return (
-    <div 
-      className="min-h-screen transition-all duration-300"
-      style={{
-        backgroundColor: isDark 
-          ? 'rgb(15 23 42)' // slate-900
-          : 'rgb(255 255 255)', // white
-        color: isDark 
-          ? 'rgb(255 255 255)' // white
-          : 'rgb(0 0 0)', // black
-        backgroundImage: isDark 
-          ? 'linear-gradient(to bottom, rgb(15 23 42), rgb(30 58 138), rgb(15 23 42))' // slate-900 via-blue-900 to slate-900
-          : 'none'
-      }}
-    >
+    <div className={`min-h-screen transition-all duration-300 ${
+      isDark 
+        ? 'bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900 text-white' 
+        : 'bg-white text-black'
+    }`}>
       <Header />
       <main>
         <Routes>
@@ -49,7 +38,7 @@ function App(): React.JSX.Element {
     <ThemeProvider>
       <CartProvider>
         <BrowserRouter>
-          <ThemedApp />
+          <AppWithTheme />
         </BrowserRouter>
       </CartProvider>
     </ThemeProvider>

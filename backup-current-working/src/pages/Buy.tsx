@@ -54,8 +54,8 @@ const Buy: React.FC = () => {
         </div>
       </section>
 
-                {/* Products Section */}
-      <section className="py-96">
+      {/* Products Section */}
+      <section className="py-20">
         <div className="container mx-auto max-w-6xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ const Buy: React.FC = () => {
           </motion.div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mb-96">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -91,8 +91,7 @@ const Buy: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-center mt-96"
-            style={{ marginTop: '80px'}}
+            className="text-center mt-16"
           >
             <div className="bg-slate-800/30 rounded-xl p-8 border border-blue-600/30">
               <h3 className="text-2xl font-bold text-white mb-4">More Products Coming Soon!</h3>
