@@ -125,6 +125,8 @@ const ShopifyConfig: React.FC<ShopifyConfigProps> = ({ className = '' }) => {
    * Initiate OAuth flow
    */
   const _handleConnect = async () => {
+    // This function is intentionally unused for now
+    // It will be used when implementing the connect button functionality
     try {
       setIsLoading(true);
       setError('');
