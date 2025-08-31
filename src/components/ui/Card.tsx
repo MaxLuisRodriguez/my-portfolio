@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
 
-export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onAnimationStart' | 'onDragStart' | 'onDragEnd'> {
+export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'> {
   variant?: 'default' | 'elevated' | 'outlined' | 'glass' | 'gradient';
   hover?: 'none' | 'lift' | 'glow' | 'scale' | 'border';
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';

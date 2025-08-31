@@ -121,50 +121,7 @@ const ShopifyConfig: React.FC<ShopifyConfigProps> = ({ className = '' }) => {
     }
   };
 
-  /**
-   * Initiate OAuth flow
-   */
-  const _handleConnect = async () => {
-    // This function is intentionally unused for now
-    // It will be used when implementing the connect button functionality
-    try {
-      setIsLoading(true);
-      setError('');
-      
-      // Validate configuration
-      const oauthService = new ShopifyOAuthService({
-        shop: oauthConfig.shop,
-        apiKey: oauthConfig.apiKey,
-        apiSecret: oauthConfig.apiSecret,
-        scopes: ['read_products', 'read_orders', 'read_customers'],
-        redirectUri: oauthConfig.redirectUri
-      });
-      
-      const validation = oauthService.validateConfig();
-      if (!validation.isValid) {
-        setError(`Configuration error: ${validation.errors.join(', ')}`);
-        return;
-      }
-      
-      // Check rate limiting
-      const status = oauthService.getConnectionStatus(oauthConfig.shop);
-      if (status.remainingAttempts <= 0) {
-        const resetTime = status.resetTime ? new Date(status.resetTime).toLocaleTimeString() : 'soon';
-        setError(`Rate limit exceeded. Try again after ${resetTime}`);
-        return;
-      }
-      
-      // Generate and redirect to authorization URL
-      const authUrl = oauthService.generateAuthUrl();
-      window.location.href = authUrl;
-      
-    } catch (error) {
-      console.error('Error initiating OAuth:', error);
-      setError(error instanceof Error ? error.message : 'Failed to start OAuth process');
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  // OAuth connect functionality will be implemented when needed
 
   /**
    * Disconnect from Shopify

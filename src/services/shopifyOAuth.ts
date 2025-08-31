@@ -125,16 +125,7 @@ export class ShopifyOAuthService {
    * Generate a cryptographically secure state parameter
    */
   private generateSecureState(): string {
-    const timestamp = Date.now();
-    const nonce = CryptoJS.lib.WordArray.random(16).toString();
-    
-          // State object created for future use
-      // const _state: OAuthState = {
-      //   shop: this.config.shop,
-      //   timestamp,
-      //   nonce
-      // };
-    
+    // Generate a random state string for OAuth security
     return CryptoJS.lib.WordArray.random(32).toString();
   }
 
