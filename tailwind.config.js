@@ -8,45 +8,45 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Professional Energy Brand Palette
+        // WAW Energy Brand Palette - Black, Gold, Green
         primary: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',  // Main brand green
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
-          950: '#052e16',
+          50: '#f0fdf4',   // Lightest green
+          100: '#dcfce7',  // Very light green
+          200: '#bbf7d0',  // Light green
+          300: '#86efac',  // Medium light green
+          400: '#4ade80',  // Medium green
+          500: '#22c55e',  // Main brand green (from roses)
+          600: '#16a34a',  // Darker green
+          700: '#15803d',  // Dark green
+          800: '#166534',  // Very dark green
+          900: '#14532d',  // Darkest green
+          950: '#052e16',  // Nearly black green
         },
-        secondary: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',  // Professional gray
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
+        gold: {
+          50: '#fffbeb',   // Lightest gold
+          100: '#fef3c7',  // Very light gold
+          200: '#fde68a',  // Light gold
+          300: '#fcd34d',  // Medium light gold
+          400: '#fbbf24',  // Medium gold
+          500: '#f59e0b',  // Main brand gold (from text/triangle)
+          600: '#d97706',  // Darker gold
+          700: '#b45309',  // Dark gold
+          800: '#92400e',  // Very dark gold
+          900: '#78350f',  // Darkest gold
+          950: '#451a03',  // Nearly black gold
         },
-        accent: {
-          50: '#fefce8',
-          100: '#fef9c3',
-          200: '#fef08a',
-          300: '#fde047',
-          400: '#facc15',  // Energy yellow
-          500: '#eab308',
-          600: '#ca8a04',
-          700: '#a16207',
-          800: '#854d0e',
-          900: '#713f12',
-          950: '#422006',
+        black: {
+          50: '#f8fafc',   // Lightest (almost white)
+          100: '#f1f5f9',  // Very light gray
+          200: '#e2e8f0',  // Light gray
+          300: '#cbd5e1',  // Medium light gray
+          400: '#94a3b8',  // Medium gray
+          500: '#64748b',  // Gray
+          600: '#475569',  // Dark gray
+          700: '#334155',  // Very dark gray
+          800: '#1e293b',  // Nearly black
+          900: '#0f172a',  // Very dark (main black)
+          950: '#020617',  // Pure black (from can background)
         },
         // Dark theme surfaces
         surface: {
@@ -69,8 +69,9 @@ export default {
         info: '#3b82f6',
       },
       fontFamily: {
-        // Professional typography stack
+        // WAW Energy Typography - Mostra Nuova inspired
         sans: [
+          'Mostra Nuova',
           'Inter Variable',
           'Inter',
           'ui-sans-serif', 
@@ -84,11 +85,17 @@ export default {
           'sans-serif',
         ],
         display: [
+          'Mostra Nuova',
           'Oswald Variable',
           'Oswald',
           'ui-sans-serif',
           'system-ui',
           'sans-serif',
+        ],
+        cursive: [
+          'Dancing Script',
+          'Brush Script MT',
+          'cursive',
         ],
         mono: [
           'JetBrains Mono',
@@ -120,28 +127,75 @@ export default {
         '128': '32rem',
       },
       boxShadow: {
+        // Futuristic glow effects
         'glow': '0 0 20px rgb(34 197 94 / 0.3)',
         'glow-lg': '0 0 40px rgb(34 197 94 / 0.4)',
-        'card': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-        'card-hover': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+        'glow-xl': '0 0 60px rgb(34 197 94 / 0.5)',
+        'glow-gold': '0 0 30px rgb(245 158 11 / 0.4)',
+        'glow-gold-lg': '0 0 50px rgb(245 158 11 / 0.6)',
+        'glow-botanical': '0 0 40px rgb(34 197 94 / 0.3), 0 0 80px rgb(245 158 11 / 0.2)',
+        'neon-green': '0 0 5px #22c55e, 0 0 10px #22c55e, 0 0 15px #22c55e, 0 0 20px #22c55e',
+        'neon-gold': '0 0 5px #f59e0b, 0 0 10px #f59e0b, 0 0 15px #f59e0b, 0 0 20px #f59e0b',
+        'cyber': '0 0 20px rgba(34, 197, 94, 0.5), inset 0 0 20px rgba(245, 158, 11, 0.1)',
+        'card': '0 8px 32px rgb(0 0 0 / 0.3), 0 0 20px rgb(34 197 94 / 0.1)',
+        'card-hover': '0 16px 64px rgb(0 0 0 / 0.4), 0 0 40px rgb(34 197 94 / 0.2)',
+        'floating': '0 20px 40px rgb(0 0 0 / 0.3), 0 0 30px rgb(245 158 11 / 0.2)',
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        // Futuristic animations
+        'fade-in': 'fadeIn 0.8s ease-out',
+        'slide-up': 'slideUp 0.8s ease-out',
+        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+        'pulse-gold': 'pulseGold 2.5s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
+        'botanical-sway': 'botanicalSway 4s ease-in-out infinite',
+        'neon-flicker': 'neonFlicker 1.5s ease-in-out infinite alternate',
+        'cyber-scan': 'cyberScan 3s linear infinite',
+        'hologram': 'hologram 4s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         slideUp: {
-          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '0%': { transform: 'translateY(30px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         pulseGlow: {
           '0%, 100%': { boxShadow: '0 0 20px rgb(34 197 94 / 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgb(34 197 94 / 0.6)' },
+          '50%': { boxShadow: '0 0 60px rgb(34 197 94 / 0.8), 0 0 100px rgb(34 197 94 / 0.3)' },
+        },
+        pulseGold: {
+          '0%, 100%': { boxShadow: '0 0 20px rgb(245 158 11 / 0.3)' },
+          '50%': { boxShadow: '0 0 60px rgb(245 158 11 / 0.8), 0 0 100px rgb(245 158 11 / 0.3)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '33%': { transform: 'translateY(-10px) rotate(1deg)' },
+          '66%': { transform: 'translateY(5px) rotate(-1deg)' },
+        },
+        glowPulse: {
+          '0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.05)' },
+        },
+        botanicalSway: {
+          '0%, 100%': { transform: 'rotate(0deg) scale(1)' },
+          '25%': { transform: 'rotate(2deg) scale(1.02)' },
+          '75%': { transform: 'rotate(-2deg) scale(0.98)' },
+        },
+        neonFlicker: {
+          '0%, 100%': { opacity: '1', textShadow: '0 0 10px currentColor' },
+          '50%': { opacity: '0.8', textShadow: '0 0 20px currentColor, 0 0 30px currentColor' },
+        },
+        cyberScan: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        hologram: {
+          '0%, 100%': { opacity: '0.9', filter: 'hue-rotate(0deg)' },
+          '50%': { opacity: '1', filter: 'hue-rotate(90deg)' },
         },
       },
     },

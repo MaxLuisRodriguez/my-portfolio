@@ -70,8 +70,9 @@ const Header: React.FC = () => {
               <SearchBar placeholder="Search products..." />
             </div>
             
-            {/* Shopping Cart */}
-            <div className="relative">
+            {/* Note: Shopping Cart functionality now handled by Shopify Buy Button */}
+            {/* Legacy cart hidden - using Shopify native cart instead */}
+            <div className="relative" style={{ display: 'none' }}>
               <button
                 onClick={openCart}
                 className={`relative p-2 transition-colors text-2xl ${
