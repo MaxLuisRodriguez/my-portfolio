@@ -1,21 +1,10 @@
 import React from 'react';
-// import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import Button from './ui/Button';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
-  const footerSections = [
-    {
-      title: 'Product',
-      links: [
-        { name: 'Iced Rose — Energy Drink', href: '/buy' },
-      ]
-    }
-  ];
-
-  const socialLinks: { name: string; href: string }[] = [];
+  // Removed unused variables to fix build errors
 
   return (
     <footer className="bg-slate-950 border-t border-slate-800">
