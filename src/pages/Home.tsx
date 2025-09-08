@@ -5,8 +5,7 @@ import SwiperCube from '../components/SwiperCube';
 import FuturisticBotanical from '../components/FuturisticBotanical';
 import { brand } from '../config/brand';
 // TODO: Import actual product images when available
-// import wawCanImage from '../assets/images/waw-energy-can.jpg';
-// import wawLabelImage from '../assets/images/waw-energy-label.jpg';
+import wawCanImage from '../assets/images/products/aChatGPT Image Sep 8, 2025, 12_21_34 AM.png';
 
 const Home: React.FC = () => {
   // TODO: Replace with actual product images when available
@@ -104,27 +103,18 @@ const Home: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Hero Product Image - TODO: Replace with actual WAW Energy can image */}
+            {/* Hero Product Image - WAW Energy Can Display */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
               className="mb-12"
             >
-              {energyDrinkImages[0] ? (
-                <img 
-                  src={energyDrinkImages[0]} 
-                  alt="WAW Energy Iced Rose Can" 
-                  className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl shadow-primary-500/25"
-                />
-              ) : (
-                <div className="w-full max-w-4xl mx-auto h-96 bg-gradient-to-br from-primary-500/10 to-gold-500/10 rounded-2xl border border-primary-500/20 flex items-center justify-center">
-                  <div className="text-center text-primary-300">
-                    <div className="text-6xl mb-4">🥤</div>
-                    <p>Hero product image will display here</p>
-                  </div>
-                </div>
-              )}
+              <img 
+                src={wawCanImage} 
+                alt="WAW Energy Iced Rose Can" 
+                className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl shadow-primary-500/25"
+              />
             </motion.div>
           </div>
         </div>
