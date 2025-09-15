@@ -1,23 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  // Removed unused variables to fix build errors
+
   return (
-    <footer className="border-t border-secondary-700/50 bg-surface-950">
-      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          {/* Contact */}
+    <footer className="bg-slate-950 border-t border-slate-800">
+      <div className="container mx-auto max-w-7xl px-6 py-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
-            <h4 className="mb-2 text-sm font-bold uppercase tracking-wider text-white">Contact Us</h4>
-            <div className="space-y-1 text-sm text-secondary-300">
-              <p>Email: <a href="mailto:contact@wawenergy.com" className="text-primary-400 hover:text-primary-300">contact@wawenergy.com</a></p>
-              <p>Phone: <a href="tel:+1-800-WAW-ENERGY" className="text-primary-400 hover:text-primary-300">1-800-WAW-ENERGY</a></p>
-            </div>
+            <h3 className="text-white font-bold text-lg">WAW Energy</h3>
+            <p className="text-slate-400 text-sm">Iced Rose — Natural Energy Drink</p>
           </div>
-          
-          {/* Copyright */}
-          <div className="text-center text-xs text-secondary-400">
-            © {new Date().getFullYear()} WAW Energy. All rights reserved.
+          <div>
+            <Link
+              to="/buy"
+              className="text-emerald-400 hover:text-emerald-300 text-sm font-semibold border border-emerald-500/40 px-4 py-2 rounded-lg transition-colors"
+            >
+              Buy Iced Rose
+            </Link>
           </div>
+        </div>
+        <div className="border-t border-slate-800 mt-6 pt-6">
+          <p className="text-slate-500 text-xs text-center">© {currentYear} WAW Energy. All rights reserved.</p>
         </div>
       </div>
     </footer>

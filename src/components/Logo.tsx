@@ -1,9 +1,4 @@
 import React from 'react';
-import placeholderLogo from '../assets/images/logos/placeholder-logo.svg';
-
-// get logo to spin
-import '../App.css';
-
 
 interface LogoProps {
   className?: string;
@@ -11,17 +6,17 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className = '', src }) => {
-  const logoSrc = src ?? placeholderLogo;
+  const logoSrc = src || '/logo.png';
 
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <div className="relative h-10 w-10 overflow-hidden rounded-lg bg-gradient-to-br from-green-500 to-green-600 shadow-lg">
-        
-        {/* added logo for spin effect */}
-        <div className="logo-spin absolute inset-0">
-          <img src={logoSrc} alt="Company logo" className="logo h-full w-full object-contain p-1.5" />
-        </div>
-        
+    <div className={`flex items-center gap-3 ${className}`}>
+      <div className="w-2 h-2 overflow-hidden rounded-lg">
+        <img 
+          src={logoSrc} 
+          alt="WAW Energy Logo" 
+          // w-full h-full object-cover
+          className=""
+        />
       </div>
       <div className="flex flex-col leading-tight">
         <span className="text-lg font-extrabold tracking-tight text-white">WAW Energy</span>

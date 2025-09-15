@@ -1,100 +1,147 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+// import { motion, AnimatePresence } from 'framer-motion';
 import SearchBar from './SearchBar';
 import Hamburger from './Hamburger';
 import ThemeToggle from './ThemeToggle';
+// import Logo from './Logo';
+import { useCart } from '../contexts/CartContext';
+import { useTheme } from '../contexts/ThemeContext';
+import CartDropdown from './CartDropdown';
 
 const Header: React.FC = () => {
-  const [open, setOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-  
-  useEffect(() => {
-    const handleScroll = (): void => {
-      setIsScrolled(window.scrollY > 4);
-    };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
+  const [open, setOpen] = useState(false);
+  const { totalItems, openCart } = useCart();
+  const { isDark } = useTheme();
+
   const handleToggle = () => {
-    console.log('Hamburger clicked! Current state:', open);
-    setOpen(prev => !prev);
+    setOpen(!open);
   };
 
   return (
-    <header
-      className={
-        `sticky top-0 left-0 right-0 z-50 w-full border-b border-secondary-700/50 shadow-lg transition-all duration-300 ` +
-        (isScrolled ? 'bg-black/80' : 'bg-black/60')
-      }
-      style={{
-        backdropFilter: isScrolled ? 'blur(18px)' : 'blur(10px)',
-        WebkitBackdropFilter: isScrolled ? 'blur(18px)' : 'blur(10px)'
-      }}
-    >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="Go to home">
-          <div className="flex items-center gap-3">
-            <img src="/src/assets/images/logos/placeholder-logo.svg" alt="WAW Energy Logo" className="h-10 w-10" />
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-white">WAW Energy</span>
-              <span className="text-[11px] font-medium uppercase tracking-wider text-white/50">POWER YOUR DAY</span>
+    <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${
+      isDark 
+        ? 'bg-slate-900/95 border-slate-700/50 backdrop-blur-xl' 
+        : 'bg-white/95 border-gray-200/50 backdrop-blur-xl'
+    }`}>
+      <div className="container mx-auto max-w-7xl px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo - Left Side */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-6 h-6 overflow-hidden rounded-md bg-gray-200">
+                <img 
+                  src="/logo.png" 
+                  alt="WAW Energy Logo" 
+                  className="w-6 h-6 object-cover"
+                  style={{
+                    width: '240px',
+                    height: '240px',
+                    objectFit: 'cover',
+                    objectPosition: 'center'
+                  }}
+                />
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span className={`text-lg font-extrabold tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>WAW Energy</span>
+                <span className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${isDark ? 'text-white opacity-70' : 'text-gray-600'}`}>POWER YOUR DAY</span>
+              </div>
+            </Link>
+          </div>
+
+          {/* Navigation - Center */}
+          <nav className="flex items-center justify-center flex-1">
+            <div className="flex items-center space-x-12">
+              <NavLink to="/" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-white' : 'text-gray-900'}`} style={{ marginRight: '50px' }}>
+                HOME
+              </NavLink>
+              <NavLink to="/about" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-white' : 'text-gray-900'}`} style={{ marginRight: '50px' }}>
+                ABOUT
+              </NavLink>
+              <NavLink to="/buy" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-gray-900' : 'text-white'}`}>
+                BUY
+              </NavLink>
+            </div>
+          </nav>
+
+          {/* Right Side - Search, Cart, Theme Toggle */}
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <div className="hidden lg:block w-48">
+              <SearchBar placeholder="Search products..." />
+            </div>
+            
+            {/* Note: Shopping Cart functionality now handled by Shopify Buy Button */}
+            {/* Legacy cart hidden - using Shopify native cart instead */}
+            <div className="relative" style={{ display: 'none' }}>
+              <button
+                onClick={openCart}
+                className={`relative p-2 transition-colors text-2xl ${
+                  isDark ? 'text-white hover:text-blue-400' : 'text-gray-900 hover:text-blue-600'
+                }`}
+                aria-label="Shopping cart"
+              >
+                🛒
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                    {totalItems > 99 ? '99+' : totalItems}
+                  </span>
+                )}
+              </button>
+              <CartDropdown />
+            </div>
+            
+            <Hamburger isOpen={open} onToggle={handleToggle} />
+            <ThemeToggle />
+          </div>
+        </div>
+        
+        {/* Mobile Dropdown Menu */}
+        {open && (
+          <div className="lg:hidden border-t border-gray-200 dark:border-slate-700">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {/* Mobile Navigation Links */}
+              <Link 
+                to="/" 
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  isDark 
+                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
+                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                HOME
+              </Link>
+              <Link 
+                to="/about" 
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  isDark 
+                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
+                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                ABOUT
+              </Link>
+              <Link 
+                to="/buy" 
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                  isDark 
+                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
+                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
+                }`}
+                onClick={() => setOpen(false)}
+              >
+                BUY
+              </Link>
+              
+              {/* Mobile Search Bar */}
+              <div className="px-3 py-2">
+                <SearchBar placeholder="Search products..." />
+              </div>
             </div>
           </div>
-        </Link>
-
-        <nav className="flex items-center">
-          <NavLink to="/" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : 'text-white'}`} style={{ marginRight: '50px' }}>
-            HOME
-          </NavLink>
-          <NavLink to="/about" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : 'text-white'}`} style={{ marginRight: '50px' }}>
-            ABOUT
-          </NavLink>
-          <NavLink to="/buy" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : 'text-white'}`}>
-            BUY
-          </NavLink>
-        </nav>
-
-        <div className="flex items-center">
-          <div className="hidden w-[250px] lg:block"><SearchBar placeholder="Search products..." /></div>
-          <div style={{ marginRight: '20px' }}>
-            <Hamburger isOpen={open} onToggle={handleToggle} />
-          </div>
-          <ThemeToggle />
-        </div>
+        )}
       </div>
-
-      {open && (
-        <div className="absolute left-0 right-0 top-full z-40 border-t border-secondary-700/50 bg-surface-950 px-6 pb-6 shadow-2xl transform transition-all duration-300 ease-out">
-          <div className="py-4">
-            <SearchBar placeholder="Search products..." />
-          </div>
-          <div className="flex flex-col gap-3">
-            <NavLink 
-              to="/" 
-              onClick={() => setOpen(false)} 
-              className={({ isActive }) => `rounded-lg px-4 py-3 text-base font-bold uppercase tracking-wider transition-all duration-200 hover:scale-[1.02] ${isActive ? 'bg-primary-500/20 text-primary-400 shadow-glow' : 'text-secondary-200 hover:bg-primary-500/10 hover:text-primary-400'}`}
-            >
-              🏠 Home
-            </NavLink>
-            <NavLink 
-              to="/about" 
-              onClick={() => setOpen(false)} 
-              className={({ isActive }) => `rounded-lg px-4 py-3 text-base font-bold uppercase tracking-wider transition-all duration-200 hover:scale-[1.02] ${isActive ? 'bg-primary-500/20 text-primary-400 shadow-glow' : 'text-secondary-200 hover:bg-primary-500/10 hover:text-primary-400'}`}
-            >
-              ℹ️ About
-            </NavLink>
-            <NavLink 
-              to="/buy" 
-              onClick={() => setOpen(false)} 
-              className={({ isActive }) => `rounded-lg px-4 py-3 text-base font-bold uppercase tracking-wider transition-all duration-200 hover:scale-[1.02] ${isActive ? 'bg-primary-500/20 text-primary-400 shadow-glow' : 'text-secondary-200 hover:bg-primary-500/10 hover:text-primary-400'}`}
-            >
-              🛒 Buy
-            </NavLink>
-          </div>
-        </div>
-      )}
     </header>
   );
 };
