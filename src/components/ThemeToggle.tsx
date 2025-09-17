@@ -13,9 +13,11 @@ const ThemeToggle: React.FC = () => {
     <button
       type="button"
       onClick={handleClick}
-      className="group relative inline-flex items-center gap-2 hover:scale-102 focus:outline-none transition-all duration-300 cursor-pointer px-3 py-2 transform-gpu"
+      className="group relative inline-flex items-center gap-2 focus:outline-none transition-all duration-300 cursor-pointer px-3 py-2 transform"
       aria-label="Toggle theme"
       style={{ backgroundColor: 'transparent' }}
+      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
     >
       {/* Icon */}
       <div className="text-lg">

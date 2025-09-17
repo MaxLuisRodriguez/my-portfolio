@@ -17,7 +17,9 @@ const Footer: React.FC = () => {
           <div>
             <Link
               to="/buy"
-              className="font-black border px-6 py-3 rounded-lg transition-all duration-300 hover:scale-102"
+              className="font-black border px-6 py-3 rounded-lg transition-all duration-300 transform"
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               style={{ 
                 background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
                 border: '2px solid #f59e0b',

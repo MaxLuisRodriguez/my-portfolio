@@ -30,7 +30,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           onChange={(e) => setQuery(e.target.value)}
           type="text"
           placeholder={placeholder}
-          className="w-full rounded-xl px-4 py-2 pr-12 font-medium transition-all duration-300 focus:outline-none transform-gpu"
+          className="w-full rounded-xl px-4 py-2 pr-12 font-medium transition-all duration-300 focus:outline-none transform"
           style={{
             backgroundColor: isDark ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.9)',
             border: `2px solid ${isDark ? '#f59e0b' : '#b8860b'}`,
@@ -43,7 +43,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         />
         <button
           type="submit"
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-lg px-3 py-1 font-bold text-xs uppercase tracking-wide transition-all duration-300 transform-gpu"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-lg px-3 py-1 font-bold text-xs uppercase tracking-wide transition-all duration-300 transform"
           style={{
             backgroundColor: isDark ? '#22c55e' : '#b8860b',
             color: isDark ? '#000000' : '#ffffff',
