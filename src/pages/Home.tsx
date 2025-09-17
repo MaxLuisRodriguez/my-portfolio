@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SwiperCube from '../components/SwiperCube';
-import FuturisticBotanical from '../components/FuturisticBotanical';
 import { brand } from '../config/brand';
 import { useTheme } from '../contexts/ThemeContext';
 // TODO: Import actual product images when available

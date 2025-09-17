@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { brand } from '../config/brand';
 import SwiperCube from '../components/SwiperCube';
 import { useTheme } from '../contexts/ThemeContext';
 import roseTestImage from '../assets/images/backgrounds/imagerosetest.png';

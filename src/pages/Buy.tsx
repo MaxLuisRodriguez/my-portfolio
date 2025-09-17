@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { brand } from '../config/brand';
-import FuturisticBotanical from '../components/FuturisticBotanical';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Buy: React.FC = () => {
@@ -278,7 +276,7 @@ const Buy: React.FC = () => {
       <section className="py-12">
         <div className="container mx-auto max-w-5xl px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            {brand.currentProduct.nutritionHighlights.map((item, index) => (
+            {brand.currentProduct.nutritionHighlights.map((item) => (
               <div
                 key={item}
                 className="text-center bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-2xl p-8 border border-green-500/40 backdrop-blur-sm shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:scale-102"
