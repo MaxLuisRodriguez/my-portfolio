@@ -5,6 +5,8 @@ import SwiperCube from '../components/SwiperCube';
 import { useTheme } from '../contexts/ThemeContext';
 import roseTestImage from '../assets/images/backgrounds/imagerosetest.png';
 
+// test email change
+
 const About: React.FC = () => {
   const { isDark } = useTheme();
   // TODO: Replace with actual product images when available
