@@ -11,11 +11,46 @@ const Hamburger: React.FC<HamburgerProps> = ({ isOpen, onToggle, className = '' 
     <button
       type="button"
       onClick={onToggle}
-      className={`group relative inline-flex h-12 w-12 items-center justify-center rounded-lg border-2 border-green-500 bg-green-500 bg-opacity-30 hover:bg-opacity-60 hover:border-green-400 hover:scale-105 focus:outline-none transition-all duration-200 cursor-pointer ${className}`}
+      className={`group relative inline-flex h-12 w-12 items-center justify-center hover:scale-102 focus:outline-none transition-all duration-300 cursor-pointer transform-gpu ${className}`}
       aria-label="Toggle menu"
       aria-expanded={isOpen}
+      style={{ backgroundColor: 'transparent' }}
     >
-      <span className="text-white text-xl font-bold leading-none group-hover:text-green-300 transition-colors duration-200">≡</span>
+      {/* Three bars that compress into one */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '16px', justifyContent: 'center' }}>
+        <div 
+          className="rounded-full transition-all duration-400 ease-in-out"
+          style={{ 
+            width: '28px',
+            height: '4px',
+            backgroundColor: '#22c55e',
+            marginBottom: isOpen ? '0px' : '3px',
+            transform: isOpen ? 'translateY(2px)' : 'translateY(0px)',
+            opacity: 1
+          }}
+        />
+        <div 
+          className="rounded-full transition-all duration-400 ease-in-out"
+          style={{ 
+            width: '28px',
+            height: '4px',
+            backgroundColor: '#22c55e',
+            marginBottom: isOpen ? '0px' : '3px',
+            transform: isOpen ? 'scaleY(0)' : 'scaleY(1)',
+            opacity: isOpen ? 0 : 1
+          }}
+        />
+        <div 
+          className="rounded-full transition-all duration-400 ease-in-out"
+          style={{ 
+            width: '28px',
+            height: '4px',
+            backgroundColor: '#22c55e',
+            transform: isOpen ? 'translateY(-2px)' : 'translateY(0px)',
+            opacity: 1
+          }}
+        />
+      </div>
     </button>
   );
 };

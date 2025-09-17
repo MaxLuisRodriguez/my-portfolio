@@ -15,7 +15,7 @@ const Buy: React.FC = () => {
     const compareColor = isDark ? '#a1a1aa' : '#6b7280';
 
     // Clear existing Shopify component first
-    const existingNode = document.getElementById('product-component-1757309276164');
+    const existingNode = document.getElementById('product-component-1758007016917');
     if (existingNode) {
       existingNode.innerHTML = '';
     }
@@ -50,7 +50,7 @@ const Buy: React.FC = () => {
           ShopifyBuy.UI.onReady(client).then(function (ui) {
             ui.createComponent('product', {
               id: '7635687243862',
-              node: document.getElementById('product-component-1757309276164'),
+              node: document.getElementById('product-component-1758007016917'),
               moneyFormat: '%24%7B%7Bamount%7D%7D',
               options: {
                 "product": {
@@ -65,7 +65,8 @@ const Buy: React.FC = () => {
                     },
                     "title": {
                       "font-size": "26px",
-                      "color": "` + titleColor + `"
+                      "color": "` + titleColor + `",
+                      "text-shadow": "0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(184, 134, 11, 0.4)"
                     },
                     "button": {
                       "background-color": "#39FF14",
@@ -79,7 +80,10 @@ const Buy: React.FC = () => {
                       "font-size": "18px",
                       "color": "` + priceColor + `"
                     },
-                    "description": { "color": "` + textColor + `" },
+                    "description": { 
+                      "color": "` + textColor + `",
+                      "text-shadow": "0 0 8px rgba(255, 215, 0, 0.4), 0 0 15px rgba(184, 134, 11, 0.3)"
+                    },
                     "compareAt": {
                       "font-size": "15.299999999999999px",
                       "color": "` + compareColor + `",
@@ -136,7 +140,8 @@ const Buy: React.FC = () => {
                       "font-family": "Helvetica Neue, sans-serif",
                       "font-weight": "bold",
                       "font-size": "26px",
-                      "color": "` + titleColor + `"
+                      "color": "` + titleColor + `",
+                      "text-shadow": "0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(184, 134, 11, 0.4)"
                     },
                     "price": {
                       "font-family": "Helvetica Neue, sans-serif",
@@ -144,7 +149,10 @@ const Buy: React.FC = () => {
                       "font-size": "18px",
                       "color": "` + priceColor + `"
                     },
-                    "description": { "color": "` + textColor + `" },
+                    "description": { 
+                      "color": "` + textColor + `",
+                      "text-shadow": "0 0 8px rgba(255, 215, 0, 0.4), 0 0 15px rgba(184, 134, 11, 0.3)"
+                    },
                     "compareAt": {
                       "font-family": "Helvetica Neue, sans-serif",
                       "font-weight": "normal",
@@ -230,131 +238,105 @@ const Buy: React.FC = () => {
   }, [isDark]); // Re-run when theme changes
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black-950 via-black-900 to-black-950 pt-20 relative overflow-hidden">
-      {/* TODO: Add futuristic botanical elements throughout the buy page */}
-      <FuturisticBotanical variant="floating" size="lg" position="top-right" />
-      <FuturisticBotanical variant="floating" size="md" position="bottom-left" />
-      <FuturisticBotanical variant="corner" size="sm" position="top-left" />
-      {/* Hero Section - TODO: Update hero copy and imagery */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background Effects - TODO: Adjust colors to match brand */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-gold-500/5" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl" />
+    <div className="min-h-screen pt-20">
+      {/* Minimal Hero Section */}
+      <section className="relative py-16">
         
-        <div className="container mx-auto max-w-7xl px-6 relative z-10">
-          <div className="text-center max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="mb-8"
-            >
-              {/* Shop Badge - high-contrast emerald */}
-              <div className="inline-flex items-center space-x-2 bg-emerald-500/15 border border-emerald-400/40 rounded-full px-6 py-2 mb-6 text-emerald-200 shadow-glow">
-                <span className="text-xs font-semibold tracking-widest">SHOP NOW</span>
-              </div>
-              
-              {/* Main Heading - TODO: Update headline copy */}
-              <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight">
-                Experience
-                <span className="block bg-gradient-to-r from-gold-400 to-gold-300 bg-clip-text text-transparent">
-                  {brand.name}
-                </span>
-              </h1>
-              
-              {/* Subheading */}
-              <p className="text-lg md:text-xl text-primary-200 mb-6 max-w-3xl mx-auto leading-relaxed">
-                {brand.mission}. Pure ingredients, natural energy, uncompromising quality.
-              </p>
-
-              {/* Value Props - TODO: Update with actual brand values */}
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
-                {brand.values.slice(0, 3).map((value, index) => (
-                  <motion.div
-                    key={value}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                    className="bg-black-800/50 border border-primary-500/20 rounded-full px-4 py-2 text-sm text-primary-300 backdrop-blur-sm"
-                  >
-                    ✓ {value}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+        <div className="container mx-auto max-w-5xl px-6">
+          <div className="text-center mb-20">
+            {/* Premium product heading */}
+            <h1 className="text-6xl md:text-8xl font-display font-black mb-8 leading-tight" style={isDark ? {
+              background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textShadow: '4px 4px 8px rgba(0,0,0,0.6), 0 0 15px rgba(255,215,0,0.4), 0 0 30px rgba(255,215,0,0.2), 2px 2px 4px rgba(255,215,0,0.15), -1px -1px 2px rgba(255,255,255,0.1)',
+              filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(255,215,0,0.3)) drop-shadow(1px 1px 2px rgba(255,255,255,0.2))'
+            } : {
+              background: 'linear-gradient(145deg, #b8860b 0%, #8b4513 25%, #b8860b 50%, #8b4513 75%, #b8860b 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textShadow: '4px 4px 8px rgba(255,255,255,0.9), 0 0 15px rgba(184,134,11,0.6), 0 0 30px rgba(184,134,11,0.4), 2px 2px 4px rgba(184,134,11,0.2), -1px -1px 2px rgba(255,255,255,0.8)',
+              filter: 'drop-shadow(3px 3px 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(184,134,11,0.4)) drop-shadow(1px 1px 2px rgba(255,255,255,0.9))'
+            }}>
+              {brand.currentProduct.name}
+            </h1>
+            <p className="text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium" style={{ 
+              color: isDark ? '#daa520' : '#4a2c17',
+              textShadow: isDark 
+                ? '1px 1px 2px rgba(0,0,0,0.3)'
+                : '1px 1px 2px rgba(255,255,255,0.8)'
+            }}>
+              {brand.currentProduct.description}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Product Section - TODO: Update section styling and copy */}
-      <section className="py-20">
-        <div className="container mx-auto max-w-6xl px-6">
-          
-          {/* Section Header - TODO: Update product section copy */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-emerald-300 mb-6">
-              {brand.currentProduct.name}
-            </h2>
-            <p className="text-xl text-primary-200 max-w-3xl mx-auto mb-8">
-              {brand.currentProduct.description}
-            </p>
-            
-            {/* Nutrition facts — professional italicized list */}
-            <div className="max-w-2xl mx-auto">
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-8 italic text-primary-200">
-                {brand.currentProduct.nutritionHighlights.map((item, index) => (
-                  <motion.li
-                    key={item}
-                    initial={{ opacity: 0, y: 8 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="flex items-baseline gap-2"
-                  >
-                    <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 mt-1" />
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-
-          {/* Shopify Buy Button - Script is now in index.html */}
-          <div id='product-component-1757309276164'></div>
-
-          {/* Future Products Note - TODO: Update coming soon messaging */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-center mt-20"
-          >
-            <div className="bg-gradient-to-br from-black-800/40 to-black-900/60 rounded-2xl p-8 border border-gold-500/20 shadow-xl backdrop-blur-sm">
-              <div className="text-5xl mb-4">🌟</div>
-              <h3 className="text-3xl font-display font-bold text-gold-400 mb-4">
-                More Flavors Coming Soon!
-              </h3>
-              <p className="text-primary-200 text-lg max-w-2xl mx-auto">
-                We're constantly developing new natural flavors and formulas. 
-                Stay tuned for exciting additions to our premium energy lineup!
-              </p>
-              
-              {/* Newsletter Signup Placeholder - TODO: Connect to actual email service */}
-              <div className="mt-8">
-                <button className="bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-black-950 font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary-500/30">
-                  Notify Me First
-                </button>
+      {/* Premium Nutrition Facts */}
+      <section className="py-12">
+        <div className="container mx-auto max-w-5xl px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            {brand.currentProduct.nutritionHighlights.map((item, index) => (
+              <div
+                key={item}
+                className="text-center bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-2xl p-8 border border-green-500/40 backdrop-blur-sm shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:scale-102"
+                style={{
+                  backgroundColor: isDark ? 'rgba(34, 197, 94, 0.15)' : 'rgba(34, 197, 94, 0.1)',
+                  borderColor: isDark ? 'rgba(34, 197, 94, 0.4)' : 'rgba(34, 197, 94, 0.3)'
+                }}
+              >
+                <div className="text-2xl font-black mb-3" style={{ 
+                  color: isDark ? '#b8860b' : '#2c1810',
+                  textShadow: isDark 
+                    ? '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(245,158,11,0.2)'
+                    : '2px 2px 4px rgba(255,255,255,0.9), 0 0 10px rgba(44,24,16,0.6)',
+                  filter: isDark 
+                    ? 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                    : 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+                }}>
+                  {item.split(' ')[0]}
+                </div>
+                <div className="text-sm font-medium leading-tight" style={{ 
+                  color: isDark ? '#daa520' : '#4a2c17'
+                }}>
+                  {item.split(' ').slice(1).join(' ')}
+                </div>
               </div>
-            </div>
-          </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Shopify Purchase Section - Clean & Professional */}
+      <section className="pb-20" style={{ paddingTop: '60px' }}>
+        <div className="container mx-auto max-w-6xl px-6">
+          {/* <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-display font-black mb-6" style={{ 
+              color: isDark ? '#b8860b' : '#2c1810',
+              textShadow: isDark 
+                ? '2px 2px 4px rgba(0,0,0,0.5), 0 0 12px rgba(245,158,11,0.3)'
+                : '2px 2px 4px rgba(255,255,255,0.9), 0 0 12px rgba(44,24,16,0.6)',
+              filter: isDark 
+                ? 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                : 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+            }}>
+              Get Your {brand.currentProduct.name}
+            </h2>
+          </div> */}
+          
+          {/* Shopify Buy Component - Horizontal Layout (Images Left, Content Right) */}
+          <div id='product-component-1758007016917'></div>
+          
+          {/* Minimal CSS for vertical centering and gold glow */}
+          <style dangerouslySetInnerHTML={{
+            __html: `
+              #product-component-1758007016917 .shopify-buy__product {
+                align-items: center !important;
+              }
+            `
+          }} />
         </div>
       </section>
     </div>

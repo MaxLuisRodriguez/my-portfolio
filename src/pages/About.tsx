@@ -3,8 +3,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { brand } from '../config/brand';
 import SwiperCube from '../components/SwiperCube';
+import { useTheme } from '../contexts/ThemeContext';
+import roseTestImage from '../assets/images/backgrounds/imagerosetest.png';
 
 const About: React.FC = () => {
+  const { isDark } = useTheme();
   // TODO: Replace with actual product images when available
   const imageModules = import.meta.glob('../assets/images/products/*', { eager: true });
   const energyDrinkImages = Object.values(imageModules).map((module: any) => (module as any).default);
@@ -73,13 +76,9 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black-950 via-black-900 to-black-950 pt-20">
+    <div className="min-h-screen pt-20">
       {/* Hero Section - TODO: Update hero messaging */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Background Effects - TODO: Adjust colors to match botanical brand */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-emerald-400/10 to-rose-500/10" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-400/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-rose-500/15 rounded-full blur-3xl" />
+      <section className="relative py-20">
         
         <div className="container mx-auto max-w-7xl px-6 relative z-10">
           <div className="text-center max-w-5xl mx-auto">
@@ -90,22 +89,70 @@ const About: React.FC = () => {
               className="mb-8"
             >
               {/* Brand Badge - TODO: Update badge styling */}
-              <div className="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-8 py-3 mb-6">
-                {/* <span className="text-rose-400">Rose</span> */}
-                <span className="text-emerald-300 text-sm font-medium font-display">BOTANICAL ENERGY</span>
+              <div 
+                className="inline-flex items-center space-x-3 rounded-2xl mb-6 shadow-2xl backdrop-blur-xl transform hover:scale-102 transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                  border: '2px solid #22c55e',
+                  padding: '16px 32px',
+                  boxShadow: '0 0 30px rgba(34, 197, 94, 0.5), 0 8px 32px rgba(0, 0, 0, 0.3)'
+                }}
+              >
+                <span 
+                  className="font-black uppercase tracking-widest" 
+                  style={{ 
+                    fontSize: '16px',
+                    background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                    filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                  }}
+                >
+                  BOTANICAL ENERGY
+                </span>
               </div>
               
               {/* Main Heading - TODO: Update headline */}
-              <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight">
+              <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight" style={isDark ? {
+                background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: '4px 4px 8px rgba(0,0,0,0.6), 0 0 15px rgba(255,215,0,0.4), 0 0 30px rgba(255,215,0,0.2), 2px 2px 4px rgba(255,215,0,0.15), -1px -1px 2px rgba(255,255,255,0.1)',
+                filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(255,215,0,0.3)) drop-shadow(1px 1px 2px rgba(255,255,255,0.2))'
+              } : {
+                background: 'linear-gradient(145deg, #b8860b 0%, #8b4513 25%, #b8860b 50%, #8b4513 75%, #b8860b 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: '4px 4px 8px rgba(255,255,255,0.9), 0 0 15px rgba(184,134,11,0.6), 0 0 30px rgba(184,134,11,0.4), 2px 2px 4px rgba(184,134,11,0.2), -1px -1px 2px rgba(255,255,255,0.8)',
+                filter: 'drop-shadow(3px 3px 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(184,134,11,0.4)) drop-shadow(1px 1px 2px rgba(255,255,255,0.9))'
+              }}>
                 Pure Energy,
-                <span className="block bg-gradient-to-r from-rose-400 via-emerald-300 to-rose-400 bg-clip-text text-transparent">
+                <span className="block" style={isDark ? {
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '4px 4px 8px rgba(0,0,0,0.6), 0 0 15px rgba(255,215,0,0.4), 0 0 30px rgba(255,215,0,0.2), 2px 2px 4px rgba(255,215,0,0.15), -1px -1px 2px rgba(255,255,255,0.1)',
+                  filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(255,215,0,0.3)) drop-shadow(1px 1px 2px rgba(255,255,255,0.2))'
+                } : {
+                  background: 'linear-gradient(145deg, #b8860b 0%, #8b4513 25%, #b8860b 50%, #8b4513 75%, #b8860b 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '4px 4px 8px rgba(255,255,255,0.9), 0 0 15px rgba(184,134,11,0.6), 0 0 30px rgba(184,134,11,0.4), 2px 2px 4px rgba(184,134,11,0.2), -1px -1px 2px rgba(255,255,255,0.8)',
+                  filter: 'drop-shadow(3px 3px 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(184,134,11,0.4)) drop-shadow(1px 1px 2px rgba(255,255,255,0.9))'
+                }}>
                   Naturally Crafted
                 </span>
               </h1>
               
-              {/* Mission Statement - TODO: Update with actual mission */}
-              <p className="text-xl md:text-2xl text-primary-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-                {brand.mission}. We believe energy drinks shouldn't compromise your health with artificial ingredients.
+              {/* WAW Story Introduction */}
+              <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed" style={{ color: '#daa520' }}>
+                Starting from a basic home kitchen, WAW is the story of a dream. A journey from energy drink obsession to creating something better for the world.
               </p>
             </motion.div>
           </div>
@@ -136,6 +183,41 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* The WAW Story Section */}
+      <section className="py-20">
+        <div className="container mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8" style={{ 
+              color: '#b8860b',
+              textShadow: '3px 3px 6px rgba(0,0,0,0.6), 0 0 20px rgba(245,158,11,0.4), 0 0 40px rgba(245,158,11,0.2)',
+              filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 12px rgba(245,158,11,0.3))'
+            }}>
+              The WAW Story
+            </h2>
+            <div className="text-left max-w-4xl mx-auto space-y-6">
+              <p className="text-lg leading-relaxed" style={{ color: '#daa520' }}>
+                It began with a twelve-year-old kid sneaking energy drinks into movie theaters, captivated by the magic of that first commercial. By college, he knew more about energy drinks than perhaps himself—hundreds of cans stacked in refrigerators, displayed on desks and shelves.
+              </p>
+              <p className="text-lg leading-relaxed" style={{ color: '#daa520' }}>
+                But as his health declined, anxiety grew, and his body became detached from his mind, he stood before his vast sea of bright cans and asked: <em>"Why not build something better?"</em>
+              </p>
+              <p className="text-lg leading-relaxed" style={{ color: '#daa520' }}>
+                In his home kitchen, he spent months extracting and searching for the perfect formulation. With a team of top students from leading universities, he created an energy drink that could capture the world's taste buds while steering away from harmful sugars, chemicals, and preservatives.
+              </p>
+              <p className="text-lg leading-relaxed font-medium" style={{ color: '#b8860b' }}>
+                That's when a dream was born—a natural, healthy alternative that gives you the boost to accomplish anything in life. The belief that within this world, anything is possible. The WAW Life.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Botanical Craft Section - Rose & Mint */}
       <section className="py-20">
         <div className="container mx-auto max-w-7xl px-6">
@@ -155,7 +237,7 @@ const About: React.FC = () => {
               <p className="text-primary-200 text-lg leading-relaxed">
                 A delicate infusion of rose petals and cooling peppermint leaves delivers a clean, refreshing profile. Powered by organic guarana and balanced with a hint of citrus, it’s energy that feels as good as it tastes.
               </p>
-              <div className="grid sm:grid-cols-2 gap-4">
+              {/* <div className="grid sm:grid-cols-2 gap-4">
                 <div className="rounded-xl border border-emerald-400/30 bg-black/40 p-4">
                   <div className="text-emerald-300 font-semibold">Mint Cool</div>
                   <div className="text-primary-300 text-sm">Calming finish with crisp clarity</div>
@@ -164,7 +246,7 @@ const About: React.FC = () => {
                   <div className="text-rose-300 font-semibold">Rose Bright</div>
                   <div className="text-primary-300 text-sm">Elegant floral lift without perfumey notes</div>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
 
             <motion.div
@@ -173,39 +255,24 @@ const About: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              {/* TODO: Replace with product lifestyle/ingredient image */}
-              <div className="relative rounded-2xl overflow-hidden border border-primary-500/20 shadow-xl">
-                <div className="aspect-video bg-gradient-to-br from-rose-500/20 via-black/40 to-emerald-500/20 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    {/* TODO: Replace with image (rose & mint product/lifestyle) */}
-                    <p className="text-primary-200">Image placeholder — add rose & mint product photo here</p>
-                  </div>
-                </div>
-              </div>
+              <img 
+                src={roseTestImage} 
+                alt="WAW Energy Rose & Mint Botanical Craft" 
+                className="w-full rounded-2xl shadow-2xl shadow-primary-500/25"
+                style={{
+                  filter: isDark 
+                    ? 'drop-shadow(0 0 20px rgba(255,215,0,0.3)) drop-shadow(0 8px 16px rgba(0,0,0,0.6))'
+                    : 'drop-shadow(0 0 20px rgba(184,134,11,0.3)) drop-shadow(0 8px 16px rgba(255,255,255,0.6))'
+                }}
+              />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Natural Promise Section - TODO: Update with brand promises */}
+      {/* Values Grid Section */}
       <section className="py-20">
         <div className="container mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-gold-500 mb-6">
-              Our Natural Promise
-            </h2>
-            <p className="text-xl text-primary-200 leading-relaxed">
-              Every ingredient in WAW Energy serves a purpose. No artificial flavors, no artificial colors, 
-              no artificial sweeteners, and no preservatives. Just pure, natural energy.
-            </p>
-          </motion.div>
-
           {/* Values Grid - TODO: Update with actual brand values */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {naturalValues.map((value, index) => (
@@ -235,10 +302,10 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-gold-500 mb-6">
+            <h2 className="text-5xl md:text-6xl font-display font-bold mb-6" style={{ color: '#b8860b' }}>
               Just 5 Ingredients
             </h2>
-            <p className="text-xl text-primary-200 max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#daa520' }}>
               Each ingredient is carefully selected for its natural properties and health benefits.
             </p>
           </motion.div>
@@ -281,7 +348,6 @@ const About: React.FC = () => {
             className="text-center mt-12"
           >
             <div className="bg-gradient-to-br from-gold-500/10 to-gold-600/10 rounded-2xl p-8 max-w-2xl mx-auto border border-gold-500/20 shadow-xl backdrop-blur-sm">
-              <div className="text-4xl mb-4">🤫</div>
               <h3 className="text-2xl font-display font-bold text-gold-400 mb-4">
                 The 5th Ingredient?
               </h3>
@@ -290,8 +356,25 @@ const About: React.FC = () => {
                 Can you guess what it is?
               </p>
               <Link to="/buy">
-                <button className="bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-black-950 font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary-500/30">
-                  Discover It Now
+                <button 
+                  className="font-black py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                    border: '2px solid #22c55e',
+                    boxShadow: '0 0 20px rgba(34, 197, 94, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  <span style={{
+                    background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                    filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                    textDecoration: 'none'
+                  }}>
+                    Discover It Now
+                  </span>
                 </button>
               </Link>
             </div>
@@ -309,10 +392,10 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-gold-500 mb-6">
+            <h2 className="text-5xl md:text-6xl font-display font-bold mb-6" style={{ color: '#b8860b' }}>
               Our Journey
             </h2>
-            <p className="text-xl text-primary-200 max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#daa520' }}>
               From concept to your can - the story of natural energy.
             </p>
           </motion.div>
@@ -366,14 +449,46 @@ const About: React.FC = () => {
             {/* CTA Buttons - TODO: Connect to actual pages */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/buy">
-                <button className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black-950 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-gold-500/30 flex items-center gap-3">
-                  <span>🛍️</span>
-                  Try WAW Energy
+                <button 
+                  className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg flex items-center gap-3"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                    border: '2px solid #f59e0b',
+                    boxShadow: '0 0 20px rgba(245, 158, 11, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  <span style={{
+                    background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                    filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                    textDecoration: 'none'
+                  }}>
+                    🛍️ Try WAW Energy
+                  </span>
                 </button>
               </Link>
-              <button className="bg-transparent border-2 border-primary-500 hover:bg-primary-500 text-primary-400 hover:text-black-950 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-3">
-                <span>📧</span>
-                Get Updates
+              <button 
+                className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-102 flex items-center gap-3"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                  border: '2px solid #22c55e',
+                  boxShadow: '0 0 20px rgba(34, 197, 94, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
+                }}
+              >
+                <span style={{
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                  textDecoration: 'none'
+                }}>
+                  📧 Get Updates
+                </span>
               </button>
             </div>
           </motion.div>
