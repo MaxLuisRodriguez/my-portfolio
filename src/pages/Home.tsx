@@ -32,7 +32,9 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-flex items-center space-x-4 rounded-2xl mb-8 shadow-2xl backdrop-blur-xl transform hover:scale-102 transition-all duration-300"
+                className="inline-flex items-center space-x-4 rounded-2xl mb-8 shadow-2xl backdrop-blur-xl transform transition-all duration-300"
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 style={{
                   background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
                   border: '2px solid #f59e0b',
@@ -147,12 +149,14 @@ const Home: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link to="/buy">
                   <button 
-                    className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg"
+                    className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform shadow-lg"
                     style={{
                       background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
                       border: '2px solid #f59e0b',
                       boxShadow: '0 0 20px rgba(245, 158, 11, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
                     }}
+                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                   >
                     <span style={{
                       background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
@@ -169,12 +173,14 @@ const Home: React.FC = () => {
                 </Link>
                 <Link to="/about">
                   <button 
-                    className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-102"
+                    className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform"
                     style={{
                       background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
                       border: '2px solid #22c55e',
                       boxShadow: '0 0 20px rgba(34, 197, 94, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
                     }}
+                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                   >
                     <span style={{
                       background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
@@ -288,12 +294,14 @@ const Home: React.FC = () => {
               {/* CTA Button - TODO: Connect to product page */}
               <Link to="/buy">
                 <button 
-                  className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg"
+                  className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform shadow-lg"
                   style={{
                     background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
                     border: '2px solid #22c55e',
                     boxShadow: '0 0 20px rgba(34, 197, 94, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
                   }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 >
                   <span style={{
                     background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
@@ -387,12 +395,14 @@ const Home: React.FC = () => {
                 Get notified when new flavors launch and receive exclusive offers.
               </p>
               <button 
-                className="font-black py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg"
+                className="font-black py-3 px-6 rounded-xl transition-all duration-300 transform shadow-lg"
                 style={{
                   background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
                   border: '2px solid #f59e0b',
                   boxShadow: '0 0 20px rgba(245, 158, 11, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
                 <span style={{
                   background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',

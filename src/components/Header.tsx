@@ -27,12 +27,25 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left Side */}
           <div className="flex-shrink-0">
-                <Link to="/" className="flex items-center gap-3 group" style={{ textDecoration: 'none' }}>
-              <div className="w-6 h-6 overflow-hidden rounded-md bg-gray-200 transform transition-transform duration-300 ease-out group-hover:scale-105 transform-gpu">
+                <Link to="/" className="flex items-center gap-3 group" style={{ textDecoration: 'none' }}
+                  onMouseEnter={(e) => {
+                    const img = e.currentTarget.querySelector('img');
+                    const div = e.currentTarget.querySelector('div');
+                    if (img) img.style.transform = 'scale(1.02)';
+                    if (div) div.style.transform = 'scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    const img = e.currentTarget.querySelector('img');
+                    const div = e.currentTarget.querySelector('div');
+                    if (img) img.style.transform = 'scale(1)';
+                    if (div) div.style.transform = 'scale(1)';
+                  }}
+                >
+              <div className="w-6 h-6 overflow-hidden rounded-md bg-gray-200 transform transition-transform duration-300 ease-out">
                 <img 
                   src="/logo.png" 
                   alt="WAW Energy Logo" 
-                  className="w-6 h-6 object-cover transition-transform duration-300 ease-out group-hover:scale-102 transform-gpu"
+                  className="w-6 h-6 object-cover transition-transform duration-300 ease-out transform"
                   style={{
                     width: '140px',
                     height: '140px',
@@ -91,7 +104,7 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-12">
               <NavLink 
                 to="/" 
-                className="font-black uppercase transition-all duration-200 hover:scale-102 transform-gpu" 
+                className="font-black uppercase transition-all duration-200 transform" 
                 style={isDark ? {
                   marginRight: '75px', 
                   fontSize: '36px',
@@ -108,12 +121,14 @@ const Header: React.FC = () => {
                   textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
                   filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
                 HOME
               </NavLink>
               <NavLink 
                 to="/about" 
-                className="font-black uppercase transition-all duration-200 hover:scale-102 transform-gpu" 
+                className="font-black uppercase transition-all duration-200 transform" 
                 style={isDark ? {
                   marginRight: '75px', 
                   fontSize: '36px',
@@ -130,12 +145,14 @@ const Header: React.FC = () => {
                   textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
                   filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
                 ABOUT
               </NavLink>
               <NavLink 
                 to="/buy" 
-                className="font-black uppercase transition-all duration-200 hover:scale-102 transform-gpu" 
+                className="font-black uppercase transition-all duration-200 transform" 
                 style={isDark ? {
                   fontSize: '36px',
                   marginRight: '10px', 
@@ -152,6 +169,8 @@ const Header: React.FC = () => {
                   textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
                   filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
               >
                 BUY
               </NavLink>
@@ -198,7 +217,7 @@ const Header: React.FC = () => {
               {/* Premium Mobile Navigation Links */}
               <Link 
                 to="/" 
-                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform-gpu origin-center"
+                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform origin-center"
                 style={isDark ? {
                   background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
                   WebkitBackgroundClip: 'text',
@@ -217,7 +236,7 @@ const Header: React.FC = () => {
               </Link>
               <Link 
                 to="/about" 
-                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform-gpu origin-center"
+                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform origin-center"
                 style={isDark ? {
                   background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
                   WebkitBackgroundClip: 'text',
@@ -236,7 +255,7 @@ const Header: React.FC = () => {
               </Link>
               <Link 
                 to="/buy" 
-                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform-gpu origin-center"
+                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform origin-center"
                 style={isDark ? {
                   background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
                   WebkitBackgroundClip: 'text',

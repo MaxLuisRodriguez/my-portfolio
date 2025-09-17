@@ -276,7 +276,9 @@ const Buy: React.FC = () => {
             {brand.currentProduct.nutritionHighlights.map((item) => (
               <div
                 key={item}
-                className="text-center bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-2xl p-8 border border-green-500/40 backdrop-blur-sm shadow-xl hover:shadow-green-500/30 transition-all duration-300 hover:scale-102"
+                className="text-center bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-2xl p-8 border border-green-500/40 backdrop-blur-sm shadow-xl hover:shadow-green-500/30 transition-all duration-300 transform"
+                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 style={{
                   backgroundColor: isDark ? 'rgba(34, 197, 94, 0.15)' : 'rgba(34, 197, 94, 0.1)',
                   borderColor: isDark ? 'rgba(34, 197, 94, 0.4)' : 'rgba(34, 197, 94, 0.3)'

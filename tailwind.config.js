@@ -126,6 +126,12 @@ export default {
         '88': '22rem',
         '128': '32rem',
       },
+      scale: {
+        '101': '1.01',
+        '102': '1.02',
+        '103': '1.03',
+        '105': '1.05',
+      },
       boxShadow: {
         // Futuristic glow effects
         'glow': '0 0 20px rgb(34 197 94 / 0.3)',
