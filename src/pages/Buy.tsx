@@ -251,12 +251,9 @@ const Buy: React.FC = () => {
               textShadow: '4px 4px 8px rgba(0,0,0,0.6), 0 0 15px rgba(255,215,0,0.4), 0 0 30px rgba(255,215,0,0.2), 2px 2px 4px rgba(255,215,0,0.15), -1px -1px 2px rgba(255,255,255,0.1)',
               filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(255,215,0,0.3)) drop-shadow(1px 1px 2px rgba(255,255,255,0.2))'
             } : {
-              background: 'linear-gradient(145deg, #b8860b 0%, #8b4513 25%, #b8860b 50%, #8b4513 75%, #b8860b 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              textShadow: '4px 4px 8px rgba(255,255,255,0.9), 0 0 15px rgba(184,134,11,0.6), 0 0 30px rgba(184,134,11,0.4), 2px 2px 4px rgba(184,134,11,0.2), -1px -1px 2px rgba(255,255,255,0.8)',
-              filter: 'drop-shadow(3px 3px 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(184,134,11,0.4)) drop-shadow(1px 1px 2px rgba(255,255,255,0.9))'
+              color: '#1a1a1a',
+              textShadow: '4px 4px 8px rgba(255,255,255,0.9), 0 0 15px rgba(26,26,26,0.6), 0 0 30px rgba(26,26,26,0.4), 2px 2px 4px rgba(26,26,26,0.2), -1px -1px 2px rgba(255,255,255,0.8)',
+              filter: 'drop-shadow(3px 3px 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(26,26,26,0.4)) drop-shadow(1px 1px 2px rgba(255,255,255,0.9))'
             }}>
               {brand.currentProduct.name}
             </h1>
