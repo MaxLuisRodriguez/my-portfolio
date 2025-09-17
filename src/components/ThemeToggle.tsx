@@ -13,11 +13,25 @@ const ThemeToggle: React.FC = () => {
     <button
       type="button"
       onClick={handleClick}
-      className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-white/90 shadow hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition-all duration-200"
+      className="group relative inline-flex items-center gap-2 hover:scale-102 focus:outline-none transition-all duration-300 cursor-pointer px-3 py-2 transform-gpu"
       aria-label="Toggle theme"
+      style={{ backgroundColor: 'transparent' }}
     >
-      {isDark ? '🌙' : '☀️'}
-      {isDark ? 'Dark' : 'Light'}
+      {/* Icon */}
+      <div className="text-lg">
+        {isDark ? '🌙' : '☀️'}
+      </div>
+      
+      {/* Bold green text matching hamburger */}
+      <span 
+        className="font-bold uppercase tracking-wider transition-all duration-300"
+        style={{ 
+          color: '#22c55e', // Same green as hamburger
+          fontSize: '14px'
+        }}
+      >
+        {isDark ? 'DARK' : 'LIGHT'}
+      </span>
     </button>
   );
 };

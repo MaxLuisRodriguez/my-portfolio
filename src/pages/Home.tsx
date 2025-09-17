@@ -2,34 +2,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SwiperCube from '../components/SwiperCube';
-import FuturisticBotanical from '../components/FuturisticBotanical';
 import { brand } from '../config/brand';
+import { useTheme } from '../contexts/ThemeContext';
 // TODO: Import actual product images when available
 import wawCanImage from '../assets/images/products/aChatGPT Image Sep 8, 2025, 12_21_34 AM.png';
+import wawTriangleLogo from '../assets/images/logos/Screenshot 2025-09-16 162132.png'
 
 const Home: React.FC = () => {
+  const { isDark } = useTheme();
   // TODO: Replace with actual product images when available
   const imageModules = import.meta.glob('../assets/images/products/*', { eager: true });
   const energyDrinkImages = Object.values(imageModules).map((module: any) => module.default);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black-950 via-black-900 to-black-950 relative overflow-hidden">
-      {/* TODO: Add more futuristic botanical elements throughout the page */}
-      <FuturisticBotanical variant="floating" size="xl" position="top-right" />
-      <FuturisticBotanical variant="floating" size="lg" position="bottom-left" />
-      <FuturisticBotanical variant="corner" size="md" position="top-left" />
+    <div className="min-h-screen relative overflow-hidden">
       {/* Futuristic Hero Section - TODO: Update hero imagery and copy */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Enhanced Background Effects - TODO: Adjust colors to match brand */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-gold-500/5 to-primary-500/10" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gold-500/20 rounded-full blur-3xl animate-pulse-gold" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary-500/5 to-transparent rounded-full animate-float" />
-        
-        {/* Cyber Grid Overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(34,197,94,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.1)_1px,transparent_1px)] bg-[size:50px_50px]" />
-        </div>
+      <section className="relative pt-32 pb-20">
         
         <div className="container mx-auto max-w-7xl px-6 relative z-10">
           <div className="text-center max-w-5xl mx-auto">
@@ -44,44 +32,111 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="inline-flex items-center space-x-3 bg-gradient-to-r from-gold-500/20 via-primary-500/20 to-gold-500/20 border border-gold-500/50 rounded-full px-8 py-4 mb-8 shadow-neon-gold backdrop-blur-sm"
+                className="inline-flex items-center space-x-4 rounded-2xl mb-8 shadow-2xl backdrop-blur-xl transform hover:scale-102 transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                  border: '2px solid #f59e0b',
+                  padding: '16px 32px',
+                  boxShadow: '0 0 30px rgba(245, 158, 11, 0.5), 0 8px 32px rgba(0, 0, 0, 0.3)'
+                }}
               >
-                <div className="w-3 h-3 bg-primary-400 rounded-full animate-pulse-glow" />
-                <span className="text-gold-300 text-sm font-medium font-display tracking-wider animate-neon-flicker">🌹 NOW AVAILABLE 🌹</span>
-                <div className="w-3 h-3 bg-gold-400 rounded-full animate-pulse-gold" />
+                <div className="w-4 h-4 bg-white rounded-full animate-pulse" style={{ boxShadow: '0 0 10px rgba(255, 255, 255, 0.8)' }} />
+                <span 
+                  className="font-black uppercase tracking-widest animate-pulse" 
+                  style={{ 
+                    fontSize: '16px',
+                    background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                    filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                  }}
+                >
+                  NOW AVAILABLE
+                </span>
+                <div className="w-4 h-4 bg-white rounded-full animate-pulse" style={{ boxShadow: '0 0 10px rgba(255, 255, 255, 0.8)' }} />
               </motion.div>
               
-              {/* Futuristic Main Hero Headline - TODO: Update with final brand messaging */}
-              <motion.h1 
+              {/* Hero Headline with Golden Triangle Logo */}
+              <motion.div
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
-                className="text-5xl md:text-7xl lg:text-9xl font-display font-bold text-white mb-8 leading-tight relative"
+                className="mb-6"
               >
-                <span className="relative inline-block animate-glow-pulse">
+                {/* Golden Triangle WAW Logo */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1.2, delay: 0.6 }}
+                  className="flex justify-center mb-8"
+                >
+                  <div className="relative">
+                    <img 
+                      src={wawTriangleLogo} 
+                      alt="WAW Energy Golden Logo" 
+                      className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain"
+                      style={{
+                        width: '440px',
+                        height: '440px',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        borderRadius: '0.675rem',
+                        // filter: isDark 
+                        //   ? 'drop-shadow(0 0 20px rgba(255,215,0,0.6)) drop-shadow(0 8px 16px rgba(0,0,0,0.8))'
+                        //   : 'drop-shadow(0 0 20px rgba(184,134,11,0.6)) drop-shadow(0 8px 16px rgba(255,255,255,0.8))'
+                      }}
+                    />
+                  </div>
+                </motion.div>
+                
+                {/* Natural Energy - Metallic and Beveled */}
+                {/* <h1 
+                  className="text-5xl md:text-7xl lg:text-8xl font-display font-black mb-4 leading-tight"
+                  style={{
+                    background: isDark 
+                      ? 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)'
+                      : 'linear-gradient(145deg, #b8860b 0%, #8b4513 25%, #b8860b 50%, #8b4513 75%, #b8860b 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: isDark 
+                      ? '4px 4px 8px rgba(0,0,0,0.6), 0 0 20px rgba(255,215,0,0.4), 2px 2px 4px rgba(255,215,0,0.2)'
+                      : '4px 4px 8px rgba(255,255,255,0.9), 0 0 20px rgba(184,134,11,0.5), 2px 2px 4px rgba(184,134,11,0.3)',
+                    filter: isDark 
+                      ? 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 10px rgba(255,215,0,0.3))'
+                      : 'drop-shadow(3px 3px 6px rgba(255,255,255,0.9)) drop-shadow(0 0 10px rgba(184,134,11,0.4))'
+                  }}
+                >
                   Natural Energy
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400/20 to-transparent blur-xl animate-hologram" />
-                </span>
-                <span className="block bg-gradient-to-r from-gold-400 via-gold-300 to-gold-400 bg-clip-text text-transparent animate-neon-flicker relative">
-                  Redefined
-                  <div className="absolute inset-0 shadow-neon-gold animate-pulse-gold" />
-                </span>
-              </motion.h1>
+                </h1> */}
+              </motion.div>
               
               {/* Hero Subheading - TODO: Update with brand messaging */}
-              <p className="text-xl md:text-2xl text-primary-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed" style={{ 
+                color: isDark ? '#daa520' : '#b8860b',
+                textShadow: isDark 
+                  ? '1px 1px 2px rgba(0,0,0,0.3)'
+                  : '1px 1px 2px rgba(255,255,255,0.5)'
+              }}>
                 {brand.mission}. Experience pure energy with only 5 natural ingredients.
               </p>
               
               {/* Value Propositions - TODO: Update with key selling points */}
-              <div className="flex flex-wrap justify-center gap-6 mb-12">
+              <div className="flex flex-wrap justify-center mb-12" style={{ gap: '24px' }}>
                 {brand.values.slice(0, 3).map((value, index) => (
                   <motion.div
                     key={value}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="bg-black-800/50 border border-primary-500/20 rounded-full px-6 py-3 text-sm text-primary-300 backdrop-blur-sm"
+                    className="bg-black-800/50 border border-gold-500/40 rounded-full text-sm backdrop-blur-sm"
+                    style={{ 
+                      color: '#daa520',
+                      padding: '16px 32px',
+                      margin: '8px'
+                    }}
                   >
                     ✓ {value}
                   </motion.div>
@@ -91,13 +146,47 @@ const Home: React.FC = () => {
               {/* CTA Buttons - TODO: Update button actions */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link to="/buy">
-                  <button className="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black-950 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-gold-500/30">
-                    Try {brand.currentProduct.name} Now
+                  <button 
+                    className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                      border: '2px solid #f59e0b',
+                      boxShadow: '0 0 20px rgba(245, 158, 11, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
+                    }}
+                  >
+                    <span style={{
+                      background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                      filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                      textDecoration: 'none'
+                    }}>
+                      Try {brand.currentProduct.name} Now
+                    </span>
                   </button>
                 </Link>
                 <Link to="/about">
-                  <button className="bg-transparent border-2 border-primary-500 hover:bg-primary-500 text-primary-400 hover:text-black-950 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105">
-                    Learn More
+                  <button 
+                    className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-102"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                      border: '2px solid #22c55e',
+                      boxShadow: '0 0 20px rgba(34, 197, 94, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
+                    }}
+                  >
+                    <span style={{
+                      background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                      filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                      textDecoration: 'none'
+                    }}>
+                      Learn More
+                    </span>
                   </button>
                 </Link>
               </div>
@@ -163,10 +252,10 @@ const Home: React.FC = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-gold-500 mb-6">
+                <h2 className="text-4xl md:text-5xl font-display font-bold mb-6" style={{ color: '#b8860b' }}>
                   Pure. Natural. Powerful.
                 </h2>
-                <p className="text-xl text-primary-200 leading-relaxed mb-8">
+                <p className="text-xl leading-relaxed mb-8" style={{ color: '#daa520' }}>
                   Unlike other energy drinks packed with artificial ingredients, WAW Energy uses only 5 natural components to deliver sustained energy without the crash.
                 </p>
               </div>
@@ -198,8 +287,25 @@ const Home: React.FC = () => {
               
               {/* CTA Button - TODO: Connect to product page */}
               <Link to="/buy">
-                <button className="bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-black-950 font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary-500/30">
-                  Try It Today
+                <button 
+                  className="font-black py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                    border: '2px solid #22c55e',
+                    boxShadow: '0 0 20px rgba(34, 197, 94, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  <span style={{
+                    background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                    filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                    textDecoration: 'none'
+                  }}>
+                    Try It Today
+                  </span>
                 </button>
               </Link>
             </motion.div>
@@ -217,10 +323,10 @@ const Home: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-gold-500 mb-6">
+            <h2 className="text-5xl md:text-6xl font-display font-bold mb-6" style={{ color: '#b8860b' }}>
               Coming Soon
             </h2>
-            <p className="text-xl text-primary-200 max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#daa520' }}>
               More premium flavors are in development. Experience the future of natural energy.
             </p>
           </motion.div>
@@ -274,14 +380,31 @@ const Home: React.FC = () => {
             className="text-center mt-16"
           >
             <div className="bg-gradient-to-br from-black-800/60 to-black-900/80 rounded-2xl p-8 max-w-2xl mx-auto border border-primary-500/20 backdrop-blur-sm">
-              <h3 className="text-2xl font-display font-bold text-gold-400 mb-4">
+              <h3 className="text-2xl font-display font-bold mb-4" style={{ color: '#b8860b' }}>
                 Be the First to Know
               </h3>
-              <p className="text-primary-200 mb-6">
+              <p className="mb-6" style={{ color: '#daa520' }}>
                 Get notified when new flavors launch and receive exclusive offers.
               </p>
-              <button className="bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-black-950 font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-primary-500/30">
-                Join the List
+              <button 
+                className="font-black py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-102 shadow-lg"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                  border: '2px solid #f59e0b',
+                  boxShadow: '0 0 20px rgba(245, 158, 11, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3)'
+                }}
+              >
+                <span style={{
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                  textDecoration: 'none'
+                }}>
+                  Join the List
+                </span>
               </button>
             </div>
           </motion.div>

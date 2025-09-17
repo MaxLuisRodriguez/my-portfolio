@@ -19,46 +19,140 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${
-      isDark 
-        ? 'bg-slate-900/95 border-slate-700/50 backdrop-blur-xl' 
-        : 'bg-white/95 border-gray-200/50 backdrop-blur-xl'
-    }`}>
+    <header 
+      className="sticky top-0 z-50 border-b border-gold-500/30 transition-all duration-300"
+      style={{ backgroundColor: isDark ? '#000000' : '#ffffff' }}
+    >
       <div className="container mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo - Left Side */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-6 h-6 overflow-hidden rounded-md bg-gray-200">
+                <Link to="/" className="flex items-center gap-3 group" style={{ textDecoration: 'none' }}>
+              <div className="w-6 h-6 overflow-hidden rounded-md bg-gray-200 transform transition-transform duration-300 ease-out group-hover:scale-105 transform-gpu">
                 <img 
                   src="/logo.png" 
                   alt="WAW Energy Logo" 
-                  className="w-6 h-6 object-cover"
+                  className="w-6 h-6 object-cover transition-transform duration-300 ease-out group-hover:scale-102 transform-gpu"
                   style={{
-                    width: '240px',
-                    height: '240px',
+                    width: '140px',
+                    height: '140px',
                     objectFit: 'cover',
-                    objectPosition: 'center'
+                    objectPosition: 'center',
+                    borderRadius: '0.675rem', // 6px rounded corners
+                    willChange: 'transform',
                   }}
                 />
               </div>
               <div className="flex flex-col leading-tight">
-                <span className={`text-lg font-extrabold tracking-tight transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>WAW Energy</span>
-                <span className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 ${isDark ? 'text-white opacity-70' : 'text-gray-600'}`}>POWER YOUR DAY</span>
+                <span 
+                  className="text-lg font-black tracking-tight transition-all duration-300"
+                  style={isDark ? {
+                    background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                    filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                    textDecoration: 'none'
+                  } : {
+                    color: '#1a1a1a',
+                    textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
+                    filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))',
+                    textDecoration: 'none'
+                  }}
+                >
+                  WAW Energy
+                </span>
+                <span 
+                  className="text-xs font-bold uppercase tracking-wider transition-all duration-300"
+                  style={isDark ? {
+                    background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                    textShadow: '1px 1px 2px rgba(0,0,0,0.5), 0 0 8px rgba(255,215,0,0.2)',
+                    filter: 'drop-shadow(1px 1px 1px rgba(0,0,0,0.6))',
+                    textDecoration: 'none'
+                  } : {
+                    color: '#1a1a1a',
+                    textShadow: '1px 1px 2px rgba(255,255,255,0.8), 0 0 8px rgba(26,26,26,0.4)',
+                    filter: 'drop-shadow(1px 1px 1px rgba(255,255,255,0.8))',
+                    textDecoration: 'none'
+                  }}
+                >
+                  POWER YOUR DAY
+                </span>
               </div>
             </Link>
           </div>
 
-          {/* Navigation - Center */}
-          <nav className="flex items-center justify-center flex-1">
+          {/* Navigation - Centered on Screen */}
+          <nav className="absolute left-1/2 transform -translate-x-1/2">
             <div className="flex items-center space-x-12">
-              <NavLink to="/" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-white' : 'text-gray-900'}`} style={{ marginRight: '50px' }}>
+              <NavLink 
+                to="/" 
+                className="font-black uppercase transition-all duration-200 hover:scale-102 transform-gpu" 
+                style={isDark ? {
+                  marginRight: '75px', 
+                  fontSize: '36px',
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                } : {
+                  marginRight: '75px', 
+                  fontSize: '36px',
+                  color: '#1a1a1a',
+                  textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+                }}
+              >
                 HOME
               </NavLink>
-              <NavLink to="/about" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-white' : 'text-gray-900'}`} style={{ marginRight: '50px' }}>
+              <NavLink 
+                to="/about" 
+                className="font-black uppercase transition-all duration-200 hover:scale-102 transform-gpu" 
+                style={isDark ? {
+                  marginRight: '75px', 
+                  fontSize: '36px',
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                } : {
+                  marginRight: '75px', 
+                  fontSize: '36px',
+                  color: '#1a1a1a',
+                  textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+                }}
+              >
                 ABOUT
               </NavLink>
-              <NavLink to="/buy" className={({ isActive }) => `text-sm font-bold uppercase transition-all duration-200 hover:text-green-400 hover:scale-105 ${isActive ? 'text-green-400' : isDark ? 'text-gray-900' : 'text-white'}`}>
+              <NavLink 
+                to="/buy" 
+                className="font-black uppercase transition-all duration-200 hover:scale-102 transform-gpu" 
+                style={isDark ? {
+                  fontSize: '36px',
+                  marginRight: '10px', 
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                } : {
+                  fontSize: '36px',
+                  marginRight: '10px', 
+                  color: '#1a1a1a',
+                  textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+                }}
+              >
                 BUY
               </NavLink>
             </div>
@@ -91,52 +185,80 @@ const Header: React.FC = () => {
             </div>
             
             <Hamburger isOpen={open} onToggle={handleToggle} />
-            <ThemeToggle />
+            <div style={{ marginLeft: '20px' }}>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
         
-        {/* Mobile Dropdown Menu */}
+        {/* Premium Mobile Dropdown Menu */}
         {open && (
-          <div className="lg:hidden border-t border-gray-200 dark:border-slate-700">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {/* Mobile Navigation Links */}
+          <div className="lg:hidden border-t border-gold-500/30 overflow-hidden" style={{ backgroundColor: isDark ? '#000000' : '#ffffff', marginLeft: '18px', marginRight: '18px' }}>
+            <div className="px-4 pt-6 pb-6 space-y-4 max-w-full">
+              {/* Premium Mobile Navigation Links */}
               <Link 
                 to="/" 
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  isDark 
-                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
-                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
-                }`}
+                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform-gpu origin-center"
+                style={isDark ? {
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                } : {
+                  color: '#1a1a1a',
+                  textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+                }}
                 onClick={() => setOpen(false)}
               >
-                HOME
+                🏠 HOME
               </Link>
               <Link 
                 to="/about" 
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  isDark 
-                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
-                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
-                }`}
+                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform-gpu origin-center"
+                style={isDark ? {
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                } : {
+                  color: '#1a1a1a',
+                  textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+                }}
                 onClick={() => setOpen(false)}
               >
-                ABOUT
+                🌿 ABOUT
               </Link>
               <Link 
                 to="/buy" 
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  isDark 
-                    ? 'text-white hover:text-green-400 hover:bg-slate-800' 
-                    : 'text-gray-900 hover:text-green-600 hover:bg-gray-100'
-                }`}
+                className="block px-4 py-4 mx-2 rounded-xl font-black uppercase tracking-wider text-lg transition-all duration-300 hover:scale-101 transform-gpu origin-center"
+                style={isDark ? {
+                  background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                } : {
+                  color: '#1a1a1a',
+                  textShadow: '2px 2px 4px rgba(255,255,255,0.8), 0 0 10px rgba(26,26,26,0.6)',
+                  filter: 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+                }}
                 onClick={() => setOpen(false)}
               >
-                BUY
+                ⚡ BUY
               </Link>
               
-              {/* Mobile Search Bar */}
-              <div className="px-3 py-2">
-                <SearchBar placeholder="Search products..." />
+              {/* Premium Mobile Search Bar */}
+              <div className="px-2 py-4 border-t border-gold-500/20 mt-6 mx-2 max-w-full overflow-hidden">
+                <div className="w-full max-w-sm mx-auto">
+                  <SearchBar placeholder="Search energy drinks..." />
+                </div>
               </div>
             </div>
           </div>

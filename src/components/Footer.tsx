@@ -17,9 +17,25 @@ const Footer: React.FC = () => {
           <div>
             <Link
               to="/buy"
-              className="text-emerald-400 hover:text-emerald-300 text-sm font-semibold border border-emerald-500/40 px-4 py-2 rounded-lg transition-colors"
+              className="font-black border px-6 py-3 rounded-lg transition-all duration-300 hover:scale-102"
+              style={{ 
+                background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 20, 0.9) 50%, rgba(0, 0, 0, 0.9) 100%)',
+                border: '2px solid #f59e0b',
+                boxShadow: '0 0 15px rgba(245, 158, 11, 0.3)',
+                textDecoration: 'none'
+              }}
             >
-              Buy Iced Rose
+              <span style={{
+                background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(255,215,0,0.3)',
+                filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))',
+                textDecoration: 'none'
+              }}>
+                Buy Iced Rose
+              </span>
             </Link>
           </div>
         </div>

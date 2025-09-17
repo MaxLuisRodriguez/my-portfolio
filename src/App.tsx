@@ -19,15 +19,11 @@ const ThemedApp: React.FC = () => {
     <div 
       className="min-h-screen transition-all duration-300"
       style={{
-        backgroundColor: isDark 
-          ? 'rgb(15 23 42)' // slate-900
-          : 'rgb(255 255 255)', // white
-        color: isDark 
-          ? 'rgb(255 255 255)' // white
-          : 'rgb(0 0 0)', // black
-        backgroundImage: isDark 
-          ? 'linear-gradient(to bottom, rgb(15 23 42), rgb(30 58 138), rgb(15 23 42))' // slate-900 via-blue-900 to slate-900
-          : 'none'
+        backgroundColor: isDark ? '#000000' : '#ffffff', // Pure black for dark, white for light
+        background: isDark ? '#000000' : '#ffffff',
+        color: isDark ? '#ffffff' : '#000000',
+        margin: 0,
+        padding: 0
       }}
     >
       <Header />
