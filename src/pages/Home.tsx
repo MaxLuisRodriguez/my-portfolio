@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SwiperCube from '../components/SwiperCube';
 import { brand } from '../config/brand';
-import { useTheme } from '../contexts/ThemeContext';
 import NewsBand from '../components/NewsBand';
 // TODO: Import actual product images when available
 import wawCanImage from '../assets/images/products/aChatGPT Image Sep 8, 2025, 12_21_34 AM.png';
