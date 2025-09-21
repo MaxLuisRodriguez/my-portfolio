@@ -43,7 +43,12 @@ const SwiperCube: React.FC<SwiperCubeProps> = ({
           shadow: true, 
           slideShadows: true, 
           shadowOffset: 20, 
-          shadowScale: 0.94 
+          shadowScale: 0.94,
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true
         }}
       >
         {images.map((src, idx) => (
@@ -51,9 +56,10 @@ const SwiperCube: React.FC<SwiperCubeProps> = ({
             <img
               src={src}
               alt={`Slide ${idx + 1}`}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0"
               style={{
-                objectFit: 'contain',
+                objectFit: 'cover',
+                objectPosition: 'center',
                 width: '100%',
                 height: '100%'
               }}

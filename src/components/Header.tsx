@@ -8,6 +8,7 @@ import ThemeToggle from './ThemeToggle';
 import { useCart } from '../contexts/CartContext';
 import { useTheme } from '../contexts/ThemeContext';
 import CartDropdown from './CartDropdown';
+import { brand } from '../config/brand';
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -43,7 +44,7 @@ const Header: React.FC = () => {
                 >
               <div className="w-6 h-6 overflow-hidden rounded-md bg-gray-200 transform transition-transform duration-300 ease-out">
                 <img 
-                  src="/logo.png" 
+                  src={brand.logoSrc} 
                   alt="WAW Energy Logo" 
                   className="w-6 h-6 object-cover transition-transform duration-300 ease-out transform"
                   style={{

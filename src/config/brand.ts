@@ -1,5 +1,5 @@
 // TODO: Update logoImage import path to match your actual logo file location
-import logoImage from '../assets/images/logos/the_epic_waw_design_1.png';
+import logoImage from '../assets/images/logos/website logo waw.png';
 
 export const brand = {
   // Core brand information
