@@ -243,60 +243,104 @@ const Buy: React.FC = () => {
         <div className="container mx-auto max-w-5xl px-6">
           <div className="text-center mb-20">
             {/* Premium product heading */}
-            <h1 className="text-6xl md:text-8xl font-display font-black mb-8 leading-tight" style={isDark ? {
+            <h1 className="text-6xl md:text-8xl font-black uppercase tracking-wider mb-8 leading-tight" style={isDark ? {
               background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              textShadow: '4px 4px 8px rgba(0,0,0,0.6), 0 0 15px rgba(255,215,0,0.4), 0 0 30px rgba(255,215,0,0.2), 2px 2px 4px rgba(255,215,0,0.15), -1px -1px 2px rgba(255,255,255,0.1)',
-              filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(255,215,0,0.3)) drop-shadow(1px 1px 2px rgba(255,255,255,0.2))'
+              textShadow: '4px 4px 8px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5), 0 0 40px rgba(255,215,0,0.3), 0 0 60px rgba(255,215,0,0.2), 2px 2px 4px rgba(255,215,0,0.15), -1px -1px 2px rgba(255,255,255,0.1)',
+              filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 15px rgba(255,215,0,0.4)) drop-shadow(0 0 25px rgba(255,215,0,0.3)) drop-shadow(1px 1px 2px rgba(255,255,255,0.2))',
+              fontWeight: '900'
             } : {
-              color: '#1a1a1a',
-              textShadow: '4px 4px 8px rgba(255,255,255,0.9), 0 0 15px rgba(26,26,26,0.6), 0 0 30px rgba(26,26,26,0.4), 2px 2px 4px rgba(26,26,26,0.2), -1px -1px 2px rgba(255,255,255,0.8)',
-              filter: 'drop-shadow(3px 3px 6px rgba(255,255,255,0.9)) drop-shadow(0 0 12px rgba(26,26,26,0.4)) drop-shadow(1px 1px 2px rgba(255,255,255,0.9))'
+              color: '#8b4513',
+              textShadow: '4px 4px 8px rgba(255,255,255,0.9), 0 0 20px rgba(139,69,19,0.6), 0 0 40px rgba(139,69,19,0.4), 0 0 60px rgba(139,69,19,0.3), 2px 2px 4px rgba(139,69,19,0.2), -1px -1px 2px rgba(255,255,255,0.8)',
+              filter: 'drop-shadow(3px 3px 6px rgba(255,255,255,0.9)) drop-shadow(0 0 15px rgba(139,69,19,0.5)) drop-shadow(0 0 25px rgba(139,69,19,0.4)) drop-shadow(1px 1px 2px rgba(255,255,255,0.9))',
+              fontWeight: '900'
             }}>
               {brand.currentProduct.name}
             </h1>
-            <p className="text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium" style={{ 
-              color: isDark ? '#daa520' : '#4a2c17',
+            <p className="text-4xl md:text-6xl mb-12 max-w-5xl mx-auto leading-relaxed italic" style={{ 
+              fontFamily: '"Dancing Script", "Brush Script MT", cursive',
+              color: isDark ? '#daa520' : '#8b4513',
               textShadow: isDark 
-                ? '1px 1px 2px rgba(0,0,0,0.3)'
-                : '1px 1px 2px rgba(255,255,255,0.8)'
+                ? '2px 2px 4px rgba(0,0,0,0.5), 0 0 12px rgba(218,165,32,0.4), 0 0 24px rgba(218,165,32,0.3)'
+                : '2px 2px 4px rgba(255,255,255,0.8), 0 0 12px rgba(139,69,19,0.5), 0 0 24px rgba(139,69,19,0.4)',
+              filter: isDark 
+                ? 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8)) drop-shadow(0 0 8px rgba(218,165,32,0.3))'
+                : 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8)) drop-shadow(0 0 8px rgba(139,69,19,0.4))',
+              fontWeight: '400'
             }}>
-              {brand.currentProduct.description}
+              Premium energy drink with natural rose flavor and sustained focus formula
             </p>
           </div>
         </div>
       </section>
 
       {/* Premium Nutrition Facts */}
-      <section className="py-12">
-        <div className="container mx-auto max-w-5xl px-6">
+      <section className="py-16">
+        <div className="container mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-wider mb-6" style={isDark ? {
+              background: 'linear-gradient(145deg, #ffd700 0%, #b8860b 25%, #ffd700 50%, #b8860b 75%, #ffd700 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textShadow: '4px 4px 8px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.5), 0 0 40px rgba(255,215,0,0.3)',
+              filter: 'drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(255,215,0,0.4))',
+              fontWeight: '900'
+            } : {
+              color: '#8b4513',
+              textShadow: '3px 3px 6px rgba(255,255,255,0.9), 0 0 15px rgba(139,69,19,0.6), 0 0 30px rgba(139,69,19,0.4)',
+              filter: 'drop-shadow(2px 2px 4px rgba(255,255,255,0.9)) drop-shadow(0 0 8px rgba(139,69,19,0.5))',
+              fontWeight: '900'
+            }}>
+              Premium Nutrition Facts
+            </h2>
+          </div>
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {brand.currentProduct.nutritionHighlights.map((item) => (
               <div
                 key={item}
-                className="text-center bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-2xl p-8 border border-green-500/40 backdrop-blur-sm shadow-xl hover:shadow-green-500/30 transition-all duration-300 transform"
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                className="text-center bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-3xl p-8 border border-green-500/40 backdrop-blur-sm shadow-xl hover:shadow-green-500/50 transition-all duration-300 transform"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                  e.currentTarget.style.boxShadow = isDark 
+                    ? '0 0 40px rgba(34, 197, 94, 0.6), 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(34, 197, 94, 0.2)'
+                    : '0 0 40px rgba(34, 197, 94, 0.4), 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 0 20px rgba(34, 197, 94, 0.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
+                }}
                 style={{
                   backgroundColor: isDark ? 'rgba(34, 197, 94, 0.15)' : 'rgba(34, 197, 94, 0.1)',
-                  borderColor: isDark ? 'rgba(34, 197, 94, 0.4)' : 'rgba(34, 197, 94, 0.3)'
+                  borderColor: isDark ? 'rgba(34, 197, 94, 0.4)' : 'rgba(34, 197, 94, 0.3)',
+                  boxShadow: isDark 
+                    ? '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 197, 94, 0.3), inset 0 0 15px rgba(34, 197, 94, 0.1)'
+                    : '0 8px 32px rgba(0, 0, 0, 0.2), 0 0 20px rgba(34, 197, 94, 0.2), inset 0 0 15px rgba(34, 197, 94, 0.05)'
                 }}
               >
-                <div className="text-2xl font-black mb-3" style={{ 
-                  color: isDark ? '#b8860b' : '#2c1810',
+                <div className="text-3xl font-black mb-4" style={{ 
+                  color: isDark ? '#ffd700' : '#8b4513',
                   textShadow: isDark 
-                    ? '2px 2px 4px rgba(0,0,0,0.5), 0 0 10px rgba(245,158,11,0.2)'
-                    : '2px 2px 4px rgba(255,255,255,0.9), 0 0 10px rgba(44,24,16,0.6)',
+                    ? '3px 3px 6px rgba(0,0,0,0.8), 0 0 15px rgba(255,215,0,0.5), 0 0 30px rgba(255,215,0,0.3)'
+                    : '3px 3px 6px rgba(255,255,255,0.9), 0 0 15px rgba(139,69,19,0.6), 0 0 30px rgba(139,69,19,0.4)',
                   filter: isDark 
-                    ? 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
-                    : 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
+                    ? 'drop-shadow(2px 2px 4px rgba(0,0,0,0.9)) drop-shadow(0 0 8px rgba(255,215,0,0.4))'
+                    : 'drop-shadow(2px 2px 4px rgba(255,255,255,0.8)) drop-shadow(0 0 8px rgba(139,69,19,0.5))',
+                  fontWeight: '900'
                 }}>
                   {item.split(' ')[0]}
                 </div>
-                <div className="text-sm font-medium leading-tight" style={{ 
-                  color: isDark ? '#daa520' : '#4a2c17'
+                <div className="text-lg font-bold leading-tight uppercase tracking-wide" style={{ 
+                  color: isDark ? '#daa520' : '#8b4513',
+                  textShadow: isDark 
+                    ? '2px 2px 4px rgba(0,0,0,0.5), 0 0 12px rgba(218,165,32,0.4)'
+                    : '2px 2px 4px rgba(255,255,255,0.8), 0 0 12px rgba(139,69,19,0.5)',
+                  filter: isDark 
+                    ? 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
+                    : 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
                 }}>
                   {item.split(' ').slice(1).join(' ')}
                 </div>
@@ -308,29 +352,33 @@ const Buy: React.FC = () => {
 
       {/* Shopify Purchase Section - Clean & Professional */}
       <section className="pb-20" style={{ paddingTop: '60px' }}>
-        <div className="container mx-auto max-w-6xl px-6">
-          {/* <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-display font-black mb-6" style={{ 
-              color: isDark ? '#b8860b' : '#2c1810',
-              textShadow: isDark 
-                ? '2px 2px 4px rgba(0,0,0,0.5), 0 0 12px rgba(245,158,11,0.3)'
-                : '2px 2px 4px rgba(255,255,255,0.9), 0 0 12px rgba(44,24,16,0.6)',
-              filter: isDark 
-                ? 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))'
-                : 'drop-shadow(1px 1px 2px rgba(255,255,255,0.8))'
-            }}>
-              Get Your {brand.currentProduct.name}
-            </h2>
-          </div> */}
+        <div className="container mx-auto max-w-7xl px-6">
           
           {/* Shopify Buy Component - Horizontal Layout (Images Left, Content Right) */}
-          <div id='product-component-1758007016917'></div>
+          <div 
+            id='product-component-1758007016917'
+            className="bg-gradient-to-br from-black/20 to-black/40 rounded-3xl p-8 border border-gold-500/20 shadow-2xl backdrop-blur-sm"
+            style={{
+              boxShadow: isDark 
+                ? '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.2), inset 0 0 20px rgba(255, 215, 0, 0.05)'
+                : '0 8px 32px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 215, 0, 0.15), inset 0 0 20px rgba(255, 215, 0, 0.03)'
+            }}
+          ></div>
           
-          {/* Minimal CSS for vertical centering and gold glow */}
+          {/* Enhanced CSS for vertical centering and gold glow */}
           <style dangerouslySetInnerHTML={{
             __html: `
               #product-component-1758007016917 .shopify-buy__product {
                 align-items: center !important;
+                padding: 20px !important;
+              }
+              #product-component-1758007016917 .shopify-buy__product-title {
+                text-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 25px rgba(184, 134, 11, 0.4) !important;
+                filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4)) !important;
+              }
+              #product-component-1758007016917 .shopify-buy__product-description {
+                text-shadow: 0 0 12px rgba(255, 215, 0, 0.4), 0 0 20px rgba(184, 134, 11, 0.3) !important;
+                filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 6px rgba(255, 215, 0, 0.3)) !important;
               }
             `
           }} />

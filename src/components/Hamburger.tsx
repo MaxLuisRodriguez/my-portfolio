@@ -18,37 +18,44 @@ const Hamburger: React.FC<HamburgerProps> = ({ isOpen, onToggle, className = '' 
       onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
       onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
     >
-      {/* Three bars that compress into one */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '16px', justifyContent: 'center' }}>
+      {/* Three bars that transform into X */}
+      <div style={{ position: 'relative', width: '28px', height: '20px' }}>
+        {/* Top bar - rotates to form top-left to bottom-right diagonal of X */}
         <div 
-          className="rounded-full transition-all duration-400 ease-in-out"
+          className="rounded-full transition-all duration-400 ease-in-out absolute"
           style={{ 
             width: '28px',
             height: '4px',
             backgroundColor: '#22c55e',
-            marginBottom: isOpen ? '0px' : '3px',
-            transform: isOpen ? 'translateY(2px)' : 'translateY(0px)',
+            top: isOpen ? '8px' : '0px',
+            left: '0px',
+            transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
             opacity: 1
           }}
         />
+        {/* Middle bar - fades out */}
         <div 
-          className="rounded-full transition-all duration-400 ease-in-out"
+          className="rounded-full transition-all duration-400 ease-in-out absolute"
           style={{ 
             width: '28px',
             height: '4px',
             backgroundColor: '#22c55e',
-            marginBottom: isOpen ? '0px' : '3px',
-            transform: isOpen ? 'scaleY(0)' : 'scaleY(1)',
+            top: '8px',
+            left: '0px',
+            transform: 'rotate(0deg)',
             opacity: isOpen ? 0 : 1
           }}
         />
+        {/* Bottom bar - rotates to form top-right to bottom-left diagonal of X */}
         <div 
-          className="rounded-full transition-all duration-400 ease-in-out"
+          className="rounded-full transition-all duration-400 ease-in-out absolute"
           style={{ 
             width: '28px',
             height: '4px',
             backgroundColor: '#22c55e',
-            transform: isOpen ? 'translateY(-2px)' : 'translateY(0px)',
+            top: isOpen ? '8px' : '16px',
+            left: '0px',
+            transform: isOpen ? 'rotate(-45deg)' : 'rotate(0deg)',
             opacity: 1
           }}
         />
