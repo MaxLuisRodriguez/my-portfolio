@@ -44,11 +44,9 @@ const SwiperCube: React.FC<SwiperCubeProps> = ({
           slideShadows: true, 
           shadowOffset: 20, 
           shadowScale: 0.94,
-          rotate: 50,
           stretch: 0,
           depth: 100,
-          modifier: 1,
-          slideShadows: true
+          modifier: 1
         }}
       >
         {images.map((src, idx) => (

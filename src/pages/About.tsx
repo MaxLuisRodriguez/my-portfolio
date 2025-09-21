@@ -15,67 +15,10 @@ const About: React.FC = () => {
   const energyDrinkImages = Object.values(imageModules).map((module: any) => (module as any).default);
 
   // TODO: Update with actual company values and messaging
-  const naturalValues = [
-    {
-      title: 'Natural Ingredients',
-      description: 'Only 5 pure, natural ingredients. No artificial flavors, colors, or preservatives.'
-    },
-    {
-      title: 'Clean Energy',
-      description: 'Sustained energy from organic guarana without the crash or jitters.'
-    },
-    {
-      title: 'Unique Flavors',
-      description: 'Botanical infusions like rose petals create distinctive, sophisticated taste profiles.'
-    },
-    {
-      title: 'Health-First',
-      description: 'Every ingredient serves a purpose. No unnecessary additives or fillers.'
-    }
-  ];
 
   // TODO: Update timeline with actual company milestones
-  const milestones = [
-    {
-      year: '2025',
-      title: 'Natural Vision',
-      description: 'Founded with a mission to create the purest energy drink using only natural ingredients.'
-    },
-    {
-      year: '2025',
-      title: 'Iced Rose Launch',
-      description: 'Launched our flagship Iced Rose flavor with just 5 natural ingredients.'
-    },
-    {
-      year: 'Future',
-      title: 'Expanding Naturally',
-      description: 'Developing new botanical flavors while maintaining our commitment to purity.'
-    }
-  ];
 
   // TODO: Update with actual team members and photos
-  const ingredients = [
-    {
-      name: 'Brewed Herbal Infusion',
-      source: 'Water, Organic Peppermint Leaves, Rose Buds',
-      benefit: 'Natural hydration with antioxidant properties'
-    },
-    {
-      name: 'Cane Sugar',
-      source: 'Pure, unrefined cane sugar',
-      benefit: 'Clean sweetness without artificial alternatives'
-    },
-    {
-      name: 'Organic Guarana Powder',
-      source: 'Sustainably sourced Amazon guarana',
-      benefit: '150mg natural caffeine for sustained energy'
-    },
-    {
-      name: 'Lemon Juice',
-      source: 'Fresh, natural citrus',
-      benefit: 'Vitamin C and natural flavor enhancement'
-    }
-  ];
 
   return (
     <div className="min-h-screen pt-20">
@@ -558,7 +501,7 @@ const About: React.FC = () => {
                     fontSize: '1.2rem',
                     textDecoration: 'none'
                   }}>
-                    Try WAW Energy
+                  Try WAW Energy
                   </span>
                 </button>
               </Link>
@@ -590,7 +533,7 @@ const About: React.FC = () => {
                   fontSize: '1.2rem',
                   textDecoration: 'none'
                 }}>
-                  Get Updates
+                Get Updates
                 </span>
               </button>
             </div>

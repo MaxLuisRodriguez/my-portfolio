@@ -10,7 +10,6 @@ import wawCanImage from '../assets/images/products/aChatGPT Image Sep 8, 2025, 1
 import wawTriangleLogo from '../assets/images/logos/waw landing page logo.png'
 
 const Home: React.FC = () => {
-  const { isDark } = useTheme();
   // TODO: Replace with actual product images when available
   const imageModules = import.meta.glob('../assets/images/products/*', { eager: true });
   const energyDrinkImages = Object.values(imageModules).map((module: any) => module.default);
