@@ -6,8 +6,13 @@
 }
 
 .logo {
+<<<<<<< HEAD
   /* height: 6em;
   padding: 1.5em; */
+=======
+  height: 6em;
+  padding: 1.5em;
+>>>>>>> 1906dec040657e9bf2a9b66b1a97b1364518b50e
   will-change: filter;
   transition: filter 300ms;
 }
@@ -27,11 +32,14 @@
   }
 }
 
+<<<<<<< HEAD
 .logo-spin {
   animation: logo-spin infinite 20s linear !important;
   transform-origin: center !important;
 }
 
+=======
+>>>>>>> 1906dec040657e9bf2a9b66b1a97b1364518b50e
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;

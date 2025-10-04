@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+<<<<<<< HEAD
 
 // Shopify Buy Button SDK types
 declare global {
@@ -13,3 +14,5 @@ declare global {
 }
 
 export {}; 
+=======
+>>>>>>> 1906dec040657e9bf2a9b66b1a97b1364518b50e
