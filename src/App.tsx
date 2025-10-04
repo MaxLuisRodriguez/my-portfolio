@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
@@ -54,23 +53,3 @@ function App(): React.JSX.Element {
 }
 
 export default App;
-=======
-import './App.css'
-
-function App() {
-  return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      height: '100vh',
-      fontSize: '2rem',
-      fontWeight: 'bold'
-    }}>
-      Hello World
-    </div>
-  )
-}
-
-export default App
->>>>>>> 1906dec040657e9bf2a9b66b1a97b1364518b50e
