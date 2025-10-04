@@ -10,7 +10,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-gray-800">
-            Your Name
+            Discover Max Rodriguez
           </Link>
 
           {/* Desktop Navigation */}

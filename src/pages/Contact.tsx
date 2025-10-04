@@ -44,7 +44,21 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-semibold">Email</p>
-                    <p className="text-gray-600">your.email@example.com</p>
+                    <a href="mailto:maxlrodwork@gmail.com" className="text-indigo-600 hover:text-indigo-800">
+                      maxlrodwork@gmail.com
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-indigo-600">📱</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold">Phone</p>
+                    <a href="tel:+13609691278" className="text-indigo-600 hover:text-indigo-800">
+                      (360) 969-1278
+                    </a>
                   </div>
                 </div>
                 
@@ -54,17 +68,14 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <p className="font-semibold">LinkedIn</p>
-                    <p className="text-gray-600">linkedin.com/in/yourusername</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-indigo-600">🐙</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold">GitHub</p>
-                    <p className="text-gray-600">github.com/yourusername</p>
+                    <a 
+                      href="https://www.linkedin.com/in/max-rodriguez-b05542249/" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-indigo-600 hover:text-indigo-800"
+                    >
+                      View Profile
+                    </a>
                   </div>
                 </div>
               </div>

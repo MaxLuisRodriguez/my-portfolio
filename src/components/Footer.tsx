@@ -6,17 +6,32 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="text-center">
           <p className="text-gray-300">
-            © 2024 Your Name. All rights reserved.
+            © 2025 Max Rodriguez. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center space-x-6">
-            <a href="https://github.com/yourusername" className="text-gray-300 hover:text-white transition-colors">
+            <a 
+              href="https://github.com/MaxLuisRodriguez" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
               GitHub
             </a>
-            <a href="https://linkedin.com/in/yourusername" className="text-gray-300 hover:text-white transition-colors">
+            <a 
+              href="https://www.linkedin.com/in/max-rodriguez-b05542249/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
               LinkedIn
             </a>
-            <a href="mailto:your.email@example.com" className="text-gray-300 hover:text-white transition-colors">
-              Email
+            <a 
+              href="https://www.youtube.com/channel/UCHihab0hHAclV74ndEwBvCQ" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              YouTube
             </a>
           </div>
         </div>
