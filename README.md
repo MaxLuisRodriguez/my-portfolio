@@ -1,15 +1,19 @@
-<<<<<<< HEAD
-# WAW Energy App
+# My Portfolio - WAW Energy App
 
-A modern, responsive React application for WAW Energy with **production-ready Shopify OAuth integration**.
+A modern, responsive React portfolio application showcasing the WAW Energy project with **production-ready Shopify OAuth integration**.
 
-## 🚀 Features
+## 🚀 Live Demo
+
+**GitHub Pages**: [https://maxluisrodriguez.github.io/my-portfolio](https://maxluisrodriguez.github.io/my-portfolio)
+
+## ✨ Features
 
 - **Modern React 19** with TypeScript
 - **Beautiful UI** with Tailwind CSS and Framer Motion
 - **Responsive Design** that works on all devices
 - **Production-Ready Shopify OAuth** with enterprise security features
 - **Professional Animations** and smooth transitions
+- **GitHub Pages Deployment** with automatic CI/CD
 
 ## 🛠️ Tech Stack
 
@@ -18,14 +22,15 @@ A modern, responsive React application for WAW Energy with **production-ready Sh
 - **Animations**: Framer Motion
 - **Build Tool**: Vite
 - **Package Manager**: npm
+- **Deployment**: GitHub Pages
 - **Security**: CryptoJS encryption, OAuth 2.0, Rate limiting
 
-## 📦 Installation
+## 🚀 Quick Start
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd waw-energy-app
+   git clone https://github.com/MaxLuisRodriguez/my-portfolio.git
+   cd my-portfolio
    ```
 
 2. **Install dependencies**
@@ -33,19 +38,39 @@ A modern, responsive React application for WAW Energy with **production-ready Sh
    npm install
    ```
 
-3. **Configure environment variables**
-   ```bash
-   cp env.example .env
-   # Edit .env with your Shopify app credentials
-   ```
-
-4. **Start development server**
+3. **Start development server**
    ```bash
    npm run dev
    ```
 
-5. **Open your browser**
+4. **Open your browser**
    Navigate to `http://localhost:5173`
+
+## 🌐 GitHub Pages Deployment
+
+This project is configured for automatic deployment to GitHub Pages:
+
+### **Automatic Deployment**
+- Every push to the `main` branch triggers automatic deployment
+- The site is built and deployed to `https://maxluisrodriguez.github.io/my-portfolio`
+- No manual intervention required
+
+### **Manual Deployment**
+If you need to deploy manually:
+
+```bash
+# Build the project
+npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
+```
+
+### **GitHub Pages Configuration**
+- **Source**: Deploy from a branch
+- **Branch**: `gh-pages` (automatically created)
+- **Folder**: `/ (root)`
+- **Custom Domain**: Optional
 
 ## 🏗️ Project Structure
 
@@ -78,14 +103,6 @@ src/
 - ✅ **Error Handling** - Comprehensive error management
 - ✅ **Production Logging** - Event tracking and monitoring
 
-### **Security Features**
-
-- **Token Encryption**: All access tokens are encrypted before storage
-- **State Validation**: OAuth state parameters prevent CSRF attacks
-- **Rate Limiting**: Maximum 5 OAuth attempts per 15-minute window
-- **Automatic Expiry**: Tokens and states expire automatically
-- **Secure Storage**: Uses browser localStorage with encryption
-
 ### **How to Set Up**
 
 #### **Step 1: Create Shopify App**
@@ -97,10 +114,9 @@ src/
 #### **Step 2: Configure App Settings**
 ```
 App name: WAW Energy Integration
-App URL: https://yourdomain.com (or http://localhost:5173 for dev)
+App URL: https://maxluisrodriguez.github.io/my-portfolio
 Allowed redirection URLs: 
-  - Development: http://localhost:5173/shopify/callback
-  - Production: https://yourdomain.com/shopify/callback
+  - Production: https://maxluisrodriguez.github.io/my-portfolio/shopify/callback
 ```
 
 #### **Step 3: Set OAuth Scopes**
@@ -111,71 +127,7 @@ Allowed redirection URLs:
 
 #### **Step 4: Get Credentials**
 - Copy your **API key** and **API secret**
-- Update your `.env` file with these values
-
-#### **Step 5: Test Integration**
-1. Navigate to `/shopify` in your app
-2. Enter your Shopify app credentials
-3. Click "Connect to Shopify"
-4. Complete OAuth flow in Shopify
-5. You'll be redirected back and automatically connected!
-
-## 🌐 Production Deployment
-
-### **Deployment Options**
-
-#### **Option 1: Vercel (Recommended)**
-```bash
-npm install -g vercel
-vercel --prod
-```
-
-#### **Option 2: Netlify**
-```bash
-npm run build
-# Drag dist/ folder to Netlify
-```
-
-#### **Option 3: GitHub Pages**
-```bash
-npm run build
-# Push dist/ folder to gh-pages branch
-```
-
-### **Production Configuration**
-
-1. **Update Redirect URIs**
-   ```
-   VITE_SHOPIFY_REDIRECT_URI=https://yourdomain.com/shopify/callback
-   ```
-
-2. **Set Production Environment**
-   ```
-   VITE_APP_ENVIRONMENT=production
-   ```
-
-3. **Configure Custom Domain**
-   - Point your domain to your hosting provider
-   - Enable HTTPS (required for Shopify OAuth)
-
-4. **Update Shopify App Settings**
-   - Update redirect URI in Shopify Partners dashboard
-   - Test OAuth flow in production
-
-### **Environment Variables**
-
-Create a `.env` file with your production values:
-
-```bash
-# Required
-VITE_SHOPIFY_API_KEY=your_production_api_key
-VITE_SHOPIFY_API_SECRET=your_production_api_secret
-VITE_SHOPIFY_REDIRECT_URI=https://yourdomain.com/shopify/callback
-
-# Optional (for enhanced security)
-VITE_SHOPIFY_ENCRYPTION_KEY=your_custom_32_character_key
-VITE_APP_ENVIRONMENT=production
-```
+- Update your environment variables
 
 ## 📱 Available Scripts
 
@@ -183,164 +135,71 @@ VITE_APP_ENVIRONMENT=production
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
+- `npm run deploy` - Deploy to GitHub Pages
 
 ## 🔧 Configuration
 
-### **OAuth Settings**
+### **Environment Variables**
 
-| Setting | Default | Description |
-|---------|---------|-------------|
-| State Expiry | 1 hour | OAuth state parameter expiration |
-| Token Expiry | 24 hours | Access token expiration |
-| Max Attempts | 5 | Maximum OAuth attempts per window |
-| OAuth Window | 15 min | Rate limiting window |
+For production deployment, set these in your GitHub repository secrets:
 
-### **Security Configuration**
+```bash
+# Required for Shopify OAuth
+VITE_SHOPIFY_API_KEY=your_production_api_key
+VITE_SHOPIFY_API_SECRET=your_production_api_secret
+VITE_SHOPIFY_REDIRECT_URI=https://maxluisrodriguez.github.io/my-portfolio/shopify/callback
 
-- **Encryption**: AES-256 encryption for all sensitive data
-- **Rate Limiting**: Prevents OAuth abuse
-- **State Validation**: Ensures OAuth callback legitimacy
-- **Automatic Cleanup**: Removes expired data automatically
+# Optional (for enhanced security)
+VITE_SHOPIFY_ENCRYPTION_KEY=your_custom_32_character_key
+VITE_APP_ENVIRONMENT=production
+```
 
-## 📊 Monitoring & Analytics
+### **GitHub Pages Settings**
 
-### **OAuth Events Tracked**
-
-- `initiated` - OAuth flow started
-- `callback_verified` - Callback validated
-- `token_exchange_success` - Token obtained
-- `token_exchange_failed` - Token exchange failed
-- `disconnected` - App disconnected
-
-### **Integration Options**
-
-- **Google Analytics**: Track OAuth success rates
-- **Error Reporting**: Monitor OAuth failures
-- **Custom Logging**: Send events to your logging service
+1. Go to your repository **Settings**
+2. Navigate to **Pages** section
+3. Set **Source** to "Deploy from a branch"
+4. Select **Branch**: `gh-pages` / `/ (root)`
+5. Save settings
 
 ## 🚨 Troubleshooting
 
 ### **Common Issues**
 
-1. **"Invalid OAuth callback"**
-   - Check redirect URI matches exactly
+1. **"404 Not Found" on GitHub Pages**
+   - Ensure `base: '/my-portfolio/'` is set in `vite.config.ts`
+   - Check that the build output is in the `dist` folder
+
+2. **"Invalid OAuth callback"**
+   - Check redirect URI matches exactly: `https://maxluisrodriguez.github.io/my-portfolio/shopify/callback`
    - Verify app configuration in Shopify Partners
 
-2. **"Rate limit exceeded"**
+3. **"Rate limit exceeded"**
    - Wait 15 minutes before retrying
    - Check for multiple OAuth attempts
-
-3. **"Token exchange failed"**
-   - Verify API key and secret
-   - Check app permissions and scopes
-
-4. **"Shop not found"**
-   - Ensure shop URL format: `store.myshopify.com`
-   - Check shop exists and is accessible
-
-### **Debug Mode**
-
-Enable debug logging in development:
-
-```typescript
-// In shopifyOAuth.ts
-console.log('OAuth Debug:', { event, shop, success, error });
-```
 
 ## 🔒 Security Best Practices
 
 1. **Never commit `.env` files** to version control
-2. **Use strong encryption keys** for production
+2. **Use GitHub Secrets** for production environment variables
 3. **Regularly rotate** API keys and secrets
 4. **Monitor OAuth events** for suspicious activity
-5. **Implement rate limiting** (already included)
-6. **Use HTTPS** in production (required by Shopify)
+5. **Use HTTPS** in production (required by Shopify)
 
 ## 📄 License
 
-This project is proprietary software for WAW Energy.
+This project is part of my personal portfolio.
 
 ---
 
 ## 🎯 **Ready for Production!**
 
-Your Shopify OAuth integration includes:
+Your portfolio includes:
 
+- ✅ **Automatic GitHub Pages deployment**
 - ✅ **Enterprise-grade security** with encryption and rate limiting
 - ✅ **Professional OAuth flow** following industry standards
 - ✅ **Production monitoring** and error handling
-- ✅ **Automatic cleanup** and token management
 - ✅ **Comprehensive documentation** and troubleshooting
 
 **This is production-ready code that follows Shopify's security guidelines and industry best practices!** 🚀
-=======
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
->>>>>>> 1906dec040657e9bf2a9b66b1a97b1364518b50e

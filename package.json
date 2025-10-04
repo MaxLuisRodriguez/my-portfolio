@@ -1,15 +1,11 @@
 {
-<<<<<<< HEAD
-  "name": "waw-energy-app",
-=======
   "name": "my-portfolio",
->>>>>>> 1906dec040657e9bf2a9b66b1a97b1364518b50e
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://maxluisrodriguez.github.io/my-portfolio",
   "scripts": {
     "dev": "vite",
-<<<<<<< HEAD
     "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -38,35 +34,14 @@
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
     "autoprefixer": "^10.4.21",
-=======
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.30.1",
-    "@types/node": "^24.0.14",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^4.6.0",
->>>>>>> 1906dec040657e9bf2a9b66b1a97b1364518b50e
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
-<<<<<<< HEAD
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3",
-=======
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.1",
->>>>>>> 1906dec040657e9bf2a9b66b1a97b1364518b50e
     "vite": "^7.0.4"
   }
 }
