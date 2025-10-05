@@ -4,9 +4,26 @@ import { Link } from 'react-router-dom';
 const Home: React.FC = () => {
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
-        <div className="container mx-auto px-6 text-center">
+      {/* Hero Section with Banner Image */}
+      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+        {/* Banner Image */}
+        <div className="absolute inset-0 overflow-hidden opacity-20">
+          <img 
+            src="/my-portfolio/images/headshot.jpg" 
+            alt="Max Rodriguez"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Content Overlay */}
+        <div className="relative container mx-auto px-6 text-center">
+          <div className="mb-8">
+            <img 
+              src="/my-portfolio/images/headshot.jpg" 
+              alt="Max Rodriguez"
+              className="w-40 h-40 rounded-full mx-auto object-cover border-4 border-white shadow-xl"
+            />
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
             Max Rodriguez
           </h1>

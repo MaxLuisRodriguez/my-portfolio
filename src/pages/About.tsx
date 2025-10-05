@@ -37,8 +37,12 @@ const About: React.FC = () => {
                 and was a prize winner at the Charleston International Piano Competition.
               </p>
             </div>
-            <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Your Photo Here</span>
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src="/my-portfolio/images/stanford-photo.jpg" 
+                alt="Max Rodriguez at Stanford University"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
