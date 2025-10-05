@@ -39,8 +39,8 @@ const About: React.FC = () => {
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
               <img 
-                src="/my-portfolio/images/stanford-photo.jpg" 
-                alt="Max Rodriguez at Stanford University"
+                src="/my-portfolio/images/headshot.jpg" 
+                alt="Max Rodriguez"
                 className="w-full h-full object-cover"
               />
             </div>

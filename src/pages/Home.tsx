@@ -9,8 +9,8 @@ const Home: React.FC = () => {
         {/* Banner Image */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
           <img 
-            src="/my-portfolio/images/headshot.jpg" 
-            alt="Max Rodriguez"
+            src="/my-portfolio/images/stanford-photo.jpg" 
+            alt="Stanford University"
             className="w-full h-full object-cover"
           />
         </div>
