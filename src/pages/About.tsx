@@ -11,7 +11,8 @@ const About: React.FC = () => {
           {/* Resume Download Button */}
           <div className="text-center mb-12">
             <a
-              href="/my-portfolio/pdfs/September 2025 Resume.pdf"
+            // public\pdfs\February 2026 Resume - Max Rodriguez.pdf
+              href="/my-portfolio/pdfs/February 2026 Resume - Max Rodriguez.pdf"
               download
               className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
             >
