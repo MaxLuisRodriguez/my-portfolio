@@ -12,8 +12,8 @@ const About: React.FC = () => {
           <div className="text-center mb-12">
             <a
             // public\pdfs\February 2026 Resume - Max Rodriguez.pdf
-              href="/my-portfolio/pdfs/February 2026 Resume - Max Rodriguez.pdf"
-              download
+              href="/my-portfolio/pdfs/Max_Rodriguez_Resume_Feb_2026.pdf"
+              download="Max_Rodriguez_Resume_Feb_2026.pdf"
               className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
