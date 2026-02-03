@@ -70,7 +70,6 @@ const Home: React.FC = () => {
               'PyTorch / TensorFlow',
               'Data Preparation',
               'Neural Networks',
-              'Optical Flow',
               'Probabilistic Models',
               'Research & Analysis'
             ].map((skill) => (
