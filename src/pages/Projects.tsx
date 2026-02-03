@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
       period: "Jan 2025 - Mar 2025",
       affiliation: "Stanford University",
       description: "A continuation of my research on temporal AI classification of pianists' fine-motor control. Applied Lucas-Kanade optical flow to capture temporal relationships between keypoint features across sequences. Classified featurized pianist data using a two-branch CNN model to distinguish between beginner and advanced technique levels.",
-      technologies: ["Computer Vision", "CNNs", "Optical Flow", "Research", "Data Preparation", "Python"],
+      technologies: ["Computer Vision", "CNNs", "Research", "Data Preparation", "Python"],
       previewImage: "/my-portfolio/pdfs/CS 131 - Final Presentation (1).pdf",
       links: [
         { label: "GitHub Repository", url: "https://github.com/MaxLuisRodriguez/Updated-CS131-FinProj", type: "github" },
