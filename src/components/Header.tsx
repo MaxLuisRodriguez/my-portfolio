@@ -1,67 +1,105 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { Close, Menu } from './Icons'
 
-const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const navItems = [
+  { id: 'work', label: 'Work' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'research', label: 'Research' },
+  { id: 'about', label: 'About' },
+]
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
+  const resumeUrl = `${import.meta.env.BASE_URL}resume.html`
+
+  useEffect(() => {
+    const sections = navItems
+      .map(({ id }) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
+        if (visible[0]?.target.id) setActiveSection(visible[0].target.id)
+      },
+      { rootMargin: '-28% 0px -58% 0px', threshold: [0.01, 0.2, 0.5] },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMenuOpen(false)
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [])
+
+  const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-gray-800">
-            Discover Max Rodriguez
-          </Link>
+    <header className="site-header">
+      <div className="site-header__inner">
+        <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Max Rodriguez, back to top">
+          <span className="wordmark__monogram" aria-hidden="true">MR</span>
+          <span>Max Rodriguez</span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Home
-            </Link>
-            <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
-              About
-            </Link>
-            <Link to="/projects" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Projects
-            </Link>
-            <Link to="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Contact
-            </Link>
-          </nav>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              aria-current={activeSection === item.id ? 'location' : undefined}
+              href={`#${item.id}`}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a className="nav-resume" href={resumeUrl}>
+            Résumé <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4">
-            <div className="flex flex-col space-y-4">
-              <Link to="/" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Home
-              </Link>
-              <Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors">
-                About
-              </Link>
-              <Link to="/projects" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Projects
-              </Link>
-              <Link to="/contact" className="text-gray-600 hover:text-gray-900 transition-colors">
-                Contact
-              </Link>
-            </div>
-          </nav>
-        )}
+        <button
+          className="menu-button"
+          type="button"
+          aria-controls="mobile-navigation"
+          aria-expanded={isMenuOpen}
+          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+        >
+          {isMenuOpen ? <Close /> : <Menu />}
+        </button>
       </div>
-    </header>
-  );
-};
 
-export default Header;
+      <nav
+        className={`mobile-nav${isMenuOpen ? ' mobile-nav--open' : ''}`}
+        id="mobile-navigation"
+        aria-label="Mobile navigation"
+      >
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            aria-current={activeSection === item.id ? 'location' : undefined}
+            href={`#${item.id}`}
+            onClick={closeMenu}
+          >
+            <span>{item.label}</span>
+            <span aria-hidden="true">0{navItems.indexOf(item) + 1}</span>
+          </a>
+        ))}
+        <a href={resumeUrl} onClick={closeMenu}>
+          <span>Résumé</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </header>
+  )
+}

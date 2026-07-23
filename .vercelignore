@@ -1,0 +1,8 @@
+.git
+.github
+dist
+licenses
+node_modules
+pdfs
+src/assets/images
+README.md

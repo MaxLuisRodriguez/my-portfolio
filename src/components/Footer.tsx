@@ -1,43 +1,35 @@
-import React from 'react';
+import { socialLinks } from '../data/portfolio'
+import { ArrowUpRight } from './Icons'
 
-const Footer: React.FC = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto px-6">
-        <div className="text-center">
-          <p className="text-gray-300">
-            © 2025 Max Rodriguez. All rights reserved.
-          </p>
-          <div className="mt-4 flex justify-center space-x-6">
-            <a 
-              href="https://github.com/MaxLuisRodriguez" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
+    <footer className="site-footer">
+      <div className="site-footer__top">
+        <a className="wordmark wordmark--footer" href="#top" aria-label="Max Rodriguez, back to top">
+          <span className="wordmark__monogram" aria-hidden="true">MR</span>
+          <span>Max Rodriguez</span>
+        </a>
+
+        <div className="footer-links">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
             >
-              GitHub
+              {link.label}
+              {link.href.startsWith('http') && <ArrowUpRight size={14} />}
             </a>
-            <a 
-              href="https://www.linkedin.com/in/max-rodriguez-b05542249/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a 
-              href="https://www.youtube.com/channel/UCHihab0hHAclV74ndEwBvCQ" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              YouTube
-            </a>
-          </div>
+          ))}
         </div>
       </div>
-    </footer>
-  );
-};
 
-export default Footer;
+      <div className="site-footer__bottom">
+        <p>© {new Date().getFullYear()} Max Rodriguez</p>
+        <p>Designed and built with care in California.</p>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  )
+}

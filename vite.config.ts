@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: '/my-portfolio/',
+  base: mode === 'github' ? '/my-portfolio/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    sourcemap: true,
   },
-})
+}))
