@@ -97,8 +97,8 @@ function App() {
                 <img
                   src={headshotUrl}
                   alt="Portrait of Max Rodriguez"
-                  width="1170"
-                  height="986"
+                  width="484"
+                  height="640"
                   fetchPriority="high"
                 />
                 <div className="portrait-stamp" aria-hidden="true">
@@ -241,9 +241,9 @@ function App() {
             <div className="about-photo" data-reveal>
               <img
                 src={stanfordPhotoUrl}
-                alt="Max Rodriguez standing in Stanford’s Main Quad"
-                width="3021"
-                height="1932"
+                alt="Max Rodriguez in cap and gown at Stanford’s Main Quad arcade on graduation day"
+                width="2400"
+                height="1600"
                 loading="lazy"
               />
               <span>Stanford, California</span>
