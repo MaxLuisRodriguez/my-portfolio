@@ -46,8 +46,11 @@ try {
       assert(markup.includes('https://doi.org/10.25740/vk447bc1950'))
       assert(markup.includes('E3 Group') && markup.includes('AI Software Engineer Intern'))
     } else {
-      assert.equal([...markup.matchAll(/<video\b/g)].length, 1)
+      assert.equal([...markup.matchAll(/<video\b/g)].length, 2)
       assert.equal([...markup.matchAll(/aria-pressed="false"/g)].length, 1, 'Reduced-motion mode starts paused')
+      assert(markup.includes('Animate background') && markup.includes('(In progress)'))
+      const hero = markup.slice(markup.indexOf('class="game-hero"'), markup.indexOf('class="game-intro'))
+      assert(!hero.includes('<button'), 'The background slideshow has no overlay button')
       assert(!markup.includes(' autoplay'), 'Autoplay must be controlled by visibility and motion preference')
     }
   }
@@ -57,7 +60,7 @@ try {
     verifyLinks(markup, `${base}${path}`)
     for (const block of markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(block[1])
   }
-  for (const file of ['evensong-environments.mp4']) {
+  for (const file of ['evensong-environments.mp4', 'evensong-warden.mp4']) {
     const bytes = readFileSync(resolve('dist/media', file))
     assert.equal(bytes.subarray(4, 8).toString(), 'ftyp', `MP4 signature: ${file}`)
     assert(bytes.length < 2_000_000, `Unexpected video payload: ${file}`)

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import MotionVideo from './components/MotionVideo'
@@ -8,13 +9,14 @@ const base = import.meta.env.BASE_URL
 const asset = (name: string) => `${base}images/evensong/${name}`
 
 export default function Evensong() {
+  const [backgroundMotion, setBackgroundMotion] = useState(() => !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   return (
     <div className="site-shell game-shell" id="top">
       <a className="skip-link" href="#main-content">Skip to content</a>
       <Header gamePage />
       <main id="main-content">
         <section className="game-hero" aria-labelledby="game-title">
-          <MotionVideo name="Evensong environment slideshow" source={`${base}media/evensong-environments.mp4`} poster={asset('forest.webp')} className="game-hero__film" />
+          <MotionVideo name="Evensong environment slideshow" source={`${base}media/evensong-environments.mp4`} poster={asset('forest.webp')} className="game-hero__film" showControl={false} motionEnabled={backgroundMotion} onMotionChange={setBackgroundMotion} />
           <div className="game-hero__shade" />
           <div className="game-hero__copy">
             <p className="game-kicker">AN INDEPENDENT GAME BY MAX RODRIGUEZ</p>
@@ -48,6 +50,14 @@ export default function Evensong() {
           <a className="game-download" href={`${base}media/evensong-environments.gif`} download="Evensong-Environments.gif">Download the environment slideshow <span>(GIF)</span> <ArrowUpRight size={16} /></a>
         </section>
 
+        <section className="game-combat game-container" id="combat" aria-labelledby="combat-title">
+          <div className="game-section-heading"><div><span className="game-kicker">GAMEPLAY</span><h2 id="combat-title">Warden boss fight</h2></div><p>Player movement and attack patterns in the Warden encounter. <span className="game-progress">(In progress)</span></p></div>
+          <figure className="game-combat__preview">
+            <MotionVideo name="Warden boss gameplay, in progress" source={`${base}media/evensong-warden.mp4`} poster={asset('warden.webp')} />
+            <figcaption><span>Captured during development.</span><a className="game-download" href={`${base}media/evensong-warden.gif`} download="Evensong-Warden-In-Progress.gif">Download gameplay GIF <ArrowUpRight size={16} /></a></figcaption>
+          </figure>
+        </section>
+
         <section className="game-craft game-container" id="craft" aria-labelledby="craft-title">
           <div className="game-section-heading"><div><span className="game-kicker">MY WORK</span><h2 id="craft-title">Design and development</h2></div><p>I work across game design, writing, programming, and visual presentation.</p></div>
           <div className="game-craft__grid">
@@ -56,7 +66,7 @@ export default function Evensong() {
             <article><span>03 / VISUAL PRESENTATION</span><h3>Environments and interface</h3><p>I develop the environments, lighting, interface, and motion. This includes arranging scenes, adjusting visual effects, and making paths and interactive objects easier to identify.</p></article>
             <article><span>04 / DEVELOPMENT TOOLS</span><h3>Testing and validation</h3><p>I build automated tests for game logic and checks for connections between story scenes. Repeatable scene captures help me review visual changes as I revise the game.</p></article>
           </div>
-          <p className="game-build-note">Evensong is in development. The images on this page are in-game captures; the animated preview is a slideshow of those environments.</p>
+          <p className="game-build-note">Evensong is in development. The background slideshow uses in-game environment captures, and the boss preview shows combat recorded during development.</p>
         </section>
 
         <section className="game-contact game-container">
@@ -66,7 +76,7 @@ export default function Evensong() {
           <a className="game-back" href={base}>Back to the portfolio <ArrowRight /></a>
         </section>
       </main>
-      <Footer />
+      <Footer><label className="game-motion-setting"><input type="checkbox" checked={backgroundMotion} onChange={event => setBackgroundMotion(event.target.checked)} />Animate background</label></Footer>
     </div>
   )
 }

@@ -1,10 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 
-type Props = { name: string; source: string; poster: string; className?: string }
+type Props = {
+  name: string
+  source: string
+  poster: string
+  className?: string
+  showControl?: boolean
+  motionEnabled?: boolean
+  onMotionChange?: (enabled: boolean) => void
+}
 
-export default function MotionVideo({ name, source, poster, className = '' }: Props) {
+export default function MotionVideo({ name, source, poster, className = '', showControl = true, motionEnabled, onMotionChange }: Props) {
   const ref = useRef<HTMLVideoElement>(null)
-  const [enabled, setEnabled] = useState(() => !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const [localEnabled, setLocalEnabled] = useState(() => !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  const enabled = motionEnabled ?? localEnabled
+  const setEnabled = onMotionChange ?? setLocalEnabled
   const [failed, setFailed] = useState(false)
   const [loaded, setLoaded] = useState(false)
 
@@ -13,7 +23,7 @@ export default function MotionVideo({ name, source, poster, className = '' }: Pr
     const update = () => setEnabled(!preference.matches)
     preference.addEventListener('change', update)
     return () => preference.removeEventListener('change', update)
-  }, [])
+  }, [setEnabled])
 
   useEffect(() => {
     const video = ref.current
@@ -35,12 +45,12 @@ export default function MotionVideo({ name, source, poster, className = '' }: Pr
     document.addEventListener('visibilitychange', visibility)
     if (!enabled) video.pause()
     return () => { observer.disconnect(); video.pause(); document.removeEventListener('visibilitychange', visibility) }
-  }, [enabled, source, failed])
+  }, [enabled, source, failed, setEnabled])
 
   return (
     <div className={`motion-video ${className}`}>
       {failed ? <img src={poster} alt={name} /> : <video ref={ref} poster={poster} muted loop playsInline preload="none" aria-label={name} onLoadedData={() => setLoaded(true)} onError={() => setFailed(true)} />}
-      {!failed && <button type="button" className="motion-video__control" onClick={() => setEnabled(!enabled)} aria-pressed={enabled} aria-label={`${enabled ? 'Pause' : 'Play'} ${name}`}><span aria-hidden="true">{enabled ? 'Ⅱ' : '▷'}</span>{enabled ? 'Pause motion' : 'Play motion'}</button>}
+      {!failed && showControl && <button type="button" className="motion-video__control" onClick={() => setEnabled(!enabled)} aria-pressed={enabled} aria-label={`${enabled ? 'Pause' : 'Play'} ${name}`}><span aria-hidden="true">{enabled ? 'Ⅱ' : '▷'}</span>{enabled ? 'Pause' : 'Play'}</button>}
       {failed && <span className="motion-video__fallback">Still image · video unavailable</span>}
       <span className="sr-only" role="status">{failed ? 'Video could not load. A still image is displayed.' : loaded ? '' : 'Silent video. A still image appears until playback begins.'}</span>
     </div>

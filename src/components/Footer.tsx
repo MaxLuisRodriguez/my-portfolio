@@ -1,7 +1,8 @@
+import type { ReactNode } from 'react'
 import { socialLinks } from '../data/portfolio'
 import { ArrowUpRight } from './Icons'
 
-export default function Footer() {
+export default function Footer({ children }: { children?: ReactNode }) {
   return (
     <footer className="site-footer">
       <div className="site-footer__top">
@@ -28,6 +29,7 @@ export default function Footer() {
       <div className="site-footer__bottom">
         <p>© {new Date().getFullYear()} Max Rodriguez</p>
         <p>Stanford, California</p>
+        {children}
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>
