@@ -1,0 +1,24 @@
+{
+  "prepared": "2026-09-10",
+  "authorization": "Max requested a short preview of the most polished available boss fight, labeled In progress.",
+  "capture": "evensong-combat/artifacts/overnight-combat/warden-face-assisted",
+  "sequence": "Warden round 2: f002134.png through f002388.png",
+  "timing": "Original frames.csv elapsed_us intervals preserved; sampled at 30 fps for MP4, 12 fps for GIF. No generated motion or speed changes.",
+  "duration_seconds": 6.499817,
+  "capture_settings": "Native 640 x 360; DodgeAssist, ReducedMotion, TextScale 2. Automated engine gameplay capture, not a human-play recording.",
+  "presentation": "Development footage. Existing boss silhouette/background contrast remains in progress. Environment gallery retains only approved Ember Market and Glasswood.",
+  "outputs": {
+    "warden.webp": {
+      "bytes": 86254,
+      "sha256": "64ba354d01c4b9990e8e1ffc321821bba252182b5f79eab8d00d2355635e53fd"
+    },
+    "evensong-warden.mp4": {
+      "bytes": 364092,
+      "sha256": "b71cb79227dfc83f9c747e085e81fdfce3c1ab602abfee9814287036caed576b"
+    },
+    "evensong-warden.gif": {
+      "bytes": 1265424,
+      "sha256": "162211863db184e742d48dec189a0bd8b6312f8e8749113eede77c89e1b11bef"
+    }
+  }
+}

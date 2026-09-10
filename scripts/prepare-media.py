@@ -36,7 +36,7 @@ stills = {
 for name, source in stills.items():
     run('-i', args.game / source, '-c:v', 'libwebp', '-quality', '90', images / f'{name}.webp')
 
-# Only the two environments approved by Max are included in public media.
+# Only the two environments approved by Max are included in the slideshow.
 # This is an explicitly labeled slideshow, not gameplay footage.
 inputs = []
 for name in ['forest', 'market', 'forest']:
@@ -61,10 +61,10 @@ manifest = {
     'prepared': '2026-09-10',
     'game_repository': 'MaxLuisRodriguez/evensong (private; source is not distributed)',
     'stills': stills,
-    'approved_selection': 'Max approved Ember Market and Glasswood in the supplied screenshot. All other captures and gameplay clips are excluded.',
+    'approved_selection': 'Max approved Ember Market and Glasswood for the environment gallery and slideshow. A separately requested boss preview is documented in boss-preview-provenance.json.',
     'edits': '12-second silent slideshow with crossfades between only the two approved in-game stills. MP4: 24 fps. GIF: 6 fps, 640 x 360. No gameplay footage.',
     'thesis_figure': 'Figure from PDF page 10, extracted without content edits.',
-    'outputs': {p.name: {'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted([*images.glob('*.webp'), *media.glob('*')])},
+    'outputs': {p.name: {'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted([*(images / f'{name}.webp' for name in stills), media / 'evensong-environments.mp4', media / 'evensong-environments.gif'])},
 }
 (root / 'content/media-provenance.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
 print(json.dumps({p.name: p.stat().st_size for p in sorted(media.glob('*'))}))

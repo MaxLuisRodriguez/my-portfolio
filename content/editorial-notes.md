@@ -10,5 +10,7 @@
 - `resume.json` is the shared source for the public HTML and one-page PDF. `scripts/build-resume.py` regenerates both; it does not modify the knowledge base.
 - `media-provenance.json` records the exact game capture inputs and processing. Max approved only Ember Market and Glasswood. The hero and downloadable GIF are explicitly labeled slideshows of those two images. Other stills and gameplay clips were removed from the public assets.
 - Evensong copy uses literal descriptions of exploration, branching dialogue, and implementation work, grounded in the game README and design documentation. Removed metaphorical taglines from the page, homepage feature, and social metadata.
+- Max subsequently requested a boss gameplay preview. Added a 6.5-second timestamp-preserving Warden capture, labeled "(In progress)". Source and encoding details are in `boss-preview-provenance.json`. The previously excluded environment stills and hearth/After clips remain excluded.
+- Removed the background slideshow's overlay button. The footer's "Animate background" checkbox controls it, and system reduced-motion preferences still apply.
 - Website and game source repositories remain separate. No game source, internal Bonterra documents, or application-package prose is copied into the public output.
 - User preferences: direct, natural prose; no em dashes in website copy; "Resume" without accents; introduce the project as "am developing a dark pixel-art adventure game, Evensong." Keep continuous dark section backgrounds and a cinematic visual treatment.

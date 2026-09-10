@@ -5,7 +5,7 @@
     "market": "docs/game_overhaul/evidence/FINAL-VISUALS/final/market_lane.png",
     "forest": "docs/game_overhaul/evidence/FINAL-VISUALS/after/glasswood_hearth_clearing.png"
   },
-  "approved_selection": "Max approved Ember Market and Glasswood in the supplied screenshot. All other captures and gameplay clips are excluded.",
+  "approved_selection": "Max approved Ember Market and Glasswood for the environment gallery and slideshow. A separately requested boss preview is documented in boss-preview-provenance.json.",
   "edits": "12-second silent slideshow with crossfades between only the two approved in-game stills. MP4: 24 fps. GIF: 6 fps, 640 x 360. No gameplay footage.",
   "thesis_figure": "Figure from PDF page 10, extracted without content edits.",
   "outputs": {
