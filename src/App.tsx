@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import { ArrowRight, ArrowUpRight } from './components/Icons'
 import ProjectCard from './components/ProjectCard'
+import Publication from './components/Publication'
 import { archive, capabilities, experience, projects, socialLinks } from './data/portfolio'
 
 function resolveHref(href: string) {
@@ -52,27 +53,28 @@ function App() {
           <div className="hero__grid">
             <div className="hero__content">
               <div className="hero__eyebrow">
-                <span className="status-dot" aria-hidden="true" />
-                <span>Machine learning engineer · AI researcher · pianist</span>
+                <span>Max Rodriguez / Engineer, researcher & pianist</span>
               </div>
 
               <h1 id="hero-title">
-                Building intelligent systems around how people
-                <em> learn, decide, and create.</em>
+                AI engineering,<br />
+                applied research,
+                <em>and music.</em>
               </h1>
 
               <p className="hero__lede">
-                Stanford CS master’s student and Symbolic Systems honors graduate working across
-                LLM agents, recommender systems, and human-centered AI.
+                I’m Max, a Stanford CS master’s student and Symbolic Systems honors graduate.
+                I build LLM agents, conduct applied machine learning research, and am developing
+                a dark pixel-art adventure game, Evensong.
               </p>
 
               <div className="hero__actions">
                 <a className="button button--primary" href="#work">
-                  Explore selected work
+                  Explore my work
                   <ArrowRight />
                 </a>
                 <a className="button button--quiet" href={resumeUrl}>
-                  View résumé
+                  View resume
                   <ArrowUpRight />
                 </a>
               </div>
@@ -107,8 +109,8 @@ function App() {
                 </div>
               </div>
               <figcaption>
-                <span>Currently</span>
-                <strong>Building commercial AI workflows at Bonterra</strong>
+                <span>Stanford University</span>
+                <strong>B.S. with Honors ’26 · M.S. Computer Science ’27</strong>
               </figcaption>
             </figure>
           </div>
@@ -123,8 +125,8 @@ function App() {
               <strong>91.3% WebShop success</strong>
             </div>
             <div>
-              <span>Multimodal research</span>
-              <strong>1M+ motion windows</strong>
+              <span>Published research</span>
+              <a href="#publication"><strong>FiMo-Klavier · Stanford SDR ↗</strong></a>
             </div>
             <div>
               <span>Recommender systems</span>
@@ -133,39 +135,47 @@ function App() {
           </div>
         </section>
 
+        <Publication />
+
         <section className="section section--work" id="work" aria-labelledby="work-title">
           <div className="section-heading" data-reveal>
             <div>
-              <span className="section-index">01 / SELECTED WORK</span>
-              <h2 id="work-title">Research that ships ideas, not just models.</h2>
+              <span className="section-index">02 / SELECTED RESEARCH</span>
+              <h2 id="work-title">Selected research.</h2>
             </div>
             <p>
-              Selected systems spanning agentic reinforcement learning, multimodal feedback,
-              scalable recommendation, and compact-model reasoning.
+              My research covers credit assignment for LLM agents, social feed ranking,
+              and mathematical reasoning in small language models.
             </p>
           </div>
 
           <div className="projects-grid">
-            {projects.map((project, index) => (
+            {projects.filter((project) => project.id !== 'fimo-klavier').map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
-                featured={index < 2}
-                reverse={index === 1}
+                featured={index === 0}
               />
             ))}
           </div>
         </section>
 
+        <section className="evensong-teaser" aria-labelledby="evensong-teaser-title">
+          <a className="evensong-teaser__image" href={`${import.meta.env.BASE_URL}evensong/`} aria-label="Explore Evensong, Max’s game development project">
+            <img src={`${import.meta.env.BASE_URL}images/evensong/market.webp`} width="1280" height="720" alt="Lantern-lit market stalls and travelers in Evensong’s pixel-art world" loading="lazy" />
+          </a>
+          <div className="evensong-teaser__copy"><span className="section-index">INDEPENDENT GAME / IN DEVELOPMENT</span><h2 id="evensong-teaser-title">Evensong</h2><p>A world that remembers<br /><em>what you leave behind.</em></p><p className="evensong-teaser__description">I’m developing a dark pixel-art adventure in which your choices change the people and places you return to. Explore the world and my work on its story, game systems, and visual design.</p><a className="button button--light" href={`${import.meta.env.BASE_URL}evensong/`}>Step inside Evensong <ArrowRight /></a></div>
+        </section>
+
         <section className="section section--experience" id="experience" aria-labelledby="experience-title">
           <div className="section-heading section-heading--light" data-reveal>
             <div>
-              <span className="section-index">02 / EXPERIENCE</span>
-              <h2 id="experience-title">Across research labs, product teams, and early-stage companies.</h2>
+              <span className="section-index">03 / EXPERIENCE</span>
+              <h2 id="experience-title">Engineering experience.</h2>
             </div>
             <p>
-              I work best where model quality, system constraints, and the lived reality of a user
-              all matter at once.
+              I’ve built AI tools at Bonterra, ordering and fulfillment software at WAW Life,
+              document-verification pipelines at E3 Group, and tools for academic research.
             </p>
           </div>
 
@@ -192,9 +202,9 @@ function App() {
           </ol>
 
           <div className="experience-cta" data-reveal>
-            <p>Earlier: research at Stanford’s Hoover Institution and teaching piano at Stanford Music.</p>
+            <p>Stanford CS + Social Good Fellow · CURIS Fellow</p>
             <a href={resumeUrl}>
-              Full experience in résumé
+              Full experience in resume
               <ArrowUpRight />
             </a>
           </div>
@@ -203,12 +213,11 @@ function App() {
         <section className="section section--research" id="research" aria-labelledby="research-title">
           <div className="section-heading" data-reveal>
             <div>
-              <span className="section-index">03 / RESEARCH ARCHIVE</span>
+              <span className="section-index">04 / RESEARCH ARCHIVE</span>
               <h2 id="research-title">More experiments, prototypes, and papers.</h2>
             </div>
             <p>
-              The through-line is consistent: build technically rigorous tools that make difficult
-              human skills more understandable and accessible.
+              Earlier work in voice interfaces, computer vision, piano technique, and audio research.
             </p>
           </div>
 
@@ -250,22 +259,22 @@ function App() {
             </div>
 
             <div className="about-copy" data-reveal>
-              <span className="section-index">04 / ABOUT</span>
-              <h2 id="about-title">An engineer shaped by music.</h2>
+              <span className="section-index">05 / ABOUT</span>
+              <h2 id="about-title">Music and computing.</h2>
               <p className="about-copy__lead">
                 I grew up on Whidbey Island, Washington, where limited access to advanced instruction
-                made self-directed learning a necessity—not a slogan.
+                taught me to learn independently. Piano eventually became the subject of my
+                honors research at Stanford.
               </p>
               <p>
-                Classical piano taught me to treat progress as a systems problem: observe carefully,
-                isolate the failure, test a change, and listen again. That loop now informs the way I
-                build machine-learning products—especially tools for learning, creative practice,
-                and high-stakes human decisions.
+                My thesis grew out of a question I knew from practice: how do you improve your
+                technique without an expert beside you? I used video and machine learning to
+                study how feedback could help pianists practice independently.
               </p>
               <p>
                 At Stanford, I completed a B.S. with Honors in Symbolic Systems with an AI
                 concentration, plus minors in Music and German Studies. I’m continuing as a
-                Computer Science M.S. student focused on artificial intelligence.
+                Computer Science M.S. student focused on artificial intelligence, graduating in 2027.
               </p>
 
               <div className="education-note">
@@ -279,7 +288,7 @@ function App() {
           <div className="capabilities" data-reveal>
             <div className="capabilities__intro">
               <span className="section-index">WORKING SET</span>
-              <h3>Tools are only useful in service of a clear problem.</h3>
+              <h3>What I work with.</h3>
             </div>
             {capabilities.map((group) => (
               <div className="capability-group" key={group.label}>
@@ -296,11 +305,11 @@ function App() {
 
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div className="contact-section__content" data-reveal>
-            <span className="section-index">05 / LET’S TALK</span>
-            <h2 id="contact-title">Building something where AI has to earn its place?</h2>
+              <span className="section-index">06 / CONTACT</span>
+            <h2 id="contact-title">Get in touch.</h2>
             <p>
-              I’m always interested in thoughtful engineering work, applied research, and
-              collaborations at the intersection of intelligent systems and human learning.
+              Get in touch about engineering roles, applied research, music technology,
+              or Evensong. Expected M.S. graduation: June 2027.
             </p>
             <a className="contact-link" href="mailto:maxrod@stanford.edu">
               maxrod@stanford.edu

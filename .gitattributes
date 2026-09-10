@@ -1,0 +1,6 @@
+# Preserve byte offsets and media contents across Windows and Linux checkouts.
+*.pdf binary
+*.webp binary
+*.mp4 binary
+*.gif binary
+*.woff2 binary

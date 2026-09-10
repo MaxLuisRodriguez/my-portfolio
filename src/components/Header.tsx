@@ -2,16 +2,18 @@ import { useEffect, useState } from 'react'
 import { Close, Menu } from './Icons'
 
 const navItems = [
+  { id: 'publication', label: 'Thesis' },
   { id: 'work', label: 'Work' },
   { id: 'experience', label: 'Experience' },
   { id: 'research', label: 'Research' },
   { id: 'about', label: 'About' },
 ]
 
-export default function Header() {
+export default function Header({ gamePage = false }: { gamePage?: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const resumeUrl = `${import.meta.env.BASE_URL}resume.html`
+  const sectionHref = (id: string) => `${gamePage ? import.meta.env.BASE_URL : ''}#${id}`
 
   useEffect(() => {
     const sections = navItems
@@ -47,7 +49,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a className="wordmark" href="#top" onClick={closeMenu} aria-label="Max Rodriguez, back to top">
+        <a className="wordmark" href={gamePage ? import.meta.env.BASE_URL : '#top'} onClick={closeMenu} aria-label="Max Rodriguez, portfolio home">
           <span className="wordmark__monogram" aria-hidden="true">MR</span>
           <span>Max Rodriguez</span>
         </a>
@@ -57,13 +59,14 @@ export default function Header() {
             <a
               key={item.id}
               aria-current={activeSection === item.id ? 'location' : undefined}
-              href={`#${item.id}`}
+              href={sectionHref(item.id)}
             >
               {item.label}
             </a>
           ))}
+          <a className="nav-evensong" aria-current={gamePage ? 'page' : undefined} href={`${import.meta.env.BASE_URL}evensong/`}>Evensong</a>
           <a className="nav-resume" href={resumeUrl}>
-            Résumé <span aria-hidden="true">↗</span>
+            Resume <span aria-hidden="true">↗</span>
           </a>
         </nav>
 
@@ -88,15 +91,16 @@ export default function Header() {
           <a
             key={item.id}
             aria-current={activeSection === item.id ? 'location' : undefined}
-            href={`#${item.id}`}
+            href={sectionHref(item.id)}
             onClick={closeMenu}
           >
             <span>{item.label}</span>
             <span aria-hidden="true">0{navItems.indexOf(item) + 1}</span>
           </a>
         ))}
+        <a href={`${import.meta.env.BASE_URL}evensong/`} aria-current={gamePage ? 'page' : undefined} onClick={closeMenu}><span>Evensong</span><span aria-hidden="true">↗</span></a>
         <a href={resumeUrl} onClick={closeMenu}>
-          <span>Résumé</span>
+          <span>Resume</span>
           <span aria-hidden="true">↗</span>
         </a>
       </nav>

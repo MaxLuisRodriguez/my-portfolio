@@ -44,6 +44,7 @@ export default function ProjectCard({ project, featured = false, reverse = false
         </div>
 
         <h3>{project.title}</h3>
+        <p className="project-role">{project.role}</p>
         <p className="project-card__summary">{project.summary}</p>
 
         <dl className="project-metrics" aria-label={`${project.shortTitle} results`}>
@@ -55,6 +56,8 @@ export default function ProjectCard({ project, featured = false, reverse = false
           ))}
         </dl>
 
+        <details className="project-disclosure">
+        <summary>Explore the method & findings</summary>
         <div className="project-narrative">
           <div>
             <h4>Problem</h4>
@@ -69,6 +72,7 @@ export default function ProjectCard({ project, featured = false, reverse = false
             <p>{project.result}</p>
           </div>
         </div>
+        </details>
 
         <div className="project-card__footer">
           <ul className="technology-list" aria-label="Technologies">

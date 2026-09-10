@@ -57,7 +57,7 @@ export const projects: Project[] = [
     summary:
       'A reinforcement-learning framework for assigning goal-aware, per-turn credit to multi-step language agents trained with sparse terminal rewards.',
     challenge:
-      'FlatGRPO gives every turn in a successful trajectory the same advantage—even when some actions are decisive, incidental, or actively harmful.',
+      'FlatGRPO gives every turn in a successful trajectory the same advantage, even when some actions are decisive and others contribute little.',
     approach:
       'We introduced Hybrid Advantage Shaping (HAS), blending stable trajectory-level GRPO credit with TurnRD, a compact bidirectional transformer that decomposes returns across turns. FiLM conditioning lets the credit model interpret each action relative to the agent’s goal.',
     result:
@@ -82,17 +82,17 @@ export const projects: Project[] = [
     number: '02',
     title: 'Turning piano motion into useful technical feedback',
     shortTitle: 'FiMo-Klavier',
-    context: 'Stanford Symbolic Systems honors thesis',
+    context: 'Published Stanford Symbolic Systems honors thesis',
     period: '2026',
     role: 'Sole author & engineer',
     summary:
-      'A video-only machine-learning system that analyzes fine-motor piano technique and generates concise, evidence-grounded feedback for self-regulated practice.',
+      'A video-only system that analyzes piano hand motion and uses the model’s findings to generate technique feedback.',
     challenge:
-      'Most learning tools score musical output. They do not explain how a pianist’s hand, wrist, and finger movement should change—and expert instruction remains inaccessible to many students.',
+      'Many learning tools score musical output without explaining how hand, wrist, and finger movements should change. Expert instruction is difficult for many students to access.',
     approach:
       'I built a multi-stage pipeline: normalized hand-kinematics features, a hybrid BiLSTM–Transformer anomaly detector, a 114-model HMM bank for interpretable evidence, and a gated LLM feedback stage.',
     result:
-      'The system separated lower-level from advanced motion patterns and produced feedback with measurable semantic overlap to human-annotated technical observations, while surfacing clear calibration limits for future work.',
+      'The system separated lower-level from advanced motion patterns. Generated feedback showed semantic overlap with human annotations, although calibration remained a limitation.',
     metrics: [
       { value: '137.2 hrs', label: 'piano video' },
       { value: '1.02M', label: 'motion windows' },
@@ -101,8 +101,8 @@ export const projects: Project[] = [
     technologies: ['PyTorch', 'BiLSTM', 'Transformers', 'HMMs', 'MediaPipe', 'LLM evaluation'],
     links: [
       {
-        label: 'Read honors thesis',
-        href: '/research/fimo-klavier-honors-thesis.pdf',
+        label: 'Read published thesis',
+        href: 'https://purl.stanford.edu/vk447bc1950',
         kind: 'paper',
       },
       {
@@ -115,8 +115,8 @@ export const projects: Project[] = [
   },
   {
     id: 'feed-ranking',
-    number: '03',
-    title: 'Ranking social feeds without losing sight of people',
+    number: '02',
+    title: 'Comparing models for social feed ranking',
     shortTitle: 'Interaction FITs the Trend',
     context: 'Stanford Social Media Lab · GreenEarth Social',
     period: '2025–2026',
@@ -146,7 +146,7 @@ export const projects: Project[] = [
   },
   {
     id: 'compact-reasoning',
-    number: '04',
+    number: '03',
     title: 'Bootstrapping reasoning in a 0.5B model',
     shortTitle: 'Compact Model Reasoning',
     context: 'Stanford CS224N · Team of three',
@@ -180,22 +180,22 @@ export const projects: Project[] = [
 export const experience: Experience[] = [
   {
     organization: 'Bonterra · Commercial AI',
-    role: 'Summer Intern',
-    period: 'Summer 2026',
+    role: 'AI Software Engineer Intern',
+    period: 'Jun–Sep 2026',
     summary:
-      'Prototyping role-aware AI workflows that help go-to-market teams prepare, decide, and act with less tool switching.',
+      'Built AI tools for nonprofit software workflows as a Stanford CS + Social Good Fellow.',
     highlights: [
-      'Conducting stakeholder discovery across distinct sales motions and translating field research into product requirements.',
-      'Designing concise, source-aware agent experiences around the time and attention constraints of real users.',
+      'Built a TypeScript/React pre-call briefing system over Salesforce and Gong data, with role-specific briefs and attributable sources.',
+      'Implemented a live call-coaching agent and validated it with unit, integration, and security tests.',
     ],
   },
   {
     organization: 'Stanford Social Media Lab',
     role: 'Research Assistant & AI Systems Engineer',
-    period: '2025 — present',
+    period: '2025–present',
     location: 'Stanford, CA',
     summary:
-      'Building transparent, deployment-minded recommender systems for research into how feed-ranking algorithms shape online behavior.',
+      'Studying how recommendation models rank social feeds, including prediction quality, retrieval cost, and differences across users.',
     highlights: [
       'Developed and evaluated pointwise, two-tower, and collaborative-filtering recommendation architectures.',
       'Built privacy-preserving media pipelines and monitoring infrastructure for research-scale social data.',
@@ -203,14 +203,25 @@ export const experience: Experience[] = [
   },
   {
     organization: 'WAW LIFE, Inc.',
-    role: 'Chief Software Engineer & Product Strategist',
-    period: '2025 — 2026',
+    role: 'Software Engineering & Product Lead',
+    period: 'Jun 2025–present',
     location: 'Stanford, CA',
     summary:
-      'Owned product engineering and technical strategy for an early-stage consumer brand.',
+      'Leading product engineering for a consumer brand, from the storefront to ordering and fulfillment.',
     highlights: [
-      'Built a React, Node.js, and Supabase web platform and delivery experience.',
-      'Created automated competitive-intelligence pipelines and decision dashboards for company leadership.',
+      'Designed and built wawbeverage.com with React, TypeScript, a custom GLSL hero, and Shopify checkout.',
+      'Built a Next.js and Supabase VIP-ordering PWA with magic-link authentication, customer/admin roles, fulfillment tools, and webhook order routing.',
+    ],
+  },
+  {
+    organization: 'E3 Group',
+    role: 'Software Engineer, Contract',
+    period: 'Jun–Jul 2026',
+    location: 'SF Bay Area',
+    summary: 'Built document-verification workflows for driver-license documents.',
+    highlights: [
+      'Combined OCR, barcode decoding, and LLM extraction in a multi-stage verification pipeline.',
+      'Developed image augmentation and stage-level benchmarks to identify failure modes and improve extraction reliability.',
     ],
   },
   {
@@ -233,7 +244,7 @@ export const archive: ArchiveItem[] = [
     title: 'AI-Capella',
     type: 'Human-computer interaction',
     description:
-      'A confidence-centered voice-AI coaching experience. Full-stack contributor on a team recognized with Best Demo at Stanford’s CS147 dt + UX Awards.',
+      'An AI voice coach for singing practice. I contributed full-stack development on a team that won Best Demo at Stanford’s CS147 dt + UX Awards.',
     href: '/research/ai-capella-final-report.pdf',
     label: 'Read project report',
   },

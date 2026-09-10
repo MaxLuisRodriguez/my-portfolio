@@ -25,3 +25,6 @@ docs
 *.sw?
 .vercel
 .env*
+tmp/
+output/
+__pycache__/

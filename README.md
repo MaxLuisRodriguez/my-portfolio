@@ -10,7 +10,9 @@ Symbolic Systems honors graduate, and Computer Science M.S. student.
 - Evidence-led case studies for LLM-agent reinforcement learning, multimodal piano feedback,
   scalable recommendation, and compact-model reasoning.
 - A responsive experience and research archive.
-- A print-optimized HTML résumé at `/resume.html`.
+- A publication feature linking FiMo-Klavier to its Stanford repository record and DOI.
+- A dedicated Evensong page at `/evensong/` with in-game imagery, lightweight motion, and development context.
+- A web résumé at `/resume.html` and one-page download at `/Max-Rodriguez-Resume.pdf`.
 - Deployment configurations for both Vercel (root path) and GitHub Pages (`/my-portfolio/`).
 - Accessible navigation, reduced-motion support, structured metadata, and no non-functional
   contact form.
@@ -58,8 +60,20 @@ project to be connected to this repository or a manual authenticated deployment.
 
 ## Content notes
 
-Portfolio claims are grounded in Max's July 2026 knowledge base and research reports. Internal
+Portfolio claims are grounded in Max's September 2026 knowledge base, research reports, and SDR publication notices. Internal
 Bonterra material is intentionally represented only at a high level. Academic team projects are
 described as collaborative work.
 
 Self-hosted Inter and Newsreader font licenses are included in `licenses/`.
+
+## Updating the résumé and media
+
+Edit `content/resume.json`, then run `python scripts/build-resume.py` with ReportLab installed.
+This generates the matching HTML and PDF. Game assets are prepared with
+`scripts/prepare-media.py --game PATH --thesis PATH` using pypdf and imageio-ffmpeg;
+the original game files are read-only inputs. See `content/media-provenance.json` and
+`content/editorial-notes.md` for source details.
+
+After the standard production build, `node scripts/verify-site.mjs` checks local links,
+anchors, assets, and rendered page structure without a browser. After `npm run build:github`,
+run `node scripts/verify-site.mjs --github` to check the repository base path.
