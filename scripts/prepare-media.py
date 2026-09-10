@@ -15,7 +15,7 @@ from pypdf import PdfReader
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--game', type=Path, required=True)
-parser.add_argument('--thesis', type=Path, required=True)
+parser.add_argument('--thesis', type=Path, help='Optional thesis PDF, when regenerating its figure too')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 images = root / 'public/images/evensong'
@@ -32,47 +32,37 @@ def run(*options):
 stills = {
     'market': 'docs/game_overhaul/evidence/FINAL-VISUALS/final/market_lane.png',
     'forest': 'docs/game_overhaul/evidence/FINAL-VISUALS/after/glasswood_hearth_clearing.png',
-    'water': 'docs/game_overhaul/evidence/FINAL-VISUALS/final/water-controls/glasswood_pools.png',
 }
 for name, source in stills.items():
     run('-i', args.game / source, '-c:v', 'libwebp', '-quality', '90', images / f'{name}.webp')
 
-clips = {
-    'hearth': 'docs/game_overhaul/evidence/OVERNIGHT-VISUALS/native-final-normal/uninterrupted.mp4',
-    'after': 'docs/game_overhaul/evidence/OVERNIGHT-VISUALS/native-final-after/uninterrupted.mp4',
-}
-for name, source in clips.items():
-    run('-ss', '3', '-i', args.game / source, '-t', '9', '-an', '-vf', 'fps=24,scale=960:540:flags=neighbor',
-        '-c:v', 'libx264', '-crf', '23', '-preset', 'medium', '-pix_fmt', 'yuv420p',
-        '-movflags', '+faststart', media / f'evensong-{name}.mp4')
-    run('-ss', '1', '-i', media / f'evensong-{name}.mp4', '-frames:v', '1',
-        '-c:v', 'libwebp', '-quality', '90', images / f'{name}.webp')
-
-# An explicitly labeled animated still montage, not simulated gameplay.
+# Only the two environments approved by Max are included in public media.
+# This is an explicitly labeled slideshow, not gameplay footage.
 inputs = []
-for name in ['forest', 'market', 'water', 'forest']:
+for name in ['forest', 'market', 'forest']:
     inputs += ['-loop', '1', '-framerate', '24', '-t', '5', '-i', str(images / f'{name}.webp')]
-filters = ';'.join(f'[{i}:v]scale=1280:720,format=yuv420p,setsar=1,settb=1/24[v{i}]' for i in range(4))
-filters += ';[v0][v1]xfade=transition=fade:duration=1:offset=4[x1];[x1][v2]xfade=transition=fade:duration=1:offset=8[x2];[x2][v3]xfade=transition=fade:duration=1:offset=12[out]'
-run(*inputs, '-filter_complex', filters, '-map', '[out]', '-t', '16', '-an', '-c:v', 'libx264',
-    '-crf', '25', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', media / 'evensong-worlds.mp4')
+filters = ';'.join(f'[{i}:v]scale=1280:720,format=yuv420p,setsar=1,settb=1/24[v{i}]' for i in range(3))
+filters += ';[v0][v1]xfade=transition=fade:duration=1:offset=4[x1];[x1][v2]xfade=transition=fade:duration=1:offset=8[out]'
+run(*inputs, '-filter_complex', filters, '-map', '[out]', '-t', '12', '-an', '-c:v', 'libx264',
+    '-crf', '25', '-preset', 'medium', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', media / 'evensong-environments.mp4')
 
 # A small shareable GIF is separate from the more efficient on-page MP4.
-run('-i', media / 'evensong-hearth.mp4', '-t', '6', '-filter_complex',
-    'fps=10,scale=640:360:flags=neighbor,split[a][b];[a]palettegen=max_colors=96[p];[b][p]paletteuse=dither=bayer',
-    '-loop', '0', media / 'evensong-hearth.gif')
+run('-i', media / 'evensong-environments.mp4', '-t', '12', '-filter_complex',
+    'fps=6,scale=640:360:flags=neighbor,split[a][b];[a]palettegen=max_colors=96[p];[b][p]paletteuse=dither=bayer',
+    '-loop', '0', media / 'evensong-environments.gif')
 
-with tempfile.TemporaryDirectory() as temp:
-    diagram = Path(temp) / 'landmarks.png'
-    diagram.write_bytes(PdfReader(args.thesis).pages[9].images[0].data)
-    run('-i', diagram, '-c:v', 'libwebp', '-quality', '88', root / 'public/images/fimo-hand-landmarks.webp')
+if args.thesis:
+    with tempfile.TemporaryDirectory() as temp:
+        diagram = Path(temp) / 'landmarks.png'
+        diagram.write_bytes(PdfReader(args.thesis).pages[9].images[0].data)
+        run('-i', diagram, '-c:v', 'libwebp', '-quality', '88', root / 'public/images/fimo-hand-landmarks.webp')
 
 manifest = {
     'prepared': '2026-09-10',
     'game_repository': 'MaxLuisRodriguez/evensong (private; source is not distributed)',
     'stills': stills,
-    'gameplay_sources': clips,
-    'edits': 'Gameplay: seconds 3-12, silent, 24 fps. Worlds: crossfades between in-game stills. GIF: first six seconds of hearth edit.',
+    'approved_selection': 'Max approved Ember Market and Glasswood in the supplied screenshot. All other captures and gameplay clips are excluded.',
+    'edits': '12-second silent slideshow with crossfades between only the two approved in-game stills. MP4: 24 fps. GIF: 6 fps, 640 x 360. No gameplay footage.',
     'thesis_figure': 'Figure from PDF page 10, extracted without content edits.',
     'outputs': {p.name: {'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted([*images.glob('*.webp'), *media.glob('*')])},
 }

@@ -3,51 +3,27 @@
   "game_repository": "MaxLuisRodriguez/evensong (private; source is not distributed)",
   "stills": {
     "market": "docs/game_overhaul/evidence/FINAL-VISUALS/final/market_lane.png",
-    "forest": "docs/game_overhaul/evidence/FINAL-VISUALS/after/glasswood_hearth_clearing.png",
-    "water": "docs/game_overhaul/evidence/FINAL-VISUALS/final/water-controls/glasswood_pools.png"
+    "forest": "docs/game_overhaul/evidence/FINAL-VISUALS/after/glasswood_hearth_clearing.png"
   },
-  "gameplay_sources": {
-    "hearth": "docs/game_overhaul/evidence/OVERNIGHT-VISUALS/native-final-normal/uninterrupted.mp4",
-    "after": "docs/game_overhaul/evidence/OVERNIGHT-VISUALS/native-final-after/uninterrupted.mp4"
-  },
-  "edits": "Gameplay: seconds 3-12, silent, 24 fps. Worlds: crossfades between in-game stills. GIF: first six seconds of hearth edit.",
+  "approved_selection": "Max approved Ember Market and Glasswood in the supplied screenshot. All other captures and gameplay clips are excluded.",
+  "edits": "12-second silent slideshow with crossfades between only the two approved in-game stills. MP4: 24 fps. GIF: 6 fps, 640 x 360. No gameplay footage.",
   "thesis_figure": "Figure from PDF page 10, extracted without content edits.",
   "outputs": {
-    "after.webp": {
-      "bytes": 107360,
-      "sha256": "42de8813877a0e01b89ceac5c143aa61fa5c616ae357316d38d1cf35e9529d0b"
-    },
     "forest.webp": {
       "bytes": 106346,
       "sha256": "2411157c5744898d6bfb111ba3b8f5dcbebfa73c6e66f8fa0a08f146bf101e7a"
-    },
-    "hearth.webp": {
-      "bytes": 94130,
-      "sha256": "8ca47f21efb669f59a3ad3559ae432d138fa8748436c77528abb47b0896d4f9b"
     },
     "market.webp": {
       "bytes": 51280,
       "sha256": "050ba19ee54bbf77a19563386cb4570b052c1de634d0b3c8e23bb61a4168172f"
     },
-    "water.webp": {
-      "bytes": 146388,
-      "sha256": "256bb0828afa321d045c1ff500364cbde6e741e0b75ffb2f8ab4a21f2e468310"
+    "evensong-environments.gif": {
+      "bytes": 1435827,
+      "sha256": "63a1cf9d16f1cecd8caa6db99b121c841ae9285260fa73146924e17af7e390f3"
     },
-    "evensong-after.mp4": {
-      "bytes": 243034,
-      "sha256": "d5365939d991613007bcdf3add0f5b5cd86fb3988b8dbefdd8db72dbb10fc33e"
-    },
-    "evensong-hearth.gif": {
-      "bytes": 492980,
-      "sha256": "19d1a63113d9927365f3b5d28bec70b7b17466cc2b233169b157d1fb3b4dbf21"
-    },
-    "evensong-hearth.mp4": {
-      "bytes": 284414,
-      "sha256": "9b9f57fbf9399e3746864b9569f164effeae51a49d7cd384e21484d770cda455"
-    },
-    "evensong-worlds.mp4": {
-      "bytes": 1339309,
-      "sha256": "182d8d8f69b6afb3aeb1e5d42ef0d3bae7be365b0584a5539d253dcea57d6826"
+    "evensong-environments.mp4": {
+      "bytes": 808857,
+      "sha256": "a6555f782a16b2c18c8884ee0293b9c1df3686bac63685cf50ea848de4ec397f"
     }
   }
 }
