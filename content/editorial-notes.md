@@ -8,6 +8,7 @@
 - Publication status, repository URL, DOI, access, and CC0 license come from Max's SDR approval/publication notices. The repository page returned HTTP 200 and contains both FiMo-Klavier and the DOI.
 - Local thesis PDF matches the knowledge-base copy byte-for-byte. The illustration on the page is extracted from PDF page 10 and identified as a thesis figure.
 - `resume.json` is the shared source for the public HTML and one-page PDF. `scripts/build-resume.py` regenerates both; it does not modify the knowledge base.
-- `media-provenance.json` records the exact game capture inputs and processing. The world montage is labeled as animated in-game captures; the other clips are actual gameplay, silently trimmed to nine seconds.
+- `media-provenance.json` records the exact game capture inputs and processing. Max approved only Ember Market and Glasswood. The hero and downloadable GIF are explicitly labeled slideshows of those two images. Other stills and gameplay clips were removed from the public assets.
+- Evensong copy uses literal descriptions of exploration, branching dialogue, and implementation work, grounded in the game README and design documentation. Removed metaphorical taglines from the page, homepage feature, and social metadata.
 - Website and game source repositories remain separate. No game source, internal Bonterra documents, or application-package prose is copied into the public output.
 - User preferences: direct, natural prose; no em dashes in website copy; "Resume" without accents; introduce the project as "am developing a dark pixel-art adventure game, Evensong." Keep continuous dark section backgrounds and a cinematic visual treatment.

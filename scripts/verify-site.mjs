@@ -46,8 +46,8 @@ try {
       assert(markup.includes('https://doi.org/10.25740/vk447bc1950'))
       assert(markup.includes('E3 Group') && markup.includes('AI Software Engineer Intern'))
     } else {
-      assert.equal([...markup.matchAll(/<video\b/g)].length, 3)
-      assert.equal([...markup.matchAll(/aria-pressed="false"/g)].length, 3, 'Reduced-motion mode starts paused')
+      assert.equal([...markup.matchAll(/<video\b/g)].length, 1)
+      assert.equal([...markup.matchAll(/aria-pressed="false"/g)].length, 1, 'Reduced-motion mode starts paused')
       assert(!markup.includes(' autoplay'), 'Autoplay must be controlled by visibility and motion preference')
     }
   }
@@ -57,7 +57,7 @@ try {
     verifyLinks(markup, `${base}${path}`)
     for (const block of markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(block[1])
   }
-  for (const file of ['evensong-worlds.mp4', 'evensong-hearth.mp4', 'evensong-after.mp4']) {
+  for (const file of ['evensong-environments.mp4']) {
     const bytes = readFileSync(resolve('dist/media', file))
     assert.equal(bytes.subarray(4, 8).toString(), 'ftyp', `MP4 signature: ${file}`)
     assert(bytes.length < 2_000_000, `Unexpected video payload: ${file}`)

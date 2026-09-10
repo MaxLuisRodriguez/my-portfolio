@@ -164,7 +164,7 @@ function App() {
           <a className="evensong-teaser__image" href={`${import.meta.env.BASE_URL}evensong/`} aria-label="Explore Evensong, Max’s game development project">
             <img src={`${import.meta.env.BASE_URL}images/evensong/market.webp`} width="1280" height="720" alt="Lantern-lit market stalls and travelers in Evensong’s pixel-art world" loading="lazy" />
           </a>
-          <div className="evensong-teaser__copy"><span className="section-index">INDEPENDENT GAME / IN DEVELOPMENT</span><h2 id="evensong-teaser-title">Evensong</h2><p>A world that remembers<br /><em>what you leave behind.</em></p><p className="evensong-teaser__description">I’m developing a dark pixel-art adventure in which your choices change the people and places you return to. Explore the world and my work on its story, game systems, and visual design.</p><a className="button button--light" href={`${import.meta.env.BASE_URL}evensong/`}>Step inside Evensong <ArrowRight /></a></div>
+          <div className="evensong-teaser__copy"><span className="section-index">INDEPENDENT GAME / IN DEVELOPMENT</span><h2 id="evensong-teaser-title">Evensong</h2><p>A narrative adventure<br />in pixel art.</p><p className="evensong-teaser__description">I’m designing and developing a game about exploration, branching dialogue, and decisions that affect later encounters. See the environments and my work on the story, C# game systems, and visual presentation.</p><a className="button button--light" href={`${import.meta.env.BASE_URL}evensong/`}>Explore Evensong <ArrowRight /></a></div>
         </section>
 
         <section className="section section--experience" id="experience" aria-labelledby="experience-title">
