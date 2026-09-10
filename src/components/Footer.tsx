@@ -27,7 +27,7 @@ export default function Footer() {
 
       <div className="site-footer__bottom">
         <p>© {new Date().getFullYear()} Max Rodriguez</p>
-        <p>Designed and built with care in California.</p>
+        <p>Stanford, California</p>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>

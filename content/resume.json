@@ -1,0 +1,71 @@
+{
+  "name": "Max Rodriguez",
+  "headline": "Software Engineer | AI Systems & Applied Research",
+  "email": "maxrod@stanford.edu",
+  "website": "https://max-rodriguez-portfolio.vercel.app",
+  "github": "https://github.com/MaxLuisRodriguez",
+  "linkedin": "https://www.linkedin.com/in/max-rodriguez-b05542249/",
+  "updated": "September 2026",
+  "education": [
+    { "degree": "M.S. Computer Science, Artificial Intelligence", "date": "Expected 2027", "detail": "Stanford University | GPA 3.865 / 4.00" },
+    { "degree": "B.S. Symbolic Systems, Artificial Intelligence, with Honors", "date": "2026", "detail": "Stanford University | GPA 3.974 / 4.00 | Minors: Music and German Studies" }
+  ],
+  "experience": [
+    {
+      "organization": "Bonterra",
+      "role": "AI Software Engineer Intern | Stanford CS + Social Good Fellow",
+      "date": "Jun - Sep 2026",
+      "bullets": [
+        "Built TypeScript/React AI tools for nonprofit software workflows, including an agentic pre-call briefing system over Salesforce and Gong with role-specific briefs and attributable sources.",
+        "Implemented a live call-coaching agent; validated behavior with unit, integration, and security tests and translated stakeholder discovery into product requirements."
+      ]
+    },
+    {
+      "organization": "WAW Life, Inc.",
+      "role": "Software Engineering & Product Lead",
+      "date": "Jun 2025 - Present",
+      "bullets": [
+        "Designed and built wawbeverage.com with React, TypeScript, Vite, a custom GLSL hero, and Shopify checkout.",
+        "Built and deployed a Next.js/Supabase VIP-ordering PWA with magic-link authentication, customer/admin roles, fulfillment tooling, and Make.com webhook order routing."
+      ]
+    },
+    {
+      "organization": "E3 Group",
+      "role": "Software Engineer, Contract",
+      "date": "Jun - Jul 2026",
+      "bullets": [
+        "Built multi-stage driver-license verification workflows combining OCR, barcode decoding, and LLM extraction; developed image augmentation and stage-level benchmarks to diagnose extraction failures."
+      ]
+    },
+    {
+      "organization": "Stanford Social Media Lab",
+      "role": "Research Assistant & AI Systems Engineer | CURIS Fellow",
+      "date": "Jun 2025 - Present",
+      "bullets": [
+        "Benchmarked four feed-ranking architectures across 169,787 target interactions and 8,214 users; best fully interacted two-tower model reached 0.8339 holdout AUC.",
+        "Trained a PyTorch image-text classifier 1.94x faster than a scikit-learn baseline; engineered a Torch/PIL anonymization pipeline over 100,000+ posts."
+      ]
+    }
+  ],
+  "research": [
+    {
+      "title": "FiMo-Klavier | Published Stanford Honors Thesis",
+      "text": "Sole author of a video-only piano technique feedback system spanning 137 hours and 1.02M motion windows: MediaPipe features, BiLSTM-Transformer anomaly detection, 114 Gaussian HMMs, and gated LLM feedback.",
+      "link": "https://doi.org/10.25740/vk447bc1950",
+      "linkLabel": "DOI: 10.25740/vk447bc1950"
+    },
+    {
+      "title": "Hybrid Advantage Shaping | LLM-Agent Reinforcement Learning",
+      "text": "Co-developed goal-conditioned per-turn credit assignment. Team results improved WebShop success from 80.5% to 91.3% and ALFWorld from 70% to 80% over flatGRPO (Qwen2.5-1.5B, rank-32 LoRA)."
+    },
+    {
+      "title": "Evensong | Independent Game Development",
+      "text": "Designing and developing a narrative pixel-art adventure in Godot/C#: persistent world state, Ink dialogue, environment presentation, and automated story-validation tools. In development."
+    }
+  ],
+  "skills": [
+    { "label": "Engineering", "text": "Python, TypeScript/JavaScript, C/C++, C#, SQL, React, Next.js, Node.js, FastAPI, Supabase, Docker, Git" },
+    { "label": "AI/ML", "text": "PyTorch, Transformers, Hugging Face, LoRA, PPO/GRPO/DAPO, retrieval, computer vision, OCR, LLM agents" },
+    { "label": "Practice & honors", "text": "Unit/integration testing, benchmarking, failure analysis | Cardinal Quarter Fellow, CS147 Best Demo, HSF Scholar" }
+  ]
+}

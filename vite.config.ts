@@ -5,6 +5,9 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: mode === 'github' ? '/my-portfolio/' : '/',
   build: {
+    rolldownOptions: {
+      input: { portfolio: 'index.html', evensong: 'evensong/index.html' },
+    },
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: true,

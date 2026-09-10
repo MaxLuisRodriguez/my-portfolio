@@ -7,7 +7,7 @@ type ProjectVisualProps = {
 function AgentsVisual() {
   return (
     <div className="project-visual project-visual--agents" role="img" aria-label="Diagram showing goal-aware credit assigned across an agent trajectory">
-      <div className="visual-kicker">TURN-LEVEL CREDIT</div>
+      <div className="visual-kicker">TURN-LEVEL CREDIT / CONCEPTUAL SCHEMATIC</div>
       <svg className="agents-map" viewBox="0 0 760 420">
         <defs>
           <linearGradient id="agent-line" x1="0" x2="1">
@@ -18,12 +18,12 @@ function AgentsVisual() {
         <path d="M82 310 C180 290 218 116 328 132 S478 310 672 84" fill="none" opacity=".38" stroke="#85817a" strokeDasharray="4 10" strokeWidth="2" />
         <path d="M82 310 C186 310 225 234 328 236 S480 202 672 84" fill="none" stroke="url(#agent-line)" strokeWidth="3" />
         {[
-          [82, 310, '01', '-.08'],
-          [205, 284, '02', '+.12'],
-          [328, 236, '03', '+.91'],
-          [470, 218, '04', '-.04'],
-          [578, 150, '05', '+.68'],
-          [672, 84, '06', '+1.0'],
+          [82, 310, '01', ''],
+          [205, 284, '02', ''],
+          [328, 236, '03', 'key turn'],
+          [470, 218, '04', ''],
+          [578, 150, '05', ''],
+          [672, 84, '06', ''],
         ].map(([x, y, step, credit], index) => (
           <g key={String(step)}>
             <circle cx={x} cy={y} fill={index === 2 || index === 5 ? '#e54b4b' : '#242321'} r={index === 2 || index === 5 ? '10' : '7'} stroke="#f6f2e9" strokeWidth="2" />
