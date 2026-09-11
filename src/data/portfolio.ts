@@ -226,14 +226,14 @@ export const experience: Experience[] = [
   },
   {
     organization: 'Technische Universität Berlin',
-    role: 'Research & App Development Intern',
-    period: 'Summer 2024',
+    role: 'Functional Sound Research / App Development Intern',
+    period: 'Jun - Sep 2024',
     location: 'Berlin, Germany',
     summary:
       'Built research tools for the Audio Communication Group’s functional-sound design work.',
     highlights: [
       'Created a real-time Mahalanobis-distance recommender for UX sounds.',
-      'Developed a frequency-layer watermarking workflow used to protect a 2,000-sound licensed corpus.',
+      'Developed an audio watermarking application for copyrighted research sounds.',
     ],
   },
 ]
@@ -271,9 +271,9 @@ export const archive: ArchiveItem[] = [
     title: 'Somunicate',
     type: 'Audio research · product engineering',
     description:
-      'A pair of Streamlit research applications for functional-sound recommendation and robust audio watermarking.',
-    href: 'https://www.tu.berlin/en/ak/research/projects/somunicate',
-    label: 'View research',
+      'Functional-sound recommendation and audio watermarking research tools, with a React sound-design demo and an audited Node ranking engine.',
+    href: 'https://max-rodriguez-portfolio.vercel.app/somunicate/',
+    label: 'Explore sounds',
   },
 ]
 

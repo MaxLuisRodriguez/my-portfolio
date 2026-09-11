@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => ({
   base: mode === 'github' ? '/my-portfolio/' : '/',
   build: {
     rolldownOptions: {
-      input: { portfolio: 'index.html', evensong: 'evensong/index.html' },
+      input: { portfolio: 'index.html', evensong: 'evensong/index.html', somunicate: 'somunicate/index.html' },
     },
     outDir: 'dist',
     assetsDir: 'assets',
