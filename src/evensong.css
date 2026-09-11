@@ -1,6 +1,8 @@
 .game-shell { --game-ink: #f4e9d9; --game-muted: #bdb1c5; --game-gold: #dfba83; background: radial-gradient(ellipse 1000px 1600px at 0% 40%, #344b3935, transparent 85%), radial-gradient(ellipse 1200px 1300px at 100% 70%, #4b294335, transparent 85%), #141018; color: var(--game-ink); }
 .game-shell .site-header { background: rgb(20 16 24 / 96%); border-color: #3d3245; }
 .game-shell .wordmark, .game-shell .desktop-nav > a, .game-shell .menu-button { color: var(--game-ink); }
+.game-shell .desktop-nav .nav-resume { color: #24182a; background: #f1dfc2; }
+.game-shell .desktop-nav .nav-resume:hover, .game-shell .desktop-nav .nav-resume:focus-visible { color: #24182a; background: #fff; }
 .game-shell .wordmark__monogram { background: #e8d3b6; color: #24182a; }
 .game-shell .desktop-nav a[aria-current=page] { color: var(--game-gold); }
 .game-shell .desktop-nav a[aria-current=page]::after { transform: scaleX(1); background: var(--game-gold); }
