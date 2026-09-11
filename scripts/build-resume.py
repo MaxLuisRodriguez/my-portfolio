@@ -18,11 +18,11 @@ styles = {
     'name': ParagraphStyle('name', fontName='Helvetica-Bold', fontSize=23, leading=27, textColor=colors.HexColor('#20242b'), alignment=TA_CENTER, spaceAfter=3),
     'headline': ParagraphStyle('headline', fontName='Helvetica', fontSize=10, leading=13, alignment=TA_CENTER, spaceAfter=4),
     'contact': ParagraphStyle('contact', fontName='Helvetica', fontSize=9, leading=12, alignment=TA_CENTER, spaceAfter=8),
-    'section': ParagraphStyle('section', fontName='Helvetica-Bold', fontSize=9.3, leading=12, textColor=colors.HexColor('#a40b16'), spaceBefore=8, spaceAfter=5),
-    'title': ParagraphStyle('title', fontName='Helvetica-Bold', fontSize=10, leading=12.5, spaceAfter=1),
-    'role': ParagraphStyle('role', fontName='Helvetica-Oblique', fontSize=9.2, leading=11.5, spaceAfter=3),
-    'body': ParagraphStyle('body', fontName='Helvetica', fontSize=9.5, leading=12.2, spaceAfter=3),
-    'bullet': ParagraphStyle('bullet', fontName='Helvetica', fontSize=9.5, leading=12.2, leftIndent=9, firstLineIndent=-9, spaceAfter=2),
+    'section': ParagraphStyle('section', fontName='Helvetica-Bold', fontSize=9.3, leading=12, textColor=colors.HexColor('#a40b16'), spaceBefore=6, spaceAfter=4),
+    'title': ParagraphStyle('title', fontName='Helvetica-Bold', fontSize=10, leading=11.5, spaceAfter=1),
+    'role': ParagraphStyle('role', fontName='Helvetica-Oblique', fontSize=9.2, leading=10.8, spaceAfter=2),
+    'body': ParagraphStyle('body', fontName='Helvetica', fontSize=9.5, leading=11.4, spaceAfter=3),
+    'bullet': ParagraphStyle('bullet', fontName='Helvetica', fontSize=9.5, leading=11.4, leftIndent=9, firstLineIndent=-9, spaceAfter=2),
 }
 
 
@@ -39,14 +39,14 @@ story.append(para('EXPERIENCE', 'section'))
 for e in d['experience']:
     block = [para(f'{esc(e["organization"])} <font name="Helvetica">| {esc(e["date"])}</font>', 'title'), para(esc(e['role']), 'role')]
     block += [para('- ' + esc(b), 'bullet') for b in e['bullets']]
-    block.append(Spacer(1, 3))
+    block.append(Spacer(1, 1))
     story.append(KeepTogether(block))
 story.append(para('RESEARCH & PROJECTS', 'section'))
 for p in d['research']:
     body = esc(p['text'])
     if p.get('link'):
         body += f' <link color="#a40b16" href="{p["link"]}">{esc(p["linkLabel"])}</link>.'
-    story.append(KeepTogether([para(esc(p['title']), 'title'), para(body), Spacer(1, 2)]))
+    story.append(KeepTogether([para(esc(p['title']), 'title'), para(body), Spacer(1, 1)]))
 story.append(para('SKILLS & RECOGNITION', 'section'))
 for s in d['skills']:
     story.append(para(f'<b>{esc(s["label"])}:</b> {esc(s["text"])}'))

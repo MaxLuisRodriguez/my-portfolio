@@ -7,8 +7,16 @@
   "linkedin": "https://www.linkedin.com/in/max-rodriguez-b05542249/",
   "updated": "September 2026",
   "education": [
-    { "degree": "M.S. Computer Science, Artificial Intelligence", "date": "Expected 2027", "detail": "Stanford University | GPA 3.865 / 4.00" },
-    { "degree": "B.S. Symbolic Systems, Artificial Intelligence, with Honors", "date": "2026", "detail": "Stanford University | GPA 3.974 / 4.00 | Minors: Music and German Studies" }
+    {
+      "degree": "M.S. Computer Science, Artificial Intelligence",
+      "date": "Expected 2027",
+      "detail": "Stanford University | GPA 3.865 / 4.00"
+    },
+    {
+      "degree": "B.S. Symbolic Systems, Artificial Intelligence, with Honors",
+      "date": "2026",
+      "detail": "Stanford University | GPA 3.974 / 4.00 | Minors: Music and German Studies"
+    }
   ],
   "experience": [
     {
@@ -45,6 +53,15 @@
         "Benchmarked four feed-ranking architectures across 169,787 target interactions and 8,214 users; best fully interacted two-tower model reached 0.8339 holdout AUC.",
         "Trained a PyTorch image-text classifier 1.94x faster than a scikit-learn baseline; engineered a Torch/PIL anonymization pipeline over 100,000+ posts."
       ]
+    },
+    {
+      "organization": "Technische Universität Berlin",
+      "role": "Functional Sound Research / App Development Intern",
+      "date": "Jun - Sep 2024",
+      "bullets": [
+        "Built Somunicate, a Python/Streamlit recommender matching UX sounds to perceptual inputs with Mahalanobis distance.",
+        "Built a watermarking app for copyrighted sounds; collaborated with the Audio Communication Group on UX-sound research."
+      ]
     }
   ],
   "research": [
@@ -64,8 +81,17 @@
     }
   ],
   "skills": [
-    { "label": "Engineering", "text": "Python, TypeScript/JavaScript, C/C++, C#, SQL, React, Next.js, Node.js, FastAPI, Supabase, Docker, Git" },
-    { "label": "AI/ML", "text": "PyTorch, Transformers, Hugging Face, LoRA, PPO/GRPO/DAPO, retrieval, computer vision, OCR, LLM agents" },
-    { "label": "Practice & honors", "text": "Unit/integration testing, benchmarking, failure analysis | Cardinal Quarter Fellow, CS147 Best Demo, HSF Scholar" }
+    {
+      "label": "Engineering",
+      "text": "Python, TypeScript/JavaScript, C/C++, C#, SQL, React, Next.js, Node.js, FastAPI, Supabase, Docker, Git"
+    },
+    {
+      "label": "AI/ML",
+      "text": "PyTorch, Transformers, Hugging Face, LoRA, PPO/GRPO/DAPO, retrieval, computer vision, OCR, LLM agents"
+    },
+    {
+      "label": "Practice & honors",
+      "text": "Testing, benchmarking, failure analysis | Cardinal Quarter Fellow, CS147 Best Demo, HSF Scholar"
+    }
   ]
 }
