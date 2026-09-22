@@ -14,3 +14,11 @@
 - Removed the background slideshow's overlay button. The footer's "Animate background" checkbox controls it, and system reduced-motion preferences still apply.
 - Website and game source repositories remain separate. No game source, internal Bonterra documents, or application-package prose is copied into the public output.
 - User preferences: direct, natural prose; no em dashes in website copy; "Resume" without accents; introduce the project as "am developing a dark pixel-art adventure game, Evensong." Keep continuous dark section backgrounds and a cinematic visual treatment.
+
+## September 22 update
+
+- Fetched GitHub and fast-forwarded six commits to `613f37b` before editing.
+- Max requested the three shared gameplay screenshots and boss action GIFs. This supersedes the earlier two-environment gallery restriction.
+- Added the mountain bridges, Vestry, and Pike’s Span originals without cropping or retouching. Updated the homepage feature, game gallery, hero slideshow, and game-page social metadata.
+- Warden and Choir excerpts preserve original playback speed. Lightweight MP4 previews retain pause and reduced-motion support; matching GIFs are downloadable. Source timestamps and hashes are in `evensong-refresh-20260922.json`.
+- Shortened EVENSONG copy throughout the site. Development status remains explicit; no release or complete-game claims. Earlier provenance files describe superseded media.

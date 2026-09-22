@@ -63,6 +63,9 @@
 .game-combat { padding-top: 2rem; }
 .game-progress { display: block; color: var(--game-gold); margin-top: .4rem; }
 .game-combat__preview { max-width: 960px; margin: 0 auto; }
+.game-combat__preview + .game-combat__preview { margin-top: 3rem; }
+.game-combat__preview h3 { font-family: var(--font-editorial); font-size: 2rem; font-weight: 400; margin-bottom: 1rem; }
+.game-gallery img { image-rendering: pixelated; }
 .game-combat__preview video, .game-combat__preview img { image-rendering: pixelated; }
 .game-combat__preview figcaption { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-top: .5rem; color: var(--game-muted); font-size: .875rem; }
 .game-craft__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 5rem; padding-top: 2rem; }

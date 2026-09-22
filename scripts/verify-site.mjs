@@ -46,9 +46,9 @@ try {
       assert(markup.includes('https://doi.org/10.25740/vk447bc1950'))
       assert(markup.includes('E3 Group') && markup.includes('AI Software Engineer Intern'))
     } else {
-      assert.equal([...markup.matchAll(/<video\b/g)].length, 2)
-      assert.equal([...markup.matchAll(/aria-pressed="false"/g)].length, 1, 'Reduced-motion mode starts paused')
-      assert(markup.includes('Animate background') && markup.includes('(In progress)'))
+      assert.equal([...markup.matchAll(/<video\b/g)].length, 3)
+      assert.equal([...markup.matchAll(/aria-pressed="false"/g)].length, 2, 'Reduced-motion mode starts paused')
+      assert(markup.includes('Animate background') && markup.includes('Gameplay in development.'))
       const hero = markup.slice(markup.indexOf('class="game-hero"'), markup.indexOf('class="game-intro'))
       assert(!hero.includes('<button'), 'The background slideshow has no overlay button')
       assert(!markup.includes(' autoplay'), 'Autoplay must be controlled by visibility and motion preference')

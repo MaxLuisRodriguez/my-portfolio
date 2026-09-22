@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-22",
+  "portfolioBase": "613f37bf32c39bebf5d7b756508aac08545282ab",
+  "notes": "User-selected development screenshots copied byte-for-byte. Environment video is a slideshow. Boss excerpts are automated native gameplay recordings, trimmed at original playback speed with no crop or generated motion. Silent MP4s with matching downloadable GIFs; not a release-readiness claim.",
+  "inputs": [
+    {
+      "source": "EVENSONG-shareable-gameplay-2026-09-22\\01-Mountain-bridges-actual-gameplay.png",
+      "output": "public\\images\\evensong\\mountain-bridges.png",
+      "sha256": "2d4d44dbce77977934d4066001c26c4a7ce6a19daada03b3ab5399cfc9645b95"
+    },
+    {
+      "source": "EVENSONG-shareable-gameplay-2026-09-22\\03-Vestry-void-bridge-actual-gameplay.png",
+      "output": "public\\images\\evensong\\vestry.png",
+      "sha256": "2c6e20d387b94c1e0b59565dbcaa69512bd7d3fffb6468294049ab53b26e91b7"
+    },
+    {
+      "source": "EVENSONG-shareable-gameplay-2026-09-22\\02-Pikes-Span-actual-gameplay.png",
+      "output": "public\\images\\evensong\\pikes-span.png",
+      "sha256": "de0eeae66d86bef6f8197200c34a006e2e54a35a0233a61e8e69cf8d372a3b4f"
+    },
+    {
+      "source": "evensong-art-surfaces/docs/campaign/evidence/western-next/warden-island-v3/after4-final/normal-input.mp4",
+      "sourceSha256": "6e6ac1ba25d6a06d53cfc1b8cc6ab3a969a4ea3e190c760f9c96e2af62c1e079",
+      "startSeconds": 53,
+      "durationSeconds": 12,
+      "output": "public\\media\\evensong-warden.mp4",
+      "sha256": "1e29f81fec45cd911b8f0aa72df8621bec5b0166c8ae075f08dec547f0c4f65f"
+    },
+    {
+      "source": "evensong-astra-build/docs/campaign/evidence/wave3-choir-shadow-integration-20260922/choir-shadow-campaign.mp4",
+      "sourceSha256": "cb4ef8aff411d403490592a373d4a14f91f00ae4fac14712f5cb900751976659",
+      "startSeconds": 40,
+      "durationSeconds": 12,
+      "output": "public\\media\\evensong-choir.mp4",
+      "sha256": "d7e4fcab8544c8a7684baac0f94de5f1c198b1a3ab7cabf2e94d9bcaaf13efb2"
+    }
+  ],
+  "outputs": {
+    "public\\images\\evensong\\mountain-bridges.png": {
+      "bytes": 442887,
+      "sha256": "2d4d44dbce77977934d4066001c26c4a7ce6a19daada03b3ab5399cfc9645b95"
+    },
+    "public\\images\\evensong\\vestry.png": {
+      "bytes": 200375,
+      "sha256": "2c6e20d387b94c1e0b59565dbcaa69512bd7d3fffb6468294049ab53b26e91b7"
+    },
+    "public\\images\\evensong\\pikes-span.png": {
+      "bytes": 265389,
+      "sha256": "de0eeae66d86bef6f8197200c34a006e2e54a35a0233a61e8e69cf8d372a3b4f"
+    },
+    "public\\images\\evensong\\warden-fight.png": {
+      "bytes": 383155,
+      "sha256": "1b8e7ba63c6d8739923eec4432b2bc5fefa3c9113e9eaeca2b262f03750b0a6c"
+    },
+    "public\\images\\evensong\\choir-fight.png": {
+      "bytes": 112077,
+      "sha256": "dc8e85265640ee77ebd5552821e422ed5b3fa61472d92e9de776fe7e7505b120"
+    },
+    "public\\media\\evensong-environments.mp4": {
+      "bytes": 307265,
+      "sha256": "4bfda44aec97e1d180aa7655b6cf09a9b0dcbd54bacdbeeef602e7bda3a62957"
+    },
+    "public\\media\\evensong-environments.gif": {
+      "bytes": 405578,
+      "sha256": "2e40b11b75075c7d6c57f30789322f52f703cc23d8aa8cd5b06d258c9ba81d05"
+    },
+    "public\\media\\evensong-warden.mp4": {
+      "bytes": 383361,
+      "sha256": "1e29f81fec45cd911b8f0aa72df8621bec5b0166c8ae075f08dec547f0c4f65f"
+    },
+    "public\\media\\evensong-warden.gif": {
+      "bytes": 1658725,
+      "sha256": "ef39cd94816b325b7428cb78b538fa9a3ad8ba7e41fa32c7a4ab88d146aeb02e"
+    },
+    "public\\media\\evensong-choir.mp4": {
+      "bytes": 196448,
+      "sha256": "d7e4fcab8544c8a7684baac0f94de5f1c198b1a3ab7cabf2e94d9bcaaf13efb2"
+    },
+    "public\\media\\evensong-choir.gif": {
+      "bytes": 799944,
+      "sha256": "dea2cf7206658f8e7b5900412f38fffd1ddcf8e40ae209666686b69f508b4dbd"
+    }
+  }
+}
